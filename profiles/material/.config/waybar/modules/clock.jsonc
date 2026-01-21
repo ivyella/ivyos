@@ -1,0 +1,18 @@
+{
+  "group/clockdate": {
+  "orientation": "horizontal",
+  "modules": [
+    "clock",
+    "custom/calendar"
+  ]
+},
+
+"clock": {
+  "format": "{:%I:%M %p}"
+},
+
+"custom/calendar": {
+  "exec": "date '+%a, %b %d'",
+  "interval": 60
+}
+}

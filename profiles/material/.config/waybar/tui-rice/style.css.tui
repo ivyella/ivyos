@@ -1,0 +1,52 @@
+/* Universal Waybar CSS */
+
+
+* {
+    border: none;
+    font-family: "Jetbrains Mono";
+    font-size: 12px;
+    color: #ffffff;
+}
+
+/* Waybar Bar */
+window#waybar {
+    background: rgba(5, 4, 5, 0.6);
+    margin: 0;
+    padding: 0;
+    border-radius: 0px;
+    border: 2px solid #979797;
+
+}
+
+/* Other Modules */
+
+
+#clock,
+#custom-calendar,
+#pulseaudio,
+#tray, 
+#custom-notification,
+#custom-wlogout, 
+#window {
+    color: #ffffff;
+    background: transparent;
+    border-radius: 0px;
+    margin: 0;
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+#clock {
+    margin-left: 8;
+}
+
+#custom-wlogout {
+    margin-right: 8;
+}
+
+#custom-spacer {
+    background: transparent;
+    color: #979797;
+    margin-left: 4;
+    margin-right: 4;
+}

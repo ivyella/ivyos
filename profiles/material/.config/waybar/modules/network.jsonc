@@ -1,0 +1,11 @@
+{
+  "network": {
+  "interval": 1,
+  "format-disconnected": "no connection",
+  "format-wifi": "󰖩   {essid}",
+  "tooltip-format-wifi": "󰖩   Wi-Fi\nIP: {ipaddr}",
+  "tooltip-format-ethernet": "󰕒  {bandwidthUpBytes}  󰇚  {bandwidthDownBytes}\nIP: {ipaddr}",
+  "format-ethernet": "󰈀   Ethernet",
+  "on-click-right-release": "nm-connection-editor"
+  }
+}

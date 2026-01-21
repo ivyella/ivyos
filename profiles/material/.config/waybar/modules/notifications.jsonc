@@ -1,0 +1,13 @@
+{
+  "custom/notification": {
+    "format": "  {}",
+    "exec": "swaync-client -c",
+    "tooltip": true,
+    "interval": 1,
+    "on-click": "swaync-client -t",
+    "signal": 1,
+    "format-icons": {
+      "default": ""
+    }
+  }
+}

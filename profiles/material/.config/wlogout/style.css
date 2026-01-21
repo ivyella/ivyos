@@ -1,0 +1,68 @@
+@import "colors.css";
+
+* {
+    font-family: "Inter";
+    background-image: none;
+    transition: 20ms;
+}
+window {
+    background-color: rgba(12, 12, 12, 0.2);
+}
+button {
+    color: @on_surface;
+    font-size: 16px;
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 15%;
+
+    border-style: solid;
+    background-color: @surface_container;
+    border: 0px solid @on_surface_variant;
+
+    box-shadow:
+        0px 4px 8px 0 rgba(0, 0, 0, 0.2),
+        0px 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+button:focus,
+button:active,
+button:hover {
+    color: @on_surface;
+    background-color: @surface_container_highest;
+    border: 0px solid @on_surface;
+}
+
+#lock,
+#logout,
+#suspend,
+#hibernate,
+#shutdown,
+#reboot {
+    margin: 8px;
+    border-radius: 24px;
+}
+
+#lock {
+    background-image: image(url("icons/lock.png"));
+}
+
+#logout {
+    background-image: image(url("icons/logout.png"));
+}
+
+#suspend {
+    background-image: image(url("icons/suspend.png"));
+}
+
+#hibernate {
+    background-image: image(url("icons/hibernate.png"));
+}
+
+#shutdown {
+    background-image: image(url("icons/shutdown.png"));
+}
+
+#reboot {
+    background-image: image(url("icons/reboot.png"));
+}

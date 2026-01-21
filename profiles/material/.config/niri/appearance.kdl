@@ -1,0 +1,42 @@
+// Appearance
+
+prefer-no-csd // who needs these?
+
+cursor {
+    xcursor-theme "Bibata-Modern-Classic"
+    xcursor-size 20
+}
+
+layout {
+    background-color "transparent" // to make the swww wallpaper window rule work
+    gaps 4
+    border { // Colors are set in colors.kdl
+        on
+        width 2
+    }
+    focus-ring {
+        off
+    }
+    default-column-width {} // Let programs decide
+}
+
+window-rule { // Window Corner Radius
+    geometry-corner-radius 12
+    clip-to-geometry true
+}
+
+animations {} // To be worked on in the future idk
+
+// Overview
+overview {
+    zoom 0.7
+    backdrop-color "transparent"
+    workspace-shadow {
+        off
+    }
+}
+
+layer-rule {
+    match namespace="^swww-daemon$"
+    place-within-backdrop true
+}

@@ -1,0 +1,7 @@
+{
+  "custom/calendar": {
+    "exec": "date '+%a, %b %d'",
+    "interval": 60,
+    "on-click": "gnome-calendar"
+  }
+}

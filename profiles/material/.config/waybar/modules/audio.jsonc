@@ -1,0 +1,6 @@
+{
+  "pulseaudio": {
+    "format": "󰕾  {volume}",
+    "on-click": "pavucontrol"
+  }
+}

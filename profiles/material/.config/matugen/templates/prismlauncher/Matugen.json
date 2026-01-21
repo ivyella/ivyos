@@ -1,0 +1,21 @@
+{
+  "colors": {
+    "AlternateBase": "{{colors.surface_variant.dark.hex}}",
+    "Base": "{{colors.background.dark.hex}}",
+    "BrightText": "{{colors.error.dark.hex}}",
+    "Button": "{{colors.surface_container_low.dark.hex}}",
+    "ButtonText": "{{colors.on_surface.dark.hex}}",
+    "Highlight": "{{colors.primary.dark.hex}}",
+    "HighlightedText": "{{colors.on_surface.dark.hex}}",
+    "Link": "{{colors.primary.dark.hex}}",
+    "Text": "{{colors.on_surface.dark.hex}}",
+    "ToolTipBase": "{{colors.surface_container_low.dark.hex}}",
+    "ToolTipText": "{{colors.on_surface.dark.hex}}",
+    "Window": "{{colors.background.dark.hex}}",
+    "WindowText": "{{colors.on_surface.dark.hex}}",
+    "fadeAmount": 0.5,
+    "fadeColor": "{{colors.background.dark.hex}}"
+  },
+  "name": "Matugen Dark",
+  "widgets": "Fusion"
+}

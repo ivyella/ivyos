@@ -1,0 +1,17 @@
+// Inputs
+
+input {
+    keyboard {
+        xkb {
+            options "altwin:swap_lalt_lwin"
+        }
+        numlock
+    }
+    touchpad {
+        tap
+        natural-scroll
+    }
+    mouse {
+        accel-profile "flat"
+    }
+}

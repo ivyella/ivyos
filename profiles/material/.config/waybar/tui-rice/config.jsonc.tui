@@ -1,0 +1,82 @@
+{
+  // General
+  "layer": "top",
+  "position": "top",
+  "height": 30,
+  "margin-top": 8,
+  "margin-right": 8,
+  "margin-left": 8,
+  "reload_style_on_change": true,
+
+  // Module Placement
+  "modules-left": ["clock","custom/spacer", "custom/calendar","custom/spacer", "niri/window"],
+  "modules-center": [],
+  "modules-right": ["custom/spacer", "pulseaudio", "custom/spacer", "tray", "custom/spacer", "custom/notification", "custom/spacer", "custom/wlogout"],
+
+
+  // Right Modules
+
+  "clock": { // clock module
+    "format": "{:%I:%M %p}"
+  },
+
+  "custom/calendar": { // calendar module
+    "exec": "date '+%a, %b %d'",
+    "interval": 60
+  },
+
+  "niri/window": { // active window / fuzzel module
+    "rewrite": { //NOT NEEDED BUT NICE TO KNOW ABOUT 
+      "kitty": "Terminal",
+      "librewolf": "LibreWolf",
+      "org.prismlauncher.PrismLauncher": "Prism Launcher",
+      "(.*)Steam": "Steam",
+      "vesktop": "Discord",
+      "com.obsproject.Studio": "OBS",
+      "krita": "Krita"
+      },
+    "icon": false,
+    "icon-size": 12,
+    "separate-outputs": true,
+    "format": "{app_id}",
+    "on-click": "fuzzel"
+  }, 
+
+  //Left Modules
+
+  "pulseaudio": { // audio module
+    "format": "Volume: {volume}%",
+    "on-click": "pavucontrol"
+  },
+
+  "tray": { // tray module
+  "icon-size": 14,
+  "spacing": 5,
+  "show-passive-items": true
+  },
+
+  "custom/notification": { // notifications / notification tray on click module 
+  "format": "Notifications: {}",
+  "exec": "swaync-client -c",
+  "tooltip": true,
+  "interval": 1,
+  "on-click": "swaync-client -t",
+  "signal": 1,
+  "format-icons": {
+    "default": ""
+    }
+  },
+
+    "custom/wlogout": { // wlogout button
+    "format": "Power",
+    "on-click": "wlogout"
+  },
+
+
+  // Spacer
+
+  "custom/spacer":{
+    "format": "|"
+  }
+
+}

@@ -1,0 +1,8 @@
+{
+  "custom/todo": {
+  "format": "   todo",
+  "icon-size": 16,
+  "on-click": "planify.quick-add",
+  "on-click-right-release": "planify"
+  }
+}

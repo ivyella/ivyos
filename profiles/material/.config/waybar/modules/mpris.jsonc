@@ -1,0 +1,23 @@
+{
+  "group/nowplaying": {
+  "orientation": "horizontal",
+  "modules": [
+    "custom/playpause",
+    "mpris"
+    ]
+  },
+  "custom/playpause": {
+    "exec": "playerctl status | grep -q Playing && echo '' || echo ''",
+    "on-click": "playerctl play-pause",
+    "interval": 1,
+    "tooltip": false
+  },
+
+  "mpris": {
+    "format": "{title} • {artist}",
+    "format-paused": "{title} • {artist}",
+    "on-click": "playerctl play-pause",
+    "on-scroll-up": "playerctl next",
+    "on-scroll-down": "playerctl previous"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "memory": {
+  "format": "RAM: {}%",
+  "format-alt": "RAM: {used}/{total}G",
+  "interval": 5
+  }
+}

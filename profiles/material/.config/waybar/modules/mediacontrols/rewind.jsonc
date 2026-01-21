@@ -1,0 +1,7 @@
+{
+  "custom/prev": {
+    "exec": "echo ''",
+    "on-click": "playerctl previous",
+    "tooltip": false
+  }
+}

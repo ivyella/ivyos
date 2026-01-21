@@ -1,0 +1,21 @@
+{
+  "colors": {
+    "AlternateBase": "#41484d",
+    "Base": "#101417",
+    "BrightText": "#ffb4ab",
+    "Button": "#181c20",
+    "ButtonText": "#dfe3e7",
+    "Highlight": "#92cef6",
+    "HighlightedText": "#dfe3e7",
+    "Link": "#92cef6",
+    "Text": "#dfe3e7",
+    "ToolTipBase": "#181c20",
+    "ToolTipText": "#dfe3e7",
+    "Window": "#101417",
+    "WindowText": "#dfe3e7",
+    "fadeAmount": 0.5,
+    "fadeColor": "#101417"
+  },
+  "name": "Matugen Dark",
+  "widgets": "Fusion"
+}

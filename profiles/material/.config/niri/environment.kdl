@@ -3,7 +3,6 @@
 // Startup / Daemons
 spawn-at-startup "xdg-desktop-portal"
 spawn-at-startup "xdg-desktop-portal-gnome"
-spawn-at-startup "swww-daemon"
 hotkey-overlay {
     skip-at-startup
 }

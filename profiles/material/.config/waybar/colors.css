@@ -4,5 +4,5 @@
 @define-color on_surface_variant #c1c7ce;
 @define-color surface #101417;
 @define-color on_surface #dfe3e7; 
-@define-color surface_semitransparent rgba(16, 20, 23, 1);
-@define-color surface_container_semitransparent rgba(28, 32, 36, 0);
+@define-color surface_semitransparent rgba(16, 20, 23, 0.955);
+@define-color surface_container_semitransparent rgba(28, 32, 36, 0.1);

@@ -4,7 +4,7 @@ After=graphical.target
 
 [Service]
 Type=simple
-ExecStart=swww-daemon
+ExecStart=/usr/bin/swww-daemon
 Restart=on-failure
 RestartSec=5
 

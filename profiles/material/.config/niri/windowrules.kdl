@@ -9,10 +9,10 @@ window-rule {
     match app-id=r#"^vesktop$"#
     block-out-from "screen-capture"
 }
-window-rule {
+/*window-rule {
     match app-id=r#"^librewolf$"#
     block-out-from "screen-capture"
-}
+} */
 
 // Browser picture-in-picture
 window-rule {

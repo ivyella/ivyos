@@ -1,27 +1,19 @@
 {
     "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
     "logo": {"padding":{
-                "top":2
-        }
-    },
-    "display": {
-        "constants": [
-            "────────────────────────────────"
-        ],
-        "size": {
-            "ndigits": 0
+                "top":1
         }
     },
     "modules": [
         {
             "type": "custom", // Divider
-            "format": "┌{$1}{$1}┐",
+            "format": "┌──────────────────────────────────────────────────┐",
             "outputColor": "90"
         },
         {
-            "key": "   User",
+            "key": "  User{#keys}",
             "type": "title",
-            "keyWidth": 15
+            "keyWidth": 14
         },
         {
             "type": "custom", // Divider
@@ -30,33 +22,28 @@
         },
         {
             "type": "os",
-            "key": " {icon}  OS",
-            "keyWidth": 15
+            "key": " {icon} OS",
+            "keyWidth": 14
         },
         {
             "type": "kernel",
-            "key": " {icon}  Kernel",
-            "keyWidth": 15
+            "key": " {icon} Kernel",
+            "keyWidth": 14
         },
         {
             "type": "wm",
-            "key": " {icon}  WM",
-            "keyWidth": 15
+            "key": " {icon} WM",
+            "keyWidth": 14
         },
         {
             "type": "shell",
-            "key": " {icon}  Shell",
-            "keyWidth": 15
+            "key": " {icon} Shell",
+            "keyWidth": 14
         },
         {
             "type": "terminal",
-            "key": " {icon}  Terminal",
-            "keyWidth": 15
-        },
-        {
-            "type": "packages",
-            "key": " {icon}  Packages",
-            "keyWidth": 15
+            "key": " {icon} Terminal",
+            "keyWidth": 14
         },
         {
             "type": "custom", // Divider
@@ -65,31 +52,29 @@
         },
         {
             "type": "cpu",
-            "key": " {icon}  CPU",
-            "keyWidth": 15
+            "key": " {icon} CPU",
+            "keyWidth": 14
         },
         {
             "type": "gpu",
-            "key": " {icon}  GPU",
-            "keyWidth": 15
+            "key": " {icon} GPU",
+            "keyWidth": 14
         },
         {
             "type": "memory",
-            "key": " {icon}  Memory",
-            "keyWidth": 15
+            "key": " {icon} Memory",
+            "keyWidth": 14
         },
         {
             "type": "swap",
-            "key": " {icon}  Swap",
-            "keyWidth": 15
+            "key": " {icon} Swap",
+            "keyWidth": 14,
+            "separate": true
         },
         {
             "type": "disk",
-            "key": " {icon}  Disk",
-            "hideFolders": "/efi:/boot:/boot/*",
-            "showExternal": false, // Set to true to print external/removable disks
-            "format": "{size-used} / {size-total} ({size-percentage}) {#90}{mountpoint}",
-            "keyWidth": 15
+            "key": " {icon} Disk",
+            "keyWidth": 14
         },
         {
             "type": "custom", // Divider
@@ -98,18 +83,18 @@
         },
         {
             "type": "uptime",
-            "key": " {icon}  Uptime",
-            "keyWidth": 15
+            "key": " {icon} Uptime",
+            "keyWidth": 14
         },
         {
             "type": "localip",
-            "key": " {icon}  Local IP",
-            "keyWidth": 15
+            "key": " {icon} Local IP",
+            "keyWidth": 14
         },
         {
             "type": "locale",
             "key": " {icon}  Locale",
-            "keyWidth": 15
+            "keyWidth": 14
         },
         {
             "type": "custom", // Divider
@@ -119,12 +104,12 @@
         {
             "type": "colors",
             "symbol": "circle",
-            "key": " {icon}  Colors",
-            "keyWidth": 15
+            "key": " {icon} Colors",
+            "keyWidth": 14
         },
         {
             "type": "custom", // Divider
-            "format": "└{$1}{$1}┘",
+            "format": "└──────────────────────────────────────────────────┘",
             "outputColor": "90"
         }
     ]

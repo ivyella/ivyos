@@ -1,9 +1,13 @@
+# Only run these in interactive shells
 if status is-interactive
-    # Commands to run in interactive sessions
-    alias ls 'eza --icons'
-    alias syncdots 'stow -R'
+    # Aliases
+    alias ls='eza --icons'
+    alias syncdots='stow -R'
 end
-# Initialize Starship prompt (NixOS-friendly)
+
+set -g fish_greeting ""
+
+# Starship
 if type -q starship
     eval (starship init fish)
 end

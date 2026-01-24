@@ -23,7 +23,7 @@
   hardware.nvidia.modesetting.enable = true;
   hardware.nvidia.open = true;
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "mikoshi"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary

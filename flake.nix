@@ -10,6 +10,10 @@
         system = "x86_64-linux";
         modules = [ ./hosts/mikoshi/configuration.nix ];
       };
+      izanagi = inputs.nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [ ./hosts/izanagi/configuration.nix ];
+      };
     };
   };
 }

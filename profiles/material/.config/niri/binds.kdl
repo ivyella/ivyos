@@ -49,7 +49,7 @@ binds {
 
     Mod+V { toggle-window-floating; }
 
-    F4 { screenshot; }
+    Ctrl+F4 { screenshot; }
 
     Mod+Shift+E { spawn "wlogout"; }
     Ctrl+Alt+Delete { quit; }

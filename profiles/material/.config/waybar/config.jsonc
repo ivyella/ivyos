@@ -8,18 +8,15 @@
   "style": "~/.config/waybar/colors.css",
   "reload_style_on_change": true,
 
-  "modules-left": ["clock", "custom/calendar", "niri/window"],
+  "modules-left": ["clock","custom/calendar", "niri/window"],
   "modules-center": ["mpris"],
   "modules-right": ["network","pulseaudio", "tray", "custom/notification"],
 
   "include": [
-      "~/.config/waybar/modules/clock.jsonc",
-      "~/.config/waybar/modules/calendar.jsonc",
+      "~/.config/waybar/modules/time.jsonc",
       "~/.config/waybar/modules/mpris.jsonc",
-      "~/.config/waybar/modules/niri/window.jsonc",
-      "~/.config/waybar/modules/audio.jsonc",
-      "~/.config/waybar/modules/network.jsonc",
-      "~/.config/waybar/modules/notifications.jsonc",
-      "~/.config/waybar/modules/tray.jsonc",
+      "~/.config/waybar/modules/window.jsonc",
+      "~/.config/waybar/modules/custom.jsonc",
+      "~/.config/waybar/modules/info.jsonc"
     ]
 }

@@ -12,16 +12,23 @@
     ];
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-
+  # boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.grub = {
+    enable = true;
+    efiSupport = true;
+    device = "nodev";
+    gfxmodeEfi= "text";
+  };
+  
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_zen;
 
   # NVIDIA drivers
   services.xserver.videoDrivers = [ "nvidia" ];
+
   hardware.nvidia.modesetting.enable = true;
   hardware.nvidia.open = true;
+  hardware.opengl.enable = true;
 
   networking.hostName = "mikoshi"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -50,7 +57,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.ivory = {
     isNormalUser = true;
-    description = "ivory";
+    description = "ivy";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [];
   };
@@ -89,6 +96,10 @@
       monospace = [ "JetBrains Mono" ];
      };
    };
+  };
+  environment.variables = {
+  XCURSOR_THEME = "Bibata-Modern-Classic";
+  XCURSOR_SIZE = "20";
   };
 
   

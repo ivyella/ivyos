@@ -4,6 +4,7 @@
     "format-paused": "{title} • {artist}",
     "on-click": "playerctl play-pause",
     "on-scroll-up": "playerctl next",
-    "on-scroll-down": "playerctl previous"
+    "on-scroll-down": "playerctl previous",
+    "tooltip": false
   }
 }

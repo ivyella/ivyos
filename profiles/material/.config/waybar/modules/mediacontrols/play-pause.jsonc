@@ -1,8 +1,0 @@
-{
-  "custom/playpause": {
-    "exec": "playerctl status | grep -q Playing && echo '' || echo ''",
-    "on-click": "playerctl play-pause",
-    "interval": 1,
-    "tooltip": false
-  }
-}

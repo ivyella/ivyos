@@ -5,9 +5,8 @@
     "nexusmods-app-0.21.1"
   ];
 
-  # Packages 
   environment.systemPackages = with pkgs; [
-    # Core tools
+    
     kitty
     fish
     starship
@@ -25,8 +24,12 @@
     codeberg-cli
     firefox
     stow
-
-    # Niri / Wayland stack
+    krita
+    libnotify
+    efibootmgr
+    cava 
+    spotify-player
+    hyfetch
     niri
     waybar
     swaynotificationcenter
@@ -37,8 +40,6 @@
     xwayland-satellite
     bibata-cursors
     nwg-look
-
-    # Applications
     nautilus
     vesktop
     vscodium
@@ -47,17 +48,13 @@
     steam
     yazi
     nexusmods-app
-
     adwaita-icon-theme
     gnome-themes-extra
     adw-gtk3
-
     protonplus
     heroic
     vitetris
   ];
-
-  # Login manager
  
   services.greetd = {
     enable = true;
@@ -71,7 +68,7 @@
 
   services.dbus.enable = true;
   programs.dconf.enable = true;  	
-  # Portals
+
   xdg.portal = {
     enable = true;
 
@@ -80,13 +77,10 @@
     ];
   };
 
-  # Steam
   programs.steam.enable = true;
 
-  # Fish as default shell
   programs.fish.enable = true;
   users.defaultUserShell = pkgs.fish;
 
-  # Flatpak
   services.flatpak.enable = true;
 }

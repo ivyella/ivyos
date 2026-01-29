@@ -33,6 +33,7 @@ window#waybar {
 
 #custom-calendar {
     color: @on_surface_variant;
+    font-weight: 600;
     border-bottom-left-radius: 0px;
     border-top-left-radius: 0px;
     margin-left: 0;

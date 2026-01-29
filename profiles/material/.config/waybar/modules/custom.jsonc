@@ -1,4 +1,9 @@
 {
+  "custom/wlogout": {
+    "format": "󰍃",
+    "on-click": "wlogout"
+  },
+
   "custom/todo": {
   "format": "   todo",
   "icon-size": 16,

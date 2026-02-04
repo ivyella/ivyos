@@ -1,7 +1,7 @@
 {
   "mpris": {
-    "format": "{title} • {artist}",
-    "format-paused": "{title} • {artist}",
+    "format": "<span foreground='#f2eadd'>{title}</span> <span foreground='#727459'>•</span> <span foreground='#c7c9a7'>{artist}</span>",
+    "format-paused": "<span foreground='#f2eadd'>{title}</span> <span foreground='#727459'>•</span> <span foreground='#c7c9a7'>{artist}</span>",
     "on-click": "playerctl play-pause",
     "on-scroll-up": "playerctl next",
     "on-scroll-down": "playerctl previous",

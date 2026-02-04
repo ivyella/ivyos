@@ -54,6 +54,12 @@
     protonplus
     heroic
     vitetris
+    penpot-desktop
+    aseprite
+    blockbench
+    obsidian
+    inkscape
+    pencil
   ];
  
   services.greetd = {

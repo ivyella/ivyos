@@ -18,6 +18,7 @@ layout {
         off
     }
     default-column-width {} // Let programs decide
+    
 }
 
 window-rule { // Window Corner Radius

@@ -28,7 +28,7 @@
 
   hardware.nvidia.modesetting.enable = true;
   hardware.nvidia.open = true;
-  hardware.opengl.enable = true;
+  hardware.graphics.enable = true;
 
   networking.hostName = "mikoshi"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -87,13 +87,14 @@
     nerd-fonts.symbols-only
     noto-fonts-color-emoji
     jetbrains-mono
+    courier-prime
   ];
 
   fontconfig = {
     defaultFonts = {
-      sansSerif = [ "Open Sans" ];
-      serif     = [ "Open Sans" ];
-      monospace = [ "JetBrains Mono" ];
+      sansSerif = [ "Noto Serif" ];
+      serif     = [ "Noto Serif" ];
+      monospace = [ "Courier Prime" ];
      };
    };
   };
@@ -101,6 +102,8 @@
   XCURSOR_THEME = "Bibata-Modern-Classic";
   XCURSOR_SIZE = "20";
   };
+  
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   
   # Some programs need SUID wrappers, can be configured further or are

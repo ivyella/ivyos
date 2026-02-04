@@ -20,12 +20,6 @@ window-rule {
     open-floating true
 }
 
-// Opacity Workaround for terminal
-window-rule {
-    match app-id="kitty"
-    opacity 0.85
-}
-
 // Program-specific border radius
 window-rule {
     match app-id="krita"

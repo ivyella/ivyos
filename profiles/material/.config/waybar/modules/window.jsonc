@@ -1,7 +1,7 @@
 {  
   "niri/window": {
     "rewrite": {
-      "kitty": "Terminal",
+      "kitty": "  Terminal",
       "librewolf": "LibreWolf",
       "dev.zed.Zed": "Zed",
       "org.gnome.Nautilus": "Files",
@@ -18,13 +18,13 @@
       "nm.connection-editor": "Connection Editor",
       "(.*)Spotify.*": "Spotify",
       "(.*)Steam": "Steam",
-      "vesktop": "Discord",
+      "vesktop": "  Discord",
       "com.github.neithern.g4music": "Music",
       "io.github.alainm23.planify": "Planify",
       "com.obsproject.Studio": "OBS",
       "krita": "Krita"
       },
-    "icon": true,
+    "icon": false,
     "icon-size": 12,
     "separate-outputs": true,
     "format": "{app_id}",

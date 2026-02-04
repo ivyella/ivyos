@@ -25,32 +25,23 @@
   "control-center-height": 600,
   "notification-window-width": 400,
   "keyboard-shortcuts": true,
-  "notification-grouping": true,
+  "notification-grouping": false,
   "image-visibility": "when-available",
   "transition-time": 200,
   "hide-on-clear": false,
   "hide-on-action": true,
   "text-empty": "No Notifications",
   "script-fail-notify": true,
-  "scripts": {
-    "example-script": {
-      "exec": "echo 'Do something...'",
-      "urgency": "Normal"
-    },
-    "example-action-script": {
-      "exec": "echo 'Do something actionable!'",
-      "urgency": "Normal",
-      "run-on": "action"
-    }
-  },
+
   "notification-visibility": {
     "example-name": {
-      "state": "muted",
+      "state": "visible",
       "urgency": "Low",
       "app-name": "Spotify"
     }
   },
-  "widgets": ["title", "buttons-grid", "mpris", "dnd", "notifications"],
+  
+  "widgets": ["title","dnd", "notifications"],
   "widget-config": {
     "inhibitors": {
       "text": "Inhibitors",
@@ -64,41 +55,6 @@
     },
     "dnd": {
       "text": "Do Not Disturb"
-    },
-    "label": {
-      "max-lines": 5,
-      "text": "Label Text"
-    },
-    "mpris": {
-      "show-album-art": "always",
-      "loop-carousel": false
-    },
-    "buttons-grid": {
-      "buttons-per-row": 5,
-      "actions": [
-        {
-          "label": "",
-          "command": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
-          "type": "toggle"
-        },
-        {
-          "label": "",
-          "command": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
-          "type": "toggle"
-        },
-        {
-          "label": "󰤨",
-          "command": "nm-connection-editor"
-        },
-        {
-          "label": "󰂯",
-          "command": "blueman-manager"
-        },
-        {
-          "label": "󰍃",
-          "command": "wlogout"
-        }
-      ]
     }
   }
 }

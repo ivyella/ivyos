@@ -17,7 +17,7 @@
   },
 
   "pulseaudio": {
-    "format": "󰕾  {volume}",
+    "format": "<span foreground='#f2eadd'>󰕾 </span> <span foreground='#c7c9a7'>{volume}</span>",
     "on-click": "pavucontrol"
   },
     
@@ -37,13 +37,13 @@
     "format-disconnected": "no connection",
     "format-wifi": "󰖩   {essid}",
     "tooltip-format-wifi": "󰖩   Wi-Fi\nIP: {ipaddr}",
-    "tooltip-format-ethernet": "󰕒  {bandwidthUpBytes}  󰇚  {bandwidthDownBytes}\nIP: {ipaddr}",
-    "format-ethernet": "󰈀   Ethernet",
+    "tooltip-format-ethernet": "󰈀 {bandwidthUpBytes}  󰇚  {bandwidthDownBytes}\nIP: {ipaddr}",
+    "format-ethernet": "<span foreground='#f2eadd'>󰈀 </span> <span foreground='#c7c9a7'>Connected</span>",
     "on-click-right-release": "nm-connection-editor"
   },
     
   "custom/notification": {
-    "format": "  {}",
+    "format": "<span foreground='#f2eadd'> </span> <span foreground='#c7c9a7'>{}</span>",
     "exec": "swaync-client -c",
     "tooltip": false,
     "interval": 1,

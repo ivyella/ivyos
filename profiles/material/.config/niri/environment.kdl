@@ -4,6 +4,8 @@
 spawn-at-startup "xdg-desktop-portal"
 spawn-at-startup "xdg-desktop-portal-gnome"
 spawn-at-startup "swww-daemon"
+spawn-at-startup "vesktop"
+
 hotkey-overlay {
     skip-at-startup
 }

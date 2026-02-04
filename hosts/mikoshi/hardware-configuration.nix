@@ -14,23 +14,18 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/504f66e7-58ed-4e45-8099-9bd0a161db6e";
+    { device = "/dev/disk/by-uuid/f4a6bd75-6fac-4f04-9ee7-b2f58132ebc4";
       fsType = "ext4";
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/F3F0-2372";
+    { device = "/dev/disk/by-uuid/DFA4-4AF7";
       fsType = "vfat";
       options = [ "fmask=0077" "dmask=0077" ];
     };
 
   fileSystems."/home" =
-    { device = "/dev/disk/by-uuid/f3523b6c-99b1-4539-8056-eb758f496ff3";
-      fsType = "ext4";
-    };
-
-  fileSystems."/mnt/nixosbackup" =
-    { device = "/dev/disk/by-uuid/d8eb7695-8128-40e0-8e75-6861a459d38c";
+    { device = "/dev/disk/by-uuid/d86f763f-3a2e-43d5-ab99-64cd447c8de5";
       fsType = "ext4";
     };
 

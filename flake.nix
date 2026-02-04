@@ -21,7 +21,7 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.ivory = import ./home/ivory.nix;
+            home-manager.users.ivy = import ./home/ivy.nix;
           }
         ];
       };
@@ -35,7 +35,7 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.ivory = import ./home/ivory.nix;
+            home-manager.users.ivy = import ./home/ivy.nix;
           }
         ];
       };

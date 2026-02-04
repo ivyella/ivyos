@@ -23,7 +23,6 @@
     git 
     codeberg-cli
     firefox
-    stow
     krita
     libnotify
     efibootmgr
@@ -58,8 +57,6 @@
     aseprite
     blockbench
     obsidian
-    inkscape
-    pencil
   ];
  
   services.greetd = {

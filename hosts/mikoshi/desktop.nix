@@ -6,7 +6,6 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    
     kitty
     fish
     starship
@@ -57,13 +56,15 @@
     aseprite
     blockbench
     obsidian
+    peaclock
+    localsend
   ];
- 
+
   services.greetd = {
     enable = true;
     settings = {
       default_session = {
-        command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd niri-session";
+        command = "${pkgs.tuigreet}/bin/tuigreet --remember --time --asterisks --cmd niri-session";
         user = "greeter";
         };
       };
@@ -78,6 +79,10 @@
     extraPortals = [
       pkgs.xdg-desktop-portal-gnome
     ];
+
+    config = {
+      common.default = "gnome";
+    };
   };
 
   programs.steam.enable = true;

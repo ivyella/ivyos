@@ -19,15 +19,11 @@
     device = "nodev";
     gfxmodeEfi= "text";
   };
-  
-  # Use latest kernel.
+
+  boot.kernelParams = [ "amdgpu.dc=1" ]; 
+  services.xserver.videoDrivers = [ "amdgpu" ];
+
   boot.kernelPackages = pkgs.linuxPackages_zen;
-
-  # NVIDIA drivers
-  services.xserver.videoDrivers = [ "nvidia" ];
-
-  hardware.nvidia.modesetting.enable = true;
-  hardware.nvidia.open = true;
   hardware.graphics.enable = true;
 
   networking.hostName = "mikoshi"; # Define your hostname.

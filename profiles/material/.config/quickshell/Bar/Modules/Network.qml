@@ -1,55 +1,61 @@
 import Quickshell
 import Quickshell.Io
 import QtQuick
-import QtQuick.Controls
-import QtQuick.Layouts
 import qs.Bar
+import qs.Common
+import QtQuick.Layouts
 
-Capsule {
+Rectangle {
     id: networkCapsule
-    width: networkText.implicitWidth + 18
+    color: Colors.surfaceContainerHigh
+    radius: Metrics.radiusLg
+    height: Metrics.controlHeightSm
+    implicitWidth: networkLayout.implicitWidth + Metrics.paddingMd * 2
 
     property bool connected: activeConnectionType != ""
-    property string activeConnection: ""
     property string activeConnectionType: ""
-    property string activeConnectionIcon: ""
 
-
-    Text {
-        id: networkText
-        anchors.centerIn: networkCapsule
-        text: networkCapsule.connected ? networkCapsule.activeConnection + "" + networkCapsule.activeConnectionType : "Disconnected"
-        color: Config.fontColorSecondary
-        font.pixelSize: Config.fontSizeNormal
-        font.family: Config.fontFamily
-        font.bold: true
+    RowLayout {
+        id: networkLayout
+        anchors.centerIn: parent
+        spacing: Metrics.spacingSm
+        Text {
+            id: networkIcon
+            text: "󰈀"
+            color: Config.fontColorPrimary
+            font.pixelSize: Config.fontSizeNormal
+            font.family: Config.fontFamily
+            
+            font.weight: 600
+        }
+        Text {
+            id: networkText
+            text: networkCapsule.connected ? networkCapsule.activeConnectionType : "Disconnected"
+            color: Config.fontColorSecondary
+            font.pixelSize: Config.fontSizeNormal
+            font.family: Config.fontFamily
+            font.weight: 600
+        }
     }
-    
+
     function refresh() {
         refreshProcess.running = true;
     }
 
     Process {
         id: refreshProcess
-        command: ["nmcli", "-t", "-f", "NAME,TYPE", "con", "show", "--active"]
+        command: ["nmcli", "-t", "-f", "TYPE", "con", "show", "--active"]
         stdout: StdioCollector {
             onStreamFinished: () => {
-                const interfaces = this.text.split("\n");
-                const activeInterface = interfaces[0];
-                const fields = activeInterface.split(":");
-                const connectionType = refreshProcess.getConnectionType(fields[1]);
-                networkCapsule.activeConnectionType = connectionType;
-                networkCapsule.activeConnectionIcon = refreshProcess.getConnectionIcon(connectionType);
-                networkCapsule.activeConnection = connectionType != "" ? fields[0] : "N/A";
+                const types = this.text.split("\n");
+                const firstType = types[0] || "";
+                networkCapsule.activeConnectionType = refreshProcess.formatType(firstType);
             }
         }
-
-        function getConnectionType(nmcliOutput: string): string {
-            if (nmcliOutput.includes("ethernet")) {
-                return "󰈀   Ethernet";
-            } else if (nmcliOutput.includes("wireless")) {
-                return "󰖩   Wireless";
-            }
+        
+        function formatType(type) {
+            if (type.includes("ethernet")) return "Connected";
+            if (type.includes("wireless")) return "Wireless";
             return "";
         }
     }
@@ -61,4 +67,6 @@ Capsule {
             onRead: networkCapsule.refresh()
         }
     }
+
+    Component.onCompleted: refresh()
 }

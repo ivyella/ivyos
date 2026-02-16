@@ -8,8 +8,6 @@ let
     "fish"
     "fuzzel"
     "niri"
-    "waybar"
-    "swaync"
     "wlogout"
     "starship"
     "fastfetch"
@@ -86,25 +84,13 @@ in
 
   # User services
   systemd.user.services = {
-    waybar = {
+    quickshell = {
       Unit = {
-        Description = "Waybar status bar";
+        Description = "quickshell";
         PartOf = [ "graphical-session.target" ];
       };
       Service = {
-        ExecStart = "${pkgs.waybar}/bin/waybar";
-        Restart = "on-failure";
-      };
-      Install.WantedBy = [ "graphical-session.target" ];
-    };
-
-    swaync = {
-      Unit = {
-        Description = "Sway Notification Center";
-        PartOf = [ "graphical-session.target" ];
-      };
-      Service = {
-        ExecStart = "${pkgs.swaynotificationcenter}/bin/swaync";
+        ExecStart = "${pkgs.quickshell}/bin/qs";
         Restart = "on-failure";
       };
       Install.WantedBy = [ "graphical-session.target" ];

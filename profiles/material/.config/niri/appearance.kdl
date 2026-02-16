@@ -18,7 +18,7 @@ layout {
         off
     }
     default-column-width {} // Let programs decide
-    
+
 }
 
 window-rule { // Window Corner Radius
@@ -38,6 +38,6 @@ overview {
 }
 
 layer-rule {
-    match namespace="^swww-daemon$"
+    match namespace="^wallpaper$"
     place-within-backdrop true
 }

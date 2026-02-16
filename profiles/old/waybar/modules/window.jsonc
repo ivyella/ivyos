@@ -1,0 +1,35 @@
+{  
+  "niri/window": {
+    "rewrite": {
+      "kitty": "  Terminal",
+      "librewolf": "LibreWolf",
+      "dev.zed.Zed": "Zed",
+      "org.gnome.Nautilus": "Files",
+      "com.usebottles.bottles": "Bottles",
+      "org.vinegarhq.Sober": "Roblox",
+      "obsidian": "Obsidian",
+      "org.gnome.clocks": "Clock",
+      "org.gnome.Calendar": "Calendar",
+      "org.gnome.Loupe": "Image Viewer",
+      "org.gnome.Papers": "Document Viewer",
+      "org.gnome.TextEditor": "Text Editor",
+      "org.pulseaudio.pavucontrol": "Audio Mixer",
+      "org.prismlauncher.PrismLauncher": "Prism Launcher",
+      "nm.connection-editor": "Connection Editor",
+      "(.*)Spotify.*": "Spotify",
+      "(.*)Steam": "Steam",
+      "vesktop": "  Discord",
+      "com.github.neithern.g4music": "Music",
+      "io.github.alainm23.planify": "Planify",
+      "com.obsproject.Studio": "OBS",
+      "krita": "Krita"
+      },
+    "icon": false,
+    "icon-size": 12,
+    "separate-outputs": true,
+    "format": "{app_id}",
+    "on-click": "fuzzel",
+    "on-click-right": "niri msg action close-window",
+    "on-click-middle": "niri msg action toggle-overview"
+  }
+}

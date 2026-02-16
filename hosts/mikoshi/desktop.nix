@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
 {
   nixpkgs.config.permittedInsecurePackages = [
@@ -19,22 +19,20 @@
     micro
     xdg-desktop-portal-gnome
     glib
-    git 
+    git
     codeberg-cli
     firefox
     krita
     libnotify
     efibootmgr
-    cava 
+    cava
     spotify-player
     hyfetch
-    niri
-    waybar
-    swaynotificationcenter
+    # waybar
+    # swaynotificationcenter
     fuzzel
-    swww
+    # swww
     wlogout
-    matugen
     xwayland-satellite
     bibata-cursors
     nwg-look
@@ -56,22 +54,31 @@
     aseprite
     blockbench
     obsidian
-    peaclock
-    localsend
+    element-desktop
+    quickshell
+    zed-editor
+
   ];
 
   services.greetd = {
     enable = true;
     settings = {
       default_session = {
-        command = "${pkgs.tuigreet}/bin/tuigreet --remember --time --asterisks --cmd niri-session";
-        user = "greeter";
-        };
+        command = ''
+          ${pkgs.tuigreet}/bin/tuigreet \
+            --remember \
+            --remember-user-session \
+            --time \
+            --asterisks \
+            --cmd niri-session
+        '';
+	user = "greeter";
       };
-     };
+    };
+  };
 
   services.dbus.enable = true;
-  programs.dconf.enable = true;  	
+  programs.dconf.enable = true;
 
   xdg.portal = {
     enable = true;
@@ -84,6 +91,8 @@
       common.default = "gnome";
     };
   };
+
+  programs.niri.enable = true;
 
   programs.steam.enable = true;
 

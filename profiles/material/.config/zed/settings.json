@@ -7,6 +7,16 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "cursor_shape": "block",
+  "auto_indent": false,
+  "hard_tabs": true,
+  "tab_size": 5,
+  "window_decorations": "server",
+  "status_bar": {
+    "cursor_position_button": false
+  },
+  "buffer_font_family": "JetBrains Mono",
+  "ui_font_family": "Noto Serif",
   "disable_ai": true,
   "languages": {
     "JSONC": {

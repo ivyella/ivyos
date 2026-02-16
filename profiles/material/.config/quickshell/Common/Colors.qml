@@ -8,7 +8,7 @@ Item {
     /* =========================
      * Core surfaces
      * ========================= */
-    property color background: "#13140d"
+    property color background: "#161615"
 
     property color surface: "#13140d"
     property color surfaceDim: "#13140d"
@@ -17,7 +17,7 @@ Item {
     property color surfaceContainerLowest: "#0e0f08"
     property color surfaceContainerLow: "#1b1c14"
     property color surfaceContainer: "#202018"
-    property color surfaceContainerHigh: "#2a2b22"
+    property color surfaceContainerHigh: "#222120"
     property color surfaceContainerHighest: "#35352d"
 
     property color surfaceVariant: "#47483b"
@@ -51,9 +51,9 @@ Item {
      * Text / foreground colors
      * (formerly onX — QML-safe)
      * ========================= */
-    property color textOnBackground: "#e5e3d6"
-    property color textOnSurface: "#e5e3d6"
-    property color textOnSurfaceVariant: "#c8c7b7"
+    property color textOnBackground: "#f2eadd"
+    property color textOnSurface: "#f2eadd"
+    property color textOnSurfaceVariant: "#c7c9a7"
 
     property color textOnPrimary: "#2e3400"
     property color textOnPrimaryContainer: "#dfe995"

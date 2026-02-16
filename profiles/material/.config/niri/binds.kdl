@@ -50,7 +50,7 @@ binds {
     Mod+V { toggle-window-floating; }
 
     Ctrl+F4 { screenshot; }
-
+    Mod+Shift+P { spawn "qs" "ipc" "call" "wallpaper" "toggle"; }
     Mod+Shift+E { spawn "wlogout"; }
     Ctrl+Alt+Delete { quit; }
 }

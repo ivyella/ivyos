@@ -14,4 +14,6 @@ QtObject {
     property int fontSizeLarge: 14
     property var fontColorPrimary: Colors.textOnSurface
     property var fontColorSecondary: Colors.textOnSurfaceVariant
+    property var accentDeep:  "#727459"
+
 }

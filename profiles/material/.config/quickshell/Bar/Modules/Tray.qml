@@ -1,24 +1,27 @@
 import QtQuick
-import QtQuick.Layouts
 import Quickshell
 import Quickshell.Services.SystemTray
 import qs.Bar
+import qs.Common
 
-Capsule {
-    width: trayRow.implicitWidth + Config.capsuleMargin
+Rectangle {
+    id: trayCapsule
+    color: Colors.surfaceContainerHigh
+    radius: Metrics.radiusLg
+    height: Metrics.controlHeightSm
+    implicitWidth: trayRow.implicitWidth + Metrics.paddingMd * 2
+    property var window
 
     Row {
         id: trayRow
-        spacing: 10
-        anchors.verticalCenter: parent.verticalCenter
-        anchors.left: parent.left
-        anchors.leftMargin: 9
+        spacing: Metrics.spacingSm
+        anchors.centerIn: parent
 
         Repeater {
             model: SystemTray.items
             delegate: Item {
-                width: 14
-                height: 14
+                width: Metrics.iconSize
+                height: Metrics.iconSize
 
                 Image {
                     anchors.fill: parent
@@ -27,9 +30,11 @@ Capsule {
 
                 MouseArea {
                     anchors.fill: parent
-                    onClicked: {
+                    acceptedButtons: Qt.LeftButton | Qt.RightButton
+                    onClicked: mouse => {
                         if (mouse.button === Qt.RightButton && modelData.hasMenu) {
-                            modelData.display(trayBackground, mouse.x, mouse.y);
+                            const pos = mapToItem(null, mouse.x, mouse.y);
+                            modelData.display(trayCapsule.window, pos.x, pos.y);
                         } else if (mouse.button === Qt.LeftButton) {
                             modelData.activate();
                         }

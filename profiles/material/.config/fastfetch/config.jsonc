@@ -5,9 +5,21 @@
         }
     },
     "modules": [
+       
         {
             "type": "custom", // Divider
-            "format": "┌──────────────────────────────────────────────────┐",
+            "format": "",
+            "outputColor": "90"
+        },
+
+        {
+            "type": "custom", // Divider
+            "format": "",
+            "outputColor": "90"
+        },
+        {
+            "type": "custom", // Divider
+            "format": "",
             "outputColor": "90"
         },
         {
@@ -17,9 +29,10 @@
         },
         {
             "type": "custom", // Divider
-            "format": "",
+            "format": "────────────────────────────────────────────────────",
             "outputColor": "90"
         },
+        
         {
             "type": "os",
             "key": " {icon} OS",
@@ -33,16 +46,6 @@
         {
             "type": "wm",
             "key": " {icon} WM",
-            "keyWidth": 14
-        },
-        {
-            "type": "shell",
-            "key": " {icon} Shell",
-            "keyWidth": 14
-        },
-        {
-            "type": "terminal",
-            "key": " {icon} Terminal",
             "keyWidth": 14
         },
         {
@@ -72,6 +75,11 @@
             "separate": true
         },
         {
+            "type": "custom", // Divider
+            "format": "",
+            "outputColor": "90"
+        },
+        {
             "type": "disk",
             "key": " {icon} Disk",
             "keyWidth": 14
@@ -87,29 +95,8 @@
             "keyWidth": 14
         },
         {
-            "type": "localip",
-            "key": " {icon} Local IP",
-            "keyWidth": 14
-        },
-        {
-            "type": "locale",
-            "key": " {icon}  Locale",
-            "keyWidth": 14
-        },
-        {
             "type": "custom", // Divider
-            "format": "",
-            "outputColor": "90"
-        },
-        {
-            "type": "colors",
-            "symbol": "circle",
-            "key": " {icon} Colors",
-            "keyWidth": 14
-        },
-        {
-            "type": "custom", // Divider
-            "format": "└──────────────────────────────────────────────────┘",
+            "format": "────────────────────────────────────────────────────",
             "outputColor": "90"
         }
     ]

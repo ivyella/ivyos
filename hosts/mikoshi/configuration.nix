@@ -11,16 +11,15 @@
       ./desktop.nix      
     ];
 
-  # Bootloader.
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.grub = {
-    enable = true;
-    efiSupport = true;
-    device = "nodev";
-    gfxmodeEfi= "text";
+  boot.loader = {
+    systemd-boot.enable = true;
+    efi.canTouchEfiVariables = true;
+    systemd-boot.consoleMode = "max";
   };
 
-  boot.kernelParams = [ "amdgpu.dc=1" ]; 
+  boot.kernelParams = [ "amdgpu.dc=1" 
+  "videomode=1920x1080"
+  ]; 
   services.xserver.videoDrivers = [ "amdgpu" ];
 
   boot.kernelPackages = pkgs.linuxPackages_zen;
@@ -57,13 +56,10 @@
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [];
   };
-
-  zramSwap = {
-    enable = true;
-    memoryPercent = 25;
-    algorithm = "zstd";
-  };
-
+  
+  security.sudo.extraConfig = ''
+    Defaults pwfeedback
+  '';
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -139,6 +135,7 @@
   
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+  programs.nix-ld.enable = true;
   
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

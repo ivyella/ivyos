@@ -5,7 +5,11 @@ background (lowish) #222120
 background (medium ish) #3d3a38
 background (highest) #4a4644
 text #f2eadd
+textmuted #97938c
+
 accenttext #c7c9a7
+accenttextmuted #a3a588
+
 accent1 #868868
 accent2 #727459
 accent3 #494a39

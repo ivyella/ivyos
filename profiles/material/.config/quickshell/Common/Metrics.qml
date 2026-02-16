@@ -42,7 +42,7 @@ QtObject {
      * Icon sizes
      * ========================= */
     property int iconSizeSm: 14
-    property int iconSize: 16
+    property int iconSize: 14
     property int iconSizeLg: 18
 
     /* =========================
@@ -64,6 +64,6 @@ QtObject {
     /* =========================
      * Font family / weight defaults
      * ========================= */
-    property string fontFamily: "Open Sans"
+    property string fontFamily: "Noto Serif"
     property bool fontBold: true
 }

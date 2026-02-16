@@ -1,3 +1,4 @@
+pragma ComponentBehavior: Bound
 import Quickshell
 import Quickshell.Wayland
 import Quickshell.Io
@@ -6,12 +7,11 @@ import QtQuick.Layouts
 import qs.Bar
 import qs.Bar.Modules
 
-
-Item {
-    id: barRoot
-
-    PanelWindow {
-        property var modelData
+Variants {
+    model: Quickshell.screens
+    delegate: PanelWindow {
+        id: root
+        required property var modelData
         screen: modelData
 
         anchors {
@@ -33,7 +33,7 @@ Item {
             // LEFT
             RowLayout {
                 id: leftSection
-                spacing: 6
+                spacing: 4
                 Layout.alignment: Qt.AlignVCenter
 
                 Clock {
@@ -41,7 +41,6 @@ Item {
                 }
                 Window {
                     height: 22
-                    
                 }
             }
 
@@ -50,24 +49,26 @@ Item {
             // RIGHT
             RowLayout {
                 id: rightSection
-                spacing: 40
+                spacing: 4
                 Layout.alignment: Qt.AlignVCenter
-                
+
                 Network {
                     height: 22
-                   
                 }
                 Volume {
                     height: 22
                 }
                 Tray {
+                    window: root
                     height: 22
-                    
+                }
+                Notification {
+                    height: 22
                 }
             }
         }
 
-        // Center Overlay
+        // ───── Center Overlay ─────
         Item {
             anchors.centerIn: parent
             height: parent.height
@@ -77,9 +78,7 @@ Item {
                 id: mediaCapsule
                 height: 22
                 anchors.centerIn: parent
-                
             }
         }
     }
 }
-//todo: keep trying

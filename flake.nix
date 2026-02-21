@@ -19,7 +19,12 @@
         system = "x86_64-linux";
         modules = [
           ./hosts/desktop/configuration.nix
-
+          ./modules/appearance.nix
+          ./modules/common.nix
+          ./modules/creative.nix
+          ./modules/gaming.nix
+          ./modules/keyd.nix
+          ./modules/niri.nix
           # Add home-manager module
           inputs.home-manager.nixosModules.home-manager
           {
@@ -34,7 +39,9 @@
         system = "x86_64-linux";
         modules = [
           ./hosts/laptop/configuration.nix
-
+          ./modules/appearance.nix
+          ./modules/common.nix
+          ./modules/niri.nix
           inputs.home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;

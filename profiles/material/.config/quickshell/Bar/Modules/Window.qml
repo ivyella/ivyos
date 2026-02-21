@@ -6,10 +6,10 @@ import qs.Common
 
 Rectangle {
     id: windowCapsule
-    color: Colors.surfaceContainerHigh
-    radius: Metrics.radiusLg
-    height: Metrics.controlHeightSm
-    implicitWidth: activeWindowText.implicitWidth + Metrics.paddingMd * 2
+    color: Theme.color.surface
+    radius: Theme.radius.lg
+    height: Theme.height.sm
+    implicitWidth: activeWindowText.implicitWidth + Theme.padding.md * 2
 
     property string activeWindow: ""
 
@@ -17,10 +17,10 @@ Rectangle {
         id: activeWindowText
         anchors.centerIn: parent
         text: windowCapsule.activeWindow
-        color: Config.fontColorPrimary
-        font.pixelSize: Config.fontSizeNormal
-        font.family: Config.fontFamily
-        font.weight: 600
+        color: Theme.color.text
+        font.pixelSize: Theme.font.sm
+        font.family: Theme.font.ui
+        font.weight: Theme.font.normal
     }
 
     Process {

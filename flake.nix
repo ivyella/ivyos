@@ -12,34 +12,34 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
-  
+
   outputs = inputs: {
     nixosConfigurations = {
-      mikoshi = inputs.nixpkgs.lib.nixosSystem {
+      desktop = inputs.nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ./hosts/mikoshi/configuration.nix
-          
+          ./hosts/desktop/configuration.nix
+
           # Add home-manager module
           inputs.home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.ivy = import ./home/ivy.nix;
+            home-manager.users.ivy = import ./home/desktop.nix;
           }
         ];
       };
-      
-      izanagi = inputs.nixpkgs.lib.nixosSystem {
+
+      laptop = inputs.nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ./hosts/izanagi/configuration.nix
-          
+          ./hosts/laptop/configuration.nix
+
           inputs.home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.ivy = import ./home/ivy.nix;
+            home-manager.users.ivy = import ./home/laptop.nix;
           }
         ];
       };

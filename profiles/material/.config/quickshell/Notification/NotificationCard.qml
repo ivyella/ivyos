@@ -10,8 +10,11 @@ Rectangle {
 
     implicitWidth: ListView.view ? ListView.view.width : 360
     implicitHeight: fullLayout.implicitHeight + 20
-    color: dismissArea.containsMouse ? Colors.surfaceContainer : Colors.surfaceContainerLowest
-    radius: 16
+    color: dismissArea.containsMouse ? Theme.color.surface : Theme.color.base
+
+    border.width: 2
+    border.color: Theme.color.accentDeep
+    radius: 12
 
     Timer {
         id: dismissTimer
@@ -56,7 +59,7 @@ Rectangle {
                 font.bold: true
                 font.pixelSize: 16
                 font.family: "Noto Serif"
-                color: Colors.textOnSurface
+                color: Theme.color.text
                 elide: Text.ElideRight
                 Layout.fillWidth: true
                 onTextChanged: dismissTimer.restart()
@@ -66,7 +69,7 @@ Rectangle {
                 text: notifyItem.modelData.body
                 font.pixelSize: 14
                 font.family: "Noto Serif"
-                color: Colors.textOnSurfaceVariant
+                color: Theme.color.subtext
                 maximumLineCount: 2
                 wrapMode: Text.WordWrap
                 elide: Text.ElideRight

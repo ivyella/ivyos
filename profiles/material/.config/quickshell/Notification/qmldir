@@ -1,0 +1,3 @@
+singleton NotiServer NotiServer.qml
+Notification Notification.qml
+NotificationCard NotificationCard.qml

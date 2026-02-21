@@ -6,26 +6,26 @@ import qs.Common
 
 Rectangle {
     id: trayCapsule
-    color: Colors.surfaceContainerHigh
-    radius: Metrics.radiusLg
-    height: Metrics.controlHeightSm
-    implicitWidth: trayRow.implicitWidth + Metrics.paddingMd * 2
+    color: Theme.color.surface
+    radius: Theme.radius.lg
+    height: Theme.height.sm
+    implicitWidth: trayRow.implicitWidth + Theme.padding.md * 2
     property var window
 
     Row {
         id: trayRow
-        spacing: Metrics.spacingSm
+        spacing: Theme.spacing.sm
         anchors.centerIn: parent
 
         Repeater {
             model: SystemTray.items
             delegate: Item {
-                width: Metrics.iconSize
-                height: Metrics.iconSize
+                width: Theme.icon.sm
+                height: Theme.icon.sm
 
                 Image {
                     anchors.fill: parent
-                    source: modelData.icon
+                    source: modelData.icon || Quickshell.iconPath("image-missing", "application-x-executable")
                 }
 
                 MouseArea {

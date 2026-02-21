@@ -8,12 +8,10 @@ let
     "fish"
     "fuzzel"
     "niri"
-    "wlogout"
     "starship"
     "fastfetch"
     "qt5ct"
     "qt6ct"
-    "quickshell"
     "zed"
   ];
 

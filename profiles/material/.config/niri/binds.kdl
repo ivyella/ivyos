@@ -50,7 +50,9 @@ binds {
     Mod+V { toggle-window-floating; }
 
     Ctrl+F4 { screenshot; }
+    Mod+Shift+N { spawn "qs" "ipc" "call" "NotificationHistory" "toggle"; }
+    Mod+Shift+T { spawn "qs" "ipc" "call" "theme" "toggle"; }
     Mod+Shift+P { spawn "qs" "ipc" "call" "wallpaper" "toggle"; }
-    Mod+Shift+E { spawn "wlogout"; }
+    Mod+Shift+E { spawn "qs" "ipc" "call" "powerMenu" "toggle"; }
     Ctrl+Alt+Delete { quit; }
 }

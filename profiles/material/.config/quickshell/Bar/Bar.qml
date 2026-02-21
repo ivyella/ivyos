@@ -6,6 +6,7 @@ import QtQuick
 import QtQuick.Layouts
 import qs.Bar
 import qs.Bar.Modules
+import qs.Common
 
 Variants {
     model: Quickshell.screens
@@ -20,28 +21,27 @@ Variants {
             right: true
         }
 
-        implicitHeight: 30
-        color: Config.backgroundColor
+        implicitHeight: Theme.height.bar
+        color: Theme.color.base
 
         // ───── Base layout: LEFT + RIGHT only ─────
         RowLayout {
             id: edgeLayout
             anchors.fill: parent
-            anchors.margins: 6
-            spacing: 4
+            anchors.leftMargin: Theme.margin.sm
+            anchors.rightMargin: Theme.margin.sm
+            anchors.topMargin: Theme.margin.xs
+            anchors.bottomMargin: Theme.margin.xs
+            
 
             // LEFT
             RowLayout {
                 id: leftSection
-                spacing: 4
+                spacing: Theme.spacing.sm
                 Layout.alignment: Qt.AlignVCenter
 
-                Clock {
-                    height: 22
-                }
-                Window {
-                    height: 22
-                }
+                Clock {}
+                Window {}
             }
 
             Item { Layout.fillWidth: true }
@@ -49,22 +49,15 @@ Variants {
             // RIGHT
             RowLayout {
                 id: rightSection
-                spacing: 4
+                spacing: Theme.spacing.sm
                 Layout.alignment: Qt.AlignVCenter
 
-                Network {
-                    height: 22
-                }
-                Volume {
-                    height: 22
-                }
+                Network {}
+                Volume {}
                 Tray {
                     window: root
-                    height: 22
                 }
-                Notification {
-                    height: 22
-                }
+                Notification {}
             }
         }
 
@@ -76,7 +69,6 @@ Variants {
 
             Media {
                 id: mediaCapsule
-                height: 22
                 anchors.centerIn: parent
             }
         }

@@ -7,31 +7,31 @@ import qs.Bar
 import qs.Common
 
 Rectangle {
-    color: Colors.surfaceContainerHigh
-    radius: Metrics.radiusLg
-    height: Metrics.controlHeightSm
-    implicitWidth: clockLayout.implicitWidth + Metrics.paddingMd * 2
+    color: Theme.color.surface
+    radius: Theme.radius.lg
+    height: Theme.height.sm
+    implicitWidth: clockLayout.implicitWidth + Theme.padding.md * 2
 
     RowLayout {
         id: clockLayout
         anchors.centerIn: parent
-        spacing: Metrics.spacingSm
+        spacing: Theme.spacing.sm
 
         Text {
             id: timeText
             text: Qt.formatDateTime(new Date(), "hh:mm AP")
-            color: Config.fontColorPrimary
-            font.pixelSize: Config.fontSizeNormal
-            font.family: Config.fontFamily
-            font.weight: 600
+            color: Theme.color.text
+            font.pixelSize: Theme.font.sm
+            font.family: Theme.font.ui
+            font.weight: Theme.font.normal
         }
         Text {
             id: dateText
             text: Qt.formatDateTime(new Date(), "ddd, MMM dd")
-            color: Config.fontColorSecondary
-            font.pixelSize: Config.fontSizeNormal
-            font.family: Config.fontFamily
-            font.weight: 600
+            color: Theme.color.subtext
+            font.pixelSize: Theme.font.sm
+            font.family: Theme.font.ui
+            font.weight: Theme.font.normal
         }
     }
 

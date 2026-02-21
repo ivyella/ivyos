@@ -1,0 +1,26 @@
+{
+  "name": "IvyTheme",
+  "color": {
+    "base": "#161615",
+    "surfaceLow": "#1c1b1a",
+    "surface": "#222120",
+    "surfaceMid": "#3d3a38",
+    "surfaceHigh": "#4a4644",
+    "text": "#f2eadd",
+    "subtext": "#c7c9a7",
+    "accent": "#868868",
+    "accentDim": "#727459",
+    "accentDeep": "#494a39",
+    "accentWarm": "#a67d52",
+    "accentBright": "#cad193",
+    "error": "#b86161",
+    "success": "#668e37",
+    "warning": "#c29f5e",
+    "outline": "#47483b",
+    "outlineVariant": "#929283"
+  },
+  "font": {
+    "ui": "Noto Serif",
+    "mono": "JetBrains Mono"
+  }
+}

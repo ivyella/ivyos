@@ -7,10 +7,10 @@ import QtQuick.Layouts
 
 Rectangle {
     id: networkCapsule
-    color: Colors.surfaceContainerHigh
-    radius: Metrics.radiusLg
-    height: Metrics.controlHeightSm
-    implicitWidth: networkLayout.implicitWidth + Metrics.paddingMd * 2
+    color: Theme.color.surface
+    radius: Theme.radius.lg
+    height: Theme.height.sm
+    implicitWidth: networkLayout.implicitWidth + Theme.padding.md * 2
 
     property bool connected: activeConnectionType != ""
     property string activeConnectionType: ""
@@ -18,23 +18,22 @@ Rectangle {
     RowLayout {
         id: networkLayout
         anchors.centerIn: parent
-        spacing: Metrics.spacingSm
+        spacing: Theme.spacing.sm
         Text {
             id: networkIcon
             text: "󰈀"
-            color: Config.fontColorPrimary
-            font.pixelSize: Config.fontSizeNormal
-            font.family: Config.fontFamily
-            
-            font.weight: 600
+            color: Theme.color.text
+            font.pixelSize: Theme.font.sm
+            font.family: Theme.font.ui
+            font.weight: Theme.font.normal
         }
         Text {
             id: networkText
             text: networkCapsule.connected ? networkCapsule.activeConnectionType : "Disconnected"
-            color: Config.fontColorSecondary
-            font.pixelSize: Config.fontSizeNormal
-            font.family: Config.fontFamily
-            font.weight: 600
+            color: Theme.color.subtext
+            font.pixelSize: Theme.font.sm
+            font.family: Theme.font.ui
+            font.weight: Theme.font.normal
         }
     }
 
@@ -55,7 +54,7 @@ Rectangle {
         
         function formatType(type) {
             if (type.includes("ethernet")) return "Connected";
-            if (type.includes("wireless")) return "Wireless";
+            if (type.includes("wireless")) return "Connected";
             return "";
         }
     }

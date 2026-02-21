@@ -32,7 +32,7 @@
     # swaynotificationcenter
     fuzzel
     # swww
-    wlogout
+    # wlogout
     xwayland-satellite
     bibata-cursors
     nwg-look

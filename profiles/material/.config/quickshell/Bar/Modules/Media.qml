@@ -7,16 +7,18 @@ import qs.Common
 
 Rectangle {
     id: mediaCapsule
-    color: Colors.surfaceContainerHigh
-    radius: Metrics.radiusLg
-    height: Metrics.controlHeightSm
-    implicitWidth: mprisLayout.implicitWidth + Metrics.paddingMd * 2
+    color: Theme.color.surface
+    radius: Theme.radius.lg
+    height: Theme.height.sm
+    implicitWidth: mprisLayout.implicitWidth + Theme.padding.md * 2
     visible: title !== ""
 
     property var player: null
     readonly property string title: player ? (player.trackTitle ?? "") : ""
     readonly property string artist: player ? (player.trackArtist ?? "") : ""
     readonly property string preferredPlayer: "spotify"
+    readonly property bool isSpotify: player ? player.identity.toLowerCase().includes("spotify") : false
+    readonly property bool isFirefox: player ? player.identity.toLowerCase().includes("firefox") : false
 
     function findActivePlayer() {
         const players = Mpris.players.values;
@@ -56,28 +58,43 @@ Rectangle {
     RowLayout {
         id: mprisLayout
         anchors.centerIn: parent
-        spacing: Metrics.spacingSm
+        spacing: Theme.spacing.sm
+
+        Text {
+        visible: mediaCapsule.isSpotify
+        text: ""
+        color: Theme.color.subtext
+        font.pixelSize: Theme.font.sm
+        font.family: Theme.font.ui
+        }
+        Text {
+        visible: mediaCapsule.isFirefox
+        text: "󰖟"
+        color: Theme.color.subtext
+        font.pixelSize: Theme.font.sm
+        font.family: Theme.font.ui
+        }
 
         Text {
             text: mediaCapsule.title
-            color: Config.fontColorPrimary
-            font.pixelSize: Config.fontSizeNormal
-            font.family: Config.fontFamily
-            font.weight: 600
+            color: Theme.color.text
+            font.pixelSize: Theme.font.sm
+            font.family: Theme.font.ui
+            font.weight: Theme.font.normal
         }
         Text {
             text: "•"
-            color: Config.accentDeep
-            font.pixelSize: Config.fontSizeNormal
-            font.family: Config.fontFamily
-            font.weight: 600
+            color: Theme.color.accentDim
+            font.pixelSize: Theme.font.sm
+            font.family: Theme.font.ui
+            font.weight: Theme.font.normal
         }
         Text {
             text: mediaCapsule.artist
-            color: Config.fontColorSecondary
-            font.pixelSize: Config.fontSizeNormal
-            font.family: Config.fontFamily
-            font.weight: 500
+            color: Theme.color.subtext
+            font.pixelSize: Theme.font.sm
+            font.family: Theme.font.ui
+            font.weight: Theme.font.light
         }
     }
 

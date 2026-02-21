@@ -7,12 +7,15 @@ import QtQuick
 import QtQuick.Layouts
 import Qt.labs.folderlistmodel 2.10
 import qs.Common
+import qs.Bar
+import qs.Config 
 
 Singleton {
     id: root
 
-    property string currentWall: "file:///home/ivy/ivyos/themes/wallpapers/a_group_of_trees_with_green_leaves.jpg"
-    property string wallDir: "file:///home/ivy/ivyos/themes/wallpapers/"
+    // Link this to your persistent Config singleton
+    property string currentWall: Config.currentWallpaper
+    property string wallDir: "file://" + Quickshell.env("HOME") + "/ivyos/themes/wallpapers/"
     property bool switcherVisible: false
 
     IpcHandler {
@@ -39,10 +42,21 @@ Singleton {
             anchors.centerIn: parent
             width: 900
             height: 600
-            color: Colors.surface
-            radius: 16
-
-            MouseArea { anchors.fill: parent; onClicked: {} }
+            color: Theme.color.base
+            border.width: 2
+            border.color: Theme.color.accentDim
+            radius: 12
+            focus: true  
+        
+            Keys.onPressed: (event) => {  
+                if (event.key === Qt.Key_Escape) {  
+                    root.switcherVisible = false;  
+                }  
+            }  
+  
+            onVisibleChanged: if (visible) forceActiveFocus()  
+        
+            MouseArea { anchors.fill: parent; onClicked: {} }  
 
             ColumnLayout {
                 anchors.fill: parent
@@ -51,22 +65,41 @@ Singleton {
 
                 Rectangle {
                     Layout.fillWidth: true
-                    Layout.margins: 10
+                    Layout.margins: 2
                     Layout.bottomMargin: 0
-                    topLeftRadius: 12
-                    topRightRadius: 12
-                    bottomLeftRadius: 4
-                    bottomRightRadius: 4
+                    topLeftRadius: 10
+                    topRightRadius: 10
+                    bottomLeftRadius: 10
+                    bottomRightRadius: 10
                     implicitHeight: 30
-                    color: Colors.surfaceContainerLow
+                    color: Theme.color.surface
 
-                    Text {
+                    RowLayout {
+                        id: themeDirectoryDisplay
                         anchors.centerIn: parent
-                        text: "Wallpapers in " + root.wallDir
-                        color: Colors.textOnSurface
-                        font.pixelSize: Metrics.fontSize
-                        font.family: Metrics.fontFamily
-                        font.bold: true
+                        spacing: 2
+
+                        Text {
+                            text: "Select Wallpaper"
+                            color: Theme.color.text
+                            font.pixelSize: Theme.font.sm
+                            font.family: Theme.font.ui
+                            font.weight: Theme.font.medium
+                        }
+                        Text {
+                            text: " • "
+                            color: Theme.color.accentDim
+                            font.pixelSize: Theme.font.sm
+                            font.family: Theme.font.ui
+                            font.weight: Theme.font.normal
+                        }
+                        Text {
+                            text: root.wallDir
+                            color: Theme.color.subtext
+                            font.pixelSize: Theme.font.sm
+                            font.family: Theme.font.ui
+                            font.weight: Theme.font.normal
+                        }
                     }
                 }
 
@@ -79,7 +112,7 @@ Singleton {
                     topRightRadius: 4
                     bottomLeftRadius: 12
                     bottomRightRadius: 12
-                    color: Colors.surfaceContainerLow
+                    color: Theme.color.base
 
                     GridView {
                         id: gridRoot
@@ -105,7 +138,9 @@ Singleton {
                             clip: true
                             color: "transparent"
                             required property string filePath
-                            border.color: root.currentWall === filePath ? Colors.primary : "transparent"
+                            
+
+                            border.color: Config.currentWallpaper === filePath ? Theme.color.subtext : "transparent"
                             border.width: 2
 
                             Image {
@@ -120,7 +155,9 @@ Singleton {
                             MouseArea {
                                 anchors.fill: parent
                                 cursorShape: Qt.PointingHandCursor
-                                onClicked: root.currentWall = imageRounder.filePath
+                                onClicked: {
+                                    Config.setWallpaper(imageRounder.filePath);
+                                }
                             }
                         }
                     }

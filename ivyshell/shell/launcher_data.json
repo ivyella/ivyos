@@ -1,9 +1,9 @@
 {
     "counts": {
-        "Files": 1,
-        "Firefox": 2,
+        "Files": 3,
+        "Firefox": 8,
         "Zed": 2,
-        "kitty": 2
+        "kitty": 9
     },
     "pinned": [
         "kitty",

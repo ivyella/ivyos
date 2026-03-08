@@ -14,7 +14,7 @@
     nixosConfigurations = {
       desktop = inputs.nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        specialArgs = { inherit inputs; };
+        specialArgs = { inherit inputs; greeterPath = ./ivyshell/greeter; };
         modules = [
           ./hosts/desktop/configuration.nix
           ./modules/appearance.nix
@@ -34,7 +34,7 @@
       };
       laptop = inputs.nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        specialArgs = { inherit inputs; };
+        specialArgs = { inherit inputs; greeterPath = ./ivyshell/greeter; };
         modules = [
           ./hosts/laptop/configuration.nix
           ./modules/appearance.nix

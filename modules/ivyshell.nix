@@ -1,11 +1,16 @@
-{ config, pkgs, lib, inputs, ... }:
+{ config, pkgs, lib, inputs, greeterPath, ... }:
+let
+  qs = pkgs.quickshell;
+in
 {
-  environment.systemPackages = with pkgs; [
-    quickshell
-    xwayland-satellite
+  environment.systemPackages = [
+    qs
+    pkgs.xwayland-satellite
   ];
+
   services.dbus.enable = true;
   programs.dconf.enable = true;
+
   xdg.portal = {
     enable = true;
     extraPortals = [ pkgs.xdg-desktop-portal-gnome ];
@@ -13,21 +18,24 @@
       common.default = "gnome";
     };
   };
+
   programs.niri.enable = true;
 
-  # expose greeter config to the greeter system user
-  environment.etc."ivyshell-greeter" = {
-    source = /home/ivy/ivyos/ivyshell/greeter;
-    mode = "0755";
-  };
-
-  services.greetd = {
-    enable = true;
-    settings = {
-      default_session = {
-        command = "${pkgs.quickshell}/bin/qs --config /etc/ivyshell-greeter/shell.qml";
-        user = "greeter";
+   services.greetd = {
+    	enable = true;
+     	settings = {
+      	default_session = {
+        		command = ''
+          		${pkgs.tuigreet}/bin/tuigreet \
+            	--remember \
+             	--remember-user-session \
+              	--time \
+               --asterisks \
+               --cmd niri-session
+         		'';
+           	user = "greeter";
+       	};
       };
-    };
-  };
+   };
+
 }

@@ -2,6 +2,8 @@
 let
   ivyRoot = "${config.home.homeDirectory}/ivyos";
   ivyshell = "${ivyRoot}/ivyshell";
+  qs = pkgs.quickshell;
+
   configApps = [
     "kitty"
     "fish"
@@ -12,6 +14,7 @@ let
     "qt6ct"
     "zed"
   ];
+
   gtkFiles = [
     "gtk-3.0/colors.css"
     "gtk-3.0/gtk.css"
@@ -28,20 +31,19 @@ in
   home.file = builtins.listToAttrs (
     map (app: {
       name = ".config/${app}";
-      value.source = config.lib.file.mkOutOfStoreSymlink "${ivyRoot}/ivyshell/shell/.config/${app}";
+      value.source = config.lib.file.mkOutOfStoreSymlink "${ivyRoot}/ivyshell/.config/${app}";
     }) configApps
     ++
     map (file: {
       name = ".config/${file}";
-      value.source = config.lib.file.mkOutOfStoreSymlink "${ivyRoot}/ivyshell/shell/.config/${file}";
+      value.source = config.lib.file.mkOutOfStoreSymlink "${ivyRoot}/ivyshell/.config/${file}";
     }) gtkFiles
     ++
     [
-      # quickshell now lives at ivyshell/shell/
-      { name = ".config/quickshell"; value.source = config.lib.file.mkOutOfStoreSymlink "${ivyshell}/shell"; }
-      { name = ".local/share/color-schemes"; value.source = config.lib.file.mkOutOfStoreSymlink "${ivyshell}/shell/.local/share/color-schemes"; }
-      { name = ".local/share/PrismLauncher/themes"; value.source = config.lib.file.mkOutOfStoreSymlink "${ivyshell}/shell/.local/share/PrismLauncher/themes"; }
-      { name = ".local/share/icons/poisonivy"; value.source = config.lib.file.mkOutOfStoreSymlink "${ivyshell}/themes/icons/poisonivy"; }
+      { name = ".config/quickshell";                    value.source = config.lib.file.mkOutOfStoreSymlink "${ivyshell}/shell"; }
+      { name = ".local/share/color-schemes";            value.source = config.lib.file.mkOutOfStoreSymlink "${ivyshell}/.local/share/color-schemes"; }
+      { name = ".local/share/PrismLauncher/themes";     value.source = config.lib.file.mkOutOfStoreSymlink "${ivyshell}/.local/share/PrismLauncher/themes"; }
+      { name = ".local/share/icons/poisonivy";          value.source = config.lib.file.mkOutOfStoreSymlink "${ivyshell}/themes/icons/poisonivy"; }
     ]
   );
 
@@ -77,7 +79,7 @@ in
         PartOf = [ "graphical-session.target" ];
       };
       Service = {
-        ExecStart = "${pkgs.quickshell}/bin/qs --config ${ivyshell}/shell/shell.qml";
+        ExecStart = "${qs}/bin/qs";
         Restart = "on-failure";
         KillMode = "process";
       };

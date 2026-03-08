@@ -6,7 +6,7 @@ import qs.Common
 
 Rectangle {
     id: windowCapsule
-    color: Theme.color.surface
+    color: Theme.color.bg2
     radius: Theme.radius.lg
     height: Theme.height.sm
     implicitWidth: activeWindowText.implicitWidth + Theme.padding.md * 2
@@ -17,7 +17,7 @@ Rectangle {
         id: activeWindowText
         anchors.centerIn: parent
         text: windowCapsule.activeWindow
-        color: Theme.color.text
+        color: Theme.color.fg0
         font.pixelSize: Theme.font.sm
         font.family: Theme.font.ui
         font.weight: Theme.font.normal

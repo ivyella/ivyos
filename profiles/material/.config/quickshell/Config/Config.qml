@@ -8,7 +8,8 @@ Singleton {
 
     readonly property string configPath: Quickshell.env("HOME") + "/ivyos/profiles/material/.config/quickshell/Config/config.json"
 
-    property string currentTheme: "file:///home/ivy/ivyos/profiles/material/.config/quickshell/Common/Themes/IvyTheme.json" // Default filename (without .qml)
+    property string currentTheme: "file:///home/ivy/ivyos/profiles/material/.config/quickshell/Common/Themes/IvyTheme.json"
+    property string currentVariant: "default"
     property string currentWallpaper: "file:///home/ivy/ivyos/themes/wallpapers/a_group_of_trees_with_green_leaves.jpg"
 
     FileView {
@@ -19,27 +20,30 @@ Singleton {
         JsonAdapter {
             id: adapter
             property string theme
+            property string variant
             property string wallpaper
         }
 
         onLoaded: {
-            if (adapter.theme) root.currentTheme = adapter.theme;
-            if (adapter.wallpaper) root.currentWallpaper = adapter.wallpaper;
+            if (adapter.theme)    root.currentTheme    = adapter.theme
+            if (adapter.variant)  root.currentVariant  = adapter.variant
+            if (adapter.wallpaper) root.currentWallpaper = adapter.wallpaper
         }
 
         onLoadFailed: root.save()
-
         Component.onCompleted: reload()
     }
 
     function save() {
-        adapter.theme = root.currentTheme
+        adapter.theme    = root.currentTheme
+        adapter.variant  = root.currentVariant
         adapter.wallpaper = root.currentWallpaper
         file.writeAdapter()
     }
 
-    function setTheme(path) {
-        root.currentTheme = path
+    function setTheme(path, variant) {
+        root.currentTheme   = path
+        root.currentVariant = variant
         save()
     }
 

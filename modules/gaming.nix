@@ -1,16 +1,17 @@
 { config, pkgs, lib, ... }:
 {
- nixpkgs.config.permittedInsecurePackages = [
-    "nexusmods-app-0.21.1"
-  ];
+ 	nixpkgs.config.permittedInsecurePackages = [
+    	"nexusmods-app-0.21.1"
+  	];
 
-  environment.systemPackages = with pkgs; [
-    steam
-    protonplus
-    heroic
-    vitetris
-    nexusmods-app
-    prismlauncher
-  ];
-  programs.steam.enable = true;
+   environment.systemPackages = with pkgs; [
+    	steam
+     	protonplus
+      heroic
+      vitetris
+      nexusmods-app
+      prismlauncher
+   ];
+
+   programs.steam.enable = true;
 }

@@ -1,29 +1,19 @@
 { config, pkgs, ... }:
-
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-    ];
+	imports = [ ./hardware-configuration.nix ];
 
-  boot.loader = {
-    systemd-boot.enable = true;
-    efi.canTouchEfiVariables = true;
-    systemd-boot.consoleMode = "max";
-  };
+	networking.hostName = "mikoshi";
 
-  boot.kernelParams = [ "amdgpu.dc=1"
-  "videomode=1920x1080"
-  ];
-  services.xserver.videoDrivers = [ "amdgpu" ];
+	services.xserver.videoDrivers = [ "amdgpu" ];
+	boot = {
+   	kernelPackages = pkgs.linuxPackages_zen;
+    	kernelParams = [ "amdgpu.dc=1" "videomode=1920x1080" ];
+     	loader = {
+      	systemd-boot.enable = true;
+       	systemd-boot.consoleMode = "max";
+        	efi.canTouchEfiVariables = true;
+      };
+  	};
 
-  boot.kernelPackages = pkgs.linuxPackages_zen;
-
-
-  networking.hostName = "mikoshi"; # Define your hostname.
-
-  environment.systemPackages = with pkgs; [
-  ];
-
-  system.stateVersion = "25.11"; # Did you read the comment?
+  system.stateVersion = "25.11"; # Please do not the system.stateVersion
 }

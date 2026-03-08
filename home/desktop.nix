@@ -6,7 +6,6 @@ let
   configApps = [
     "kitty"
     "fish"
-    "fuzzel"
     "niri"
     "starship"
     "fastfetch"

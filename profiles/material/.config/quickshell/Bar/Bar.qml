@@ -14,6 +14,8 @@ Variants {
         id: root
         required property var modelData
         screen: modelData
+        readonly property bool isMain: modelData.name === "DP-1" 
+        readonly property bool isSecondary: modelData.name === "HDMI-A-1" 
 
         anchors {
             top: true
@@ -22,7 +24,7 @@ Variants {
         }
 
         implicitHeight: Theme.height.bar
-        color: Theme.color.base
+        color: Theme.color.bg0
 
         // ───── Base layout: LEFT + RIGHT only ─────
         RowLayout {
@@ -41,7 +43,7 @@ Variants {
                 Layout.alignment: Qt.AlignVCenter
 
                 Clock {}
-                Window {}
+                Window {visible: root.isMain}
             }
 
             Item { Layout.fillWidth: true }
@@ -52,13 +54,30 @@ Variants {
                 spacing: Theme.spacing.sm
                 Layout.alignment: Qt.AlignVCenter
 
-                Network {}
-                Volume {}
-                Tray {
-                    window: root
+                Network {visible: root.isMain}
+                Volume {visible: root.isMain}
+                
+                Rectangle {
+                    color: Theme.color.bg2
+                    radius: Theme.radius.lg
+                    height: Theme.height.sm
+                    implicitWidth: groupRow.implicitWidth + Theme.padding.md * 0
+
+                    RowLayout {
+                        id: groupRow
+                        anchors.centerIn: parent
+                        spacing: 0
+
+                        Tray { 
+                            window: root
+                            visible: root.isMain
+                            }
+                        Notification {visible: root.isMain}
+                        
+                    }
                 }
-                Notification {}
             }
+                
         }
 
         // ───── Center Overlay ─────
@@ -71,6 +90,7 @@ Variants {
                 id: mediaCapsule
                 anchors.centerIn: parent
             }
+            
         }
     }
 }

@@ -10,8 +10,9 @@ Variants {
     model: Quickshell.screens
     delegate: WlrLayershell {
         id: wpShell
+        required property var modelData
         namespace: "wallpaper"
-        //screen: modelData
+        screen: modelData
         exclusionMode: ExclusionMode.Ignore
 
         anchors {
@@ -45,7 +46,7 @@ Variants {
                     ShapePath {
                         id: cornersPath
 
-                        readonly property color cornerColor: Theme.color.base
+                        readonly property color cornerColor: Theme.color.bg0
                         readonly property real cornerRadius: 10
                         readonly property real cornerSize: 10
                         readonly property real topMargin: Theme.height.bar

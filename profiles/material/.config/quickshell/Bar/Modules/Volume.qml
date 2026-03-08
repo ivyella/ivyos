@@ -7,30 +7,35 @@ import QtQuick.Layouts
 
 Rectangle {
     id: volumeCapsule
-    color: Theme.color.surface
+    color: Theme.color.bg2
     radius: Theme.radius.lg
     height: Theme.height.sm
-    implicitWidth: volumeLayout.implicitWidth + Theme.padding.md * 2
+    implicitWidth: volumeLayout.implicitWidth + Theme.padding.md
 
     property int volumeLevel: 0
 
-    RowLayout {
+    RowLayout { 
         id: volumeLayout
-        anchors.centerIn: parent
         spacing: Theme.spacing.sm
-        Text {
-            id: volumeIcon
-            text: "󰕾"
-            color: Theme.color.text
-            font.pixelSize: Theme.font.sm
-            font.family: Theme.font.ui
-            
-            font.weight: Theme.font.normal
+        Rectangle{
+                id: volumeIconBackdrop
+                color: Theme.color.bg3
+                width: volumeIcon.iconSize
+                height: Theme.height.sm
+                radius: Theme.radius.lg  // optional, if you want it round
+                implicitWidth: volumeIcon.implicitWidth + Theme.padding.sm * 2
+                MdIcons {
+                    id: volumeIcon
+                    anchors.centerIn: parent
+                    text: volumeLevel == 0 ? "volume_off" : volumeLevel < 50 ? "volume_down" : "volume_up"
+                    iconSize: Theme.icon.sm
+                    fill: 1
+                }
         }
         Text {
             id: volumeText
             text: volumeLevel
-            color: Theme.color.subtext
+            color: Theme.color.fg1
             font.pixelSize: Theme.font.sm
             font.family: Theme.font.ui
         

@@ -37,9 +37,9 @@ Singleton {
             anchors.centerIn: parent  
             width: buttonRow.implicitWidth + 10  
             height: buttonRow.implicitHeight + 40  
-            color: Theme.color.base  
+            color: Theme.color.bg0
             border.width: 2  
-            border.color: Theme.color.outlineVariant  
+            border.color: Theme.color.border0
             radius: 20  
 
             focus: true  
@@ -64,15 +64,15 @@ Singleton {
                     Layout.preferredWidth: 140  
                     Layout.preferredHeight: 140  
                     radius: 16  
-                    color: Theme.color.surface  
+                    color: Theme.color.bg2
   
                     MouseArea {  
                         id: mouseArea1  
                         anchors.fill: parent  
                         hoverEnabled: true  
                         cursorShape: Qt.PointingHandCursor  
-                        onEntered: parent.color = Theme.color.accentDim  
-                        onExited: parent.color = Theme.color.surface  
+                        onEntered: parent.color = Theme.color.accent0  
+                        onExited: parent.color = Theme.color.bg2  
                         onClicked: {  
                             Quickshell.execDetached(["sh", "-c", "loginctl terminate-user " + Quickshell.env("USER")])  
                             root.menuVisible = false  
@@ -82,7 +82,7 @@ Singleton {
                     Text {  
                         anchors.centerIn: parent  
                         text: "Logout"  
-                        color: Theme.color.text  
+                        color: Theme.color.fg0
                         font.pixelSize: 16  
                         font.family: Theme.font.ui  
                         font.weight: Theme.font.medium  
@@ -93,15 +93,15 @@ Singleton {
                     Layout.preferredWidth: 140  
                     Layout.preferredHeight: 140  
                     radius: 16  
-                    color: Theme.color.surface  
+                    color: Theme.color.bg2
   
                     MouseArea {  
                         id: mouseArea2  
                         anchors.fill: parent  
                         hoverEnabled: true  
                         cursorShape: Qt.PointingHandCursor  
-                        onEntered: parent.color = Theme.color.accentDim  
-                        onExited: parent.color = Theme.color.surface  
+                        onEntered: parent.color = Theme.color.accent0  
+                        onExited: parent.color = Theme.color.bg2
                         onClicked: {  
                             Quickshell.execDetached(["sh", "-c", "reboot"])  
                             root.menuVisible = false  
@@ -111,7 +111,7 @@ Singleton {
                     Text {  
                         anchors.centerIn: parent  
                         text: "Reboot"  
-                        color: Theme.color.text  
+                        color: Theme.color.fg0
                         font.pixelSize: 16  
                         font.family: Theme.font.ui  
                         font.weight: Theme.font.medium  
@@ -122,15 +122,15 @@ Singleton {
                     Layout.preferredWidth: 140  
                     Layout.preferredHeight: 140  
                     radius: 16  
-                    color: Theme.color.surface  
+                    color: Theme.color.bg2
   
                     MouseArea {  
                         id: mouseArea3  
                         anchors.fill: parent  
                         hoverEnabled: true  
                         cursorShape: Qt.PointingHandCursor  
-                        onEntered: parent.color = Theme.color.accentDim  
-                        onExited: parent.color = Theme.color.surface  
+                        onEntered: parent.color = Theme.color.accent0
+                        onExited: parent.color = Theme.color.bg2 
                         onClicked: {  
                             Quickshell.execDetached(["sh", "-c", "shutdown now"])  
                             root.menuVisible = false  
@@ -140,7 +140,7 @@ Singleton {
                     Text {  
                         anchors.centerIn: parent  
                         text: "Shutdown"  
-                        color: Theme.color.text  
+                        color: Theme.color.fg0
                         font.pixelSize: 16  
                         font.family: Theme.font.ui  
                         font.weight: Theme.font.medium  

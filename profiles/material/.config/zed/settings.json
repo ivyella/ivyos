@@ -7,10 +7,10 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "tab_size": 3,
   "cursor_shape": "block",
   "auto_indent": false,
   "hard_tabs": true,
-  "tab_size": 5,
   "window_decorations": "server",
   "status_bar": {
     "cursor_position_button": false

@@ -13,6 +13,7 @@ let
     "qt5ct"
     "qt6ct"
     "zed"
+    "quickshell"
   ];
 
   gtkFiles = [

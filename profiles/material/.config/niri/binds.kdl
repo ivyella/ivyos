@@ -2,9 +2,6 @@
 
 binds {
 
-    Mod+R { spawn "fuzzel"; }
-    Super+Alt+L { spawn "swaylock"; }
-
     Mod+Tab repeat=false { toggle-overview; }
 
     Mod+Q { close-window; }
@@ -54,5 +51,6 @@ binds {
     Mod+Shift+T { spawn "qs" "ipc" "call" "theme" "toggle"; }
     Mod+Shift+P { spawn "qs" "ipc" "call" "wallpaper" "toggle"; }
     Mod+Shift+E { spawn "qs" "ipc" "call" "powerMenu" "toggle"; }
+    Mod+R { spawn "qs" "ipc" "call" "launcher" "toggle"; }
     Ctrl+Alt+Delete { quit; }
 }

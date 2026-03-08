@@ -7,10 +7,10 @@ import qs.Common
 
 Rectangle {
     id: mediaCapsule
-    color: Theme.color.surface
+    color: Theme.color.bg2
     radius: Theme.radius.lg
     height: Theme.height.sm
-    implicitWidth: mprisLayout.implicitWidth + Theme.padding.md * 2
+    implicitWidth: mprisLayout.implicitWidth + Theme.padding.md
     visible: title !== ""
 
     property var player: null
@@ -57,41 +57,57 @@ Rectangle {
 
     RowLayout {
         id: mprisLayout
-        anchors.centerIn: parent
         spacing: Theme.spacing.sm
 
-        Text {
-        visible: mediaCapsule.isSpotify
-        text: ""
-        color: Theme.color.subtext
-        font.pixelSize: Theme.font.sm
-        font.family: Theme.font.ui
+        
+        Rectangle {
+            id: spotifyIconBackdrop
+            visible: mediaCapsule.isSpotify
+            color: Theme.color.bg3
+            height: Theme.height.sm
+            radius: Theme.radius.lg  // optional, if you want it round
+            implicitWidth: spotifyIcon.implicitWidth + Theme.padding.sm * 2
+            MdIcons {
+                id: spotifyIcon
+                anchors.centerIn: parent
+                text: "music_note_2"
+                iconSize: Theme.icon.sm
+                fill: 1
+            }
         }
-        Text {
-        visible: mediaCapsule.isFirefox
-        text: "󰖟"
-        color: Theme.color.subtext
-        font.pixelSize: Theme.font.sm
-        font.family: Theme.font.ui
+        Rectangle {
+            id: firefoxIconBackdrop
+            visible: mediaCapsule.isFirefox
+            color: Theme.color.bg3
+            height: Theme.height.sm
+            radius: Theme.radius.lg  // optional, if you want it round
+            implicitWidth: firefoxIcon.implicitWidth + Theme.padding.sm * 2
+            MdIcons {
+                id: firefoxIcon
+                anchors.centerIn: parent
+                text: "language"
+                iconSize: Theme.icon.sm
+                fill: 1
+            }
         }
 
         Text {
             text: mediaCapsule.title
-            color: Theme.color.text
+            color: Theme.color.fg0
             font.pixelSize: Theme.font.sm
             font.family: Theme.font.ui
             font.weight: Theme.font.normal
         }
         Text {
             text: "•"
-            color: Theme.color.accentDim
+            color: Theme.color.accent0
             font.pixelSize: Theme.font.sm
             font.family: Theme.font.ui
             font.weight: Theme.font.normal
         }
         Text {
             text: mediaCapsule.artist
-            color: Theme.color.subtext
+            color: Theme.color.fg1
             font.pixelSize: Theme.font.sm
             font.family: Theme.font.ui
             font.weight: Theme.font.light

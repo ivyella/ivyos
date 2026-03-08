@@ -39,11 +39,11 @@ Singleton {
             anchors.topMargin: 40
             anchors.rightMargin: 10
             width: 400
-            height: Math.min(contentCol.implicitHeight + 32, 600)
-            color: Theme.color.base
-            radius: 16
+            height: Math.min(contentCol.implicitHeight + 32, 800)
+            color: Theme.color.bg0
+            radius: Theme.radius.md
             border.width: 2
-            border.color: Theme.color.accentDeep
+            border.color: Theme.color.border0
 
               
             focus: true  
@@ -74,7 +74,7 @@ Singleton {
                         font.pixelSize: 16
                         font.family: Theme.font.ui
                         font.weight: Theme.font.medium
-                        color: Theme.color.text
+                        color: Theme.color.fg0
                         Layout.fillWidth: true
                     }
 
@@ -82,14 +82,14 @@ Singleton {
                         width: 70
                         height: 28
                         radius: 14
-                        color: clearArea.containsMouse ? Theme.color.accent : Theme.color.surface
+                        color: clearArea.containsMouse ? Theme.color.accent0 : Theme.color.bg2
 
                         Text {
                             anchors.centerIn: parent
                             text: "Clear"
                             font.pixelSize: 12
                             font.family: Theme.font.ui
-                            color: Theme.color.text
+                            color: Theme.color.fg0
                         }
 
                         MouseArea {
@@ -106,7 +106,7 @@ Singleton {
                 Rectangle {
                     Layout.fillWidth: true
                     height: 1
-                    color: Theme.color.accentDeep
+                    color: Theme.color.border1
                 }
 
                 // ── List ──
@@ -125,10 +125,10 @@ Singleton {
                             required property var modelData
                             width: historyList.width
                             implicitHeight: itemCol.implicitHeight + 20
-                            color: Theme.color.surfaceLow
+                            color: Theme.color.bg1
                             radius: 12
                             border.width: 1
-                            border.color: Theme.color.accentDeep
+                            border.color: Theme.color.border0
 
                             ColumnLayout {
                                 id: itemCol
@@ -143,7 +143,7 @@ Singleton {
                                         text: modelData.appName ?? ""
                                         font.pixelSize: Theme.font.xs
                                         font.family: Theme.font.ui
-                                        color: Theme.color.subtext
+                                        color: Theme.color.fg1
                                         Layout.fillWidth: true
                                     }
 
@@ -151,7 +151,7 @@ Singleton {
                                         text: modelData.timestamp ? Qt.formatDateTime(new Date(Date.parse(modelData.timestamp)), "hh:mm AP") : ""
                                         font.pixelSize: 11
                                         font.family: Theme.font.ui
-                                        color: Theme.color.subtext
+                                        color: Theme.color.fg1
                                     }
                                 }
 
@@ -160,7 +160,7 @@ Singleton {
                                     font.bold: true
                                     font.pixelSize: 13
                                     font.family: Theme.font.ui
-                                    color: Theme.color.text
+                                    color: Theme.color.fg0
                                     Layout.fillWidth: true
                                     wrapMode: Text.WordWrap
                                 }
@@ -169,7 +169,7 @@ Singleton {
                                     text: modelData.body ?? ""
                                     font.pixelSize: 12
                                     font.family: Theme.font.ui
-                                    color: Theme.color.subtext
+                                    color: Theme.color.fg1
                                     Layout.fillWidth: true
                                     wrapMode: Text.WordWrap
                                     visible: modelData.body !== ""
@@ -183,7 +183,7 @@ Singleton {
                             text: "No notifications"
                             font.pixelSize: Theme.font.md
                             font.family: Theme.font.ui
-                            color: Theme.color.subtext
+                            color: Theme.color.fg1
                         }
                     }
                 }

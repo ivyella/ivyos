@@ -1,32 +1,25 @@
 { config, pkgs, ... }:
-
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-    ];
+	imports = [ ./hardware-configuration.nix ];
 
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelPackages = pkgs.linuxPackages_zen;
+	networking.hostName = "izanagi";
 
-  networking.hostName = "izanagi";
+	boot = {
+   	kernelPackages = pkgs.linuxPackages_zen;
+     	loader = {
+      	systemd-boot.enable = true;
+        	efi.canTouchEfiVariables = true;
+      };
+  	};
 
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
+   services.pulseaudio.enable = false;
+   security.rtkit.enable = true;
+   services.pipewire = {
+   	enable = true;
+    	alsa.enable = true;
+     	alsa.support32Bit = true;
+      pulse.enable = true;
+   };
 
-  # Enable sound with pipewire.
-  services.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-  };
-
-  environment.systemPackages = with pkgs; [
-  ];
-  system.stateVersion = "25.11";
-
+   system.stateVersion = "25.11";
 }

@@ -10,7 +10,8 @@ Variants {
         id: root
         required property var modelData
         screen: modelData
-
+        visible: modelData.name === "DP-1"
+        
         anchors {
             top: true
             right: true

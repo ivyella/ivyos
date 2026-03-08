@@ -7,38 +7,43 @@ import QtQuick.Layouts
 
 Rectangle {
     id: networkCapsule
-    color: Theme.color.surface
+    color: Theme.color.bg2
     radius: Theme.radius.lg
     height: Theme.height.sm
-    implicitWidth: networkLayout.implicitWidth + Theme.padding.md * 2
+    implicitWidth: networkLayout.implicitWidth + Theme.padding.md
 
-    property bool connected: activeConnectionType != ""
     property string activeConnectionType: ""
 
     RowLayout {
         id: networkLayout
-        anchors.centerIn: parent
+        
         spacing: Theme.spacing.sm
-        Text {
-            id: networkIcon
-            text: "󰈀"
-            color: Theme.color.text
-            font.pixelSize: Theme.font.sm
-            font.family: Theme.font.ui
-            font.weight: Theme.font.normal
-        }
-        Text {
-            id: networkText
-            text: networkCapsule.connected ? networkCapsule.activeConnectionType : "Disconnected"
-            color: Theme.color.subtext
-            font.pixelSize: Theme.font.sm
-            font.family: Theme.font.ui
-            font.weight: Theme.font.normal
-        }
-    }
 
-    function refresh() {
-        refreshProcess.running = true;
+        Rectangle{
+            id: networkIconBackdrop
+            color: Theme.color.bg3
+            width: networkIcon.iconSize
+            height: Theme.height.sm
+            radius: Theme.radius.lg  // optional, if you want it round
+            implicitWidth: networkIcon.implicitWidth + Theme.padding.sm * 2
+            MdIcons {
+                id: networkIcon
+                anchors.centerIn: parent
+                fill: 1
+                iconSize: Theme.font.sm
+                text: networkCapsule.activeConnectionType === "ethernet" ? "router" :
+                    networkCapsule.activeConnectionType === "wifi" ? "wifi" : "wifi_off"
+            }
+        }
+
+        Text {
+            text: networkCapsule.activeConnectionType === "ethernet" ? "Ethernet" :
+                  networkCapsule.activeConnectionType === "wifi" ? "Wi-Fi" : "Disconnected"
+            color: Theme.color.fg1
+            font.pixelSize: Theme.font.sm
+            font.family: Theme.font.ui
+            font.weight: Theme.font.normal
+        }
     }
 
     Process {
@@ -48,14 +53,10 @@ Rectangle {
             onStreamFinished: () => {
                 const types = this.text.split("\n");
                 const firstType = types[0] || "";
-                networkCapsule.activeConnectionType = refreshProcess.formatType(firstType);
+                if (firstType.includes("ethernet")) networkCapsule.activeConnectionType = "ethernet";
+                else if (firstType.includes("wireless")) networkCapsule.activeConnectionType = "wifi";
+                else networkCapsule.activeConnectionType = "wifi_off";
             }
-        }
-        
-        function formatType(type) {
-            if (type.includes("ethernet")) return "Connected";
-            if (type.includes("wireless")) return "Connected";
-            return "";
         }
     }
 
@@ -63,9 +64,9 @@ Rectangle {
         running: true
         command: ["nmcli", "monitor"]
         stdout: SplitParser {
-            onRead: networkCapsule.refresh()
+            onRead: refreshProcess.running = true
         }
     }
 
-    Component.onCompleted: refresh()
+    Component.onCompleted: refreshProcess.running = true
 }

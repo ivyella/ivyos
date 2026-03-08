@@ -12,6 +12,7 @@ import qs.NotificationHistory
 import qs.PowerMenu
 import qs.Config
 import qs.ThemeSwitcher
+import qs.Launcher
 
 ShellRoot {
     Bar{}
@@ -21,4 +22,5 @@ ShellRoot {
     TestOverlay {}
     readonly property var _themeSwitcher: ThemeSwitcher
     readonly property var _powerMenu: PowerMenu
+    readonly property var _launcher: Launcher
 } 

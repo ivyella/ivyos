@@ -1,0 +1,15 @@
+{
+    "counts": {
+        "Files": 1,
+        "Firefox": 2,
+        "Zed": 2,
+        "kitty": 2
+    },
+    "pinned": [
+        "kitty",
+        "Zed",
+        "Files",
+        "Firefox",
+        "Aseprite"
+    ]
+}

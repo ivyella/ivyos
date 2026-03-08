@@ -36,19 +36,19 @@ in
     # .config apps
     map (app: {
       name = ".config/${app}";
-      value.source = config.lib.file.mkOutOfStoreSymlink "${ivyRoot}/profiles/material/.config/${app}";
+      value.source = config.lib.file.mkOutOfStoreSymlink "${ivyRoot}/profiles/ivyshell/.config/${app}";
     }) configApps
     ++
     # GTK files
     map (file: {
       name = ".config/${file}";
-      value.source = config.lib.file.mkOutOfStoreSymlink "${ivyRoot}/profiles/material/.config/${file}";
+      value.source = config.lib.file.mkOutOfStoreSymlink "${ivyRoot}/profiles/ivyshell/.config/${file}";
     }) gtkFiles
     ++
     # .local/share symlinks
     [
-      { name = ".local/share/color-schemes"; value.source = config.lib.file.mkOutOfStoreSymlink "${ivyRoot}/profiles/material/.local/share/color-schemes"; }
-      { name = ".local/share/PrismLauncher/themes"; value.source = config.lib.file.mkOutOfStoreSymlink "${ivyRoot}/profiles/material/.local/share/PrismLauncher/themes"; }
+      { name = ".local/share/color-schemes"; value.source = config.lib.file.mkOutOfStoreSymlink "${ivyRoot}/profiles/ivyshell/.local/share/color-schemes"; }
+      { name = ".local/share/PrismLauncher/themes"; value.source = config.lib.file.mkOutOfStoreSymlink "${ivyRoot}/profiles/ivyshell/.local/share/PrismLauncher/themes"; }
       { name = ".local/share/icons/poisonivy"; value.source = config.lib.file.mkOutOfStoreSymlink "${ivyRoot}/themes/icons/poisonivy"; }
     ]
   );

@@ -6,11 +6,10 @@ import QtQuick
 Singleton {
     id: root
 
-    readonly property string configPath: Quickshell.env("HOME") + "/ivyos/profiles/material/.config/quickshell/Config/config.json"
-
-    property string currentTheme: "file:///home/ivy/ivyos/profiles/material/.config/quickshell/Common/Themes/IvyTheme.json"
+    readonly property string configPath: Quickshell.env("HOME") + "/ivyos/profiles/ivyshell/.config/quickshell/Config/config.json"
+    property string currentTheme: "file://" + Quickshell.env("HOME") + "/ivyos/themes/colors/quickshell/IvyTheme.json"
     property string currentVariant: "default"
-    property string currentWallpaper: "file:///home/ivy/ivyos/themes/wallpapers/a_group_of_trees_with_green_leaves.jpg"
+    property string currentWallpaper: "file://" + Quickshell.env("HOME") + "/ivyos/themes/wallpapers/a_group_of_trees_with_green_leaves.jpg"
 
     FileView {
         id: file
@@ -25,8 +24,8 @@ Singleton {
         }
 
         onLoaded: {
-            if (adapter.theme)    root.currentTheme    = adapter.theme
-            if (adapter.variant)  root.currentVariant  = adapter.variant
+            if (adapter.theme)     root.currentTheme     = adapter.theme
+            if (adapter.variant)   root.currentVariant   = adapter.variant
             if (adapter.wallpaper) root.currentWallpaper = adapter.wallpaper
         }
 
@@ -35,8 +34,8 @@ Singleton {
     }
 
     function save() {
-        adapter.theme    = root.currentTheme
-        adapter.variant  = root.currentVariant
+        adapter.theme     = root.currentTheme
+        adapter.variant   = root.currentVariant
         adapter.wallpaper = root.currentWallpaper
         file.writeAdapter()
     }

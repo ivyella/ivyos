@@ -14,7 +14,7 @@ Singleton {
     id: root
     property bool switcherVisible: false
 
-    property string themeDir: "file://" + Quickshell.env("HOME") + "/ivyos/profiles/material/.config/quickshell/Common/Themes/"
+    property string themeDir: "file://" + Quickshell.env("HOME") + "/ivyos/themes/colors/quickshell/"
 
     IpcHandler {
         target: "theme"

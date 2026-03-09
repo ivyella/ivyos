@@ -1,16 +1,16 @@
 {
     "counts": {
-        "Files": 25,
+        "Files": 26,
         "Firefox": 13,
         "Gapless": 3,
-        "Krita": 2,
+        "Krita": 3,
         "Obsidian": 1,
-        "Prism Launcher": 14,
+        "Prism Launcher": 15,
         "Spotify": 2,
-        "VSCodium": 3,
+        "VSCodium": 4,
         "Vesktop": 1,
-        "Zed": 5,
-        "kitty": 70
+        "Zed": 6,
+        "kitty": 73
     },
     "pinned": [
         "Prism Launcher",

@@ -7,7 +7,7 @@ Singleton {
     id: root
 
     readonly property string configPath: Quickshell.env("HOME") + "/ivyos/ivyshell/shell/Config/config.json"
-    property string currentTheme: "file://" + Quickshell.env("HOME") + "/ivyos/ivyshell/themes/colors/quickshell/IvyTheme.json"
+    property string currentTheme: "file://" + Quickshell.env("HOME") + "/ivyos/ivyshell/themes/colors/IvyTheme.json"
     property string currentVariant: "default"
     property string currentWallpaper: "file://" + Quickshell.env("HOME") + "/ivyos/ivyshell/themes/wallpapers/a_group_of_trees_with_green_leaves.jpg"
 

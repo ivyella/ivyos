@@ -13,7 +13,7 @@ fi
 PACK=$(echo "$SLUG" | cut -d/ -f1)
 VARIANT=$(echo "$SLUG" | cut -d/ -f2)
 
-THEMES_DIR="$HOME/ivyos/ivyshell/themes/colors/quickshell"
+THEMES_DIR="$HOME/ivyos/ivyshell/themes/colors"
 SCRIPTS_DIR="$HOME/ivyos/ivyshell/scripts"
 TEMPLATES_DIR="$SCRIPTS_DIR/templates"
 TARGETS_FILE="$SCRIPTS_DIR/targets.json"

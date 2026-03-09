@@ -1,11 +1,19 @@
 {
     "counts": {
-        "Files": 3,
-        "Firefox": 8,
-        "Zed": 2,
-        "kitty": 9
+        "Files": 6,
+        "Firefox": 11,
+        "Obsidian": 1,
+        "Spotify": 1,
+        "VSCodium": 2,
+        "Vesktop": 1,
+        "Zed": 3,
+        "kitty": 17
     },
     "pinned": [
+        "Vesktop",
+        "VSCodium",
+        "Obsidian",
+        "Spotify",
         "kitty",
         "Zed",
         "Files",

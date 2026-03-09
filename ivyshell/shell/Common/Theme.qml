@@ -22,6 +22,22 @@ Singleton {
         root._f = variant.font  ?? {}
     }
 
+    function getThemeSlug() {
+        const path = Config.currentTheme.replace("file://", "")
+        const packName = path.split("/").pop().replace(".json", "").toLowerCase()
+        return `${packName}/${Config.currentVariant}`
+    }
+
+    function applyExternalThemes() {
+        applyThemeProcess.running = false
+        applyThemeProcess.command = [
+            "bash",
+            Quickshell.env("HOME") + "/ivyos/ivyshell/scripts/apply-theme.sh",
+            getThemeSlug()
+        ]
+        applyThemeProcess.running = true
+    }
+
     readonly property QtObject color: QtObject {
         // backgrounds
         readonly property color bg0: root._c.bg0 ?? "#161615" //base
@@ -144,8 +160,24 @@ Singleton {
         onLoaded: root.applyVariant()
     }
 
+    Process {
+        id: applyThemeProcess
+        running: false
+        onExited: (code, status) => {
+            if (code !== 0)
+                console.warn("ivyshell: apply-theme exited with code", code)
+        }
+    }
+
     Connections {
         target: Config
-        function onCurrentVariantChanged() { root.applyVariant() }
+        function onCurrentVariantChanged() {
+            root.applyVariant()
+            root.applyExternalThemes()
+        }
+        function onCurrentThemeChanged() {
+            root.applyVariant()
+            root.applyExternalThemes()
+        }
     }
 }

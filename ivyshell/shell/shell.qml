@@ -8,12 +8,12 @@ import qs.Wallpaper
 import qs.Ipc
 import Quickshell.Io  
 import qs.Test
-import qs.NotificationHistory
 import qs.PowerMenu
 import qs.Config
 import qs.ThemeSwitcher
 import qs.Launcher
 import qs.TrayMenu
+import qs.NotificationHistory
 
 ShellRoot {
     Bar{}

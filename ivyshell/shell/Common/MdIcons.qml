@@ -3,7 +3,7 @@ import qs.Common
 
 Text {
     id: root
-    color: Theme.color.fg0
+    color: Theme.color.fg1
     property real iconSize: 16
     property real fill: 1
     renderType: Text.NativeRendering

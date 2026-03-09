@@ -26,6 +26,7 @@
 	environment.systemPackages = with pkgs; [
    	kitty
 	   fish
+		jq
 	   starship
 	   fastfetch
 	   eza

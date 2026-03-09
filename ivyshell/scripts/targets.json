@@ -1,0 +1,36 @@
+{
+	"targets": [
+		{
+			"template": "gtk-colors.css",
+			"output": "~/.config/gtk-4.0/colors.css"
+		},
+		{
+			"template": "gtk-colors.css",
+			"output": "~/.config/gtk-3.0/colors.css"
+		},
+		{
+			"template": "niri-colors.kdl",
+			"output": "~/.config/niri/colors.kdl"
+		},
+		{
+			"template": "kitty-colors.conf",
+			"output": "~/.config/kitty/current-theme.conf"
+		},
+		{
+			"template": "starship-colors.toml",
+			"output": "~/.config/starship.toml"
+		},
+		{
+			"template": "prism-theme.json",
+			"output": "~/.local/share/PrismLauncher/themes/IvyShell/theme.json"
+		},
+		{
+			"template": "prism-theme.css",
+			"output": "~/.local/share/PrismLauncher/themes/IvyShell/themeStyle.css"
+		},
+		{
+			"template": "qt-colors.colors",
+			"output": "~/.local/share/color-schemes/IvyShell.colors"
+		}
+	]
+}

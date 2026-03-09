@@ -7,6 +7,7 @@ let
   configApps = [
     "kitty"
     "fish"
+    "niri"
     "starship"
     "fastfetch"
     "qt5ct"
@@ -39,16 +40,6 @@ in
     }) gtkFiles
     ++
     [
-    	{ name = ".config/niri/config.kdl";               value.source = config.lib.file.mkOutOfStoreSymlink "${ivyshell}/niri/config.kdl"; }
-		{ name = ".config/niri/colors.kdl";               value.source = config.lib.file.mkOutOfStoreSymlink "${ivyshell}/niri/colors.kdl"; }
-		{ name = ".config/niri/appearance.kdl";           value.source = config.lib.file.mkOutOfStoreSymlink "${ivyshell}/niri/appearance.kdl"; }
-		{ name = ".config/niri/binds.kdl";                value.source = config.lib.file.mkOutOfStoreSymlink "${ivyshell}/niri/binds.kdl"; }
-		{ name = ".config/niri/environment.kdl";          value.source = config.lib.file.mkOutOfStoreSymlink "${ivyshell}/niri/environment.kdl"; }
-		{ name = ".config/niri/inputs.kdl";               value.source = config.lib.file.mkOutOfStoreSymlink "${ivyshell}/niri/inputs.kdl"; }
-		{ name = ".config/niri/monitors.kdl";             value.source = config.lib.file.mkOutOfStoreSymlink "${ivyshell}/niri/monitors.kdl"; }
-		{ name = ".config/niri/windowrules.kdl";  		  value.source = config.lib.file.mkOutOfStoreSymlink "${ivyshell}/niri/windowrules.kdl"; }
-		{ name = ".config/niri/themes";           		  value.source = config.lib.file.mkOutOfStoreSymlink "${ivyshell}/themes/colors/niri"; }
-
       { name = ".config/quickshell";                    value.source = config.lib.file.mkOutOfStoreSymlink "${ivyshell}/shell"; }
       { name = ".local/share/color-schemes";            value.source = config.lib.file.mkOutOfStoreSymlink "${ivyshell}/.local/share/color-schemes"; }
       { name = ".local/share/PrismLauncher/themes";     value.source = config.lib.file.mkOutOfStoreSymlink "${ivyshell}/.local/share/PrismLauncher/themes"; }

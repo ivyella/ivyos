@@ -21,6 +21,9 @@ Rectangle {
         anchors.centerIn: parent
         text: NotiServer.history.length > 0 ? "notifications_unread" : "notifications"
         iconSize: Theme.icon.sm
+        color: mouseArea.containsMouse || NotificationHistory.historyVisible
+            ? Theme.color.bg3
+            : Theme.color.accent0
         fill: 1
     }
 

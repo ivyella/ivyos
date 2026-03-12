@@ -31,6 +31,7 @@ Rectangle {
                 anchors.centerIn: parent
                 fill: 1
                 iconSize: Theme.font.sm
+                color: Theme.color.accent0
                 text: networkCapsule.activeConnectionType === "ethernet" ? "router" :
                     networkCapsule.activeConnectionType === "wifi" ? "wifi" : "wifi_off"
             }

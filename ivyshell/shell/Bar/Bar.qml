@@ -56,7 +56,10 @@ Variants {
 
                 Network {visible: root.isMain}
                 Volume {visible: root.isMain}
-                
+                Battery {
+                    id: batteryWidget
+                    visible: root.isMain && batteryWidget.batteryAvailable
+                }
                 Rectangle {
                     color: Theme.color.bg2
                     radius: Theme.radius.lg

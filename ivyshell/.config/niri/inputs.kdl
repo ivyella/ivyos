@@ -7,6 +7,9 @@ input {
         }
         numlock
     }
+    tablet {
+        map-to-output "HDMI-A-1" // HDMI-A-1 | DP-1
+    }
     touchpad {
         tap
         natural-scroll

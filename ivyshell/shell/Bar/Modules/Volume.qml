@@ -29,6 +29,7 @@ Rectangle {
                     anchors.centerIn: parent
                     text: volumeLevel == 0 ? "volume_off" : volumeLevel < 50 ? "volume_down" : "volume_up"
                     iconSize: Theme.icon.sm
+                    color: Theme.color.accent0
                     fill: 1
                 }
         }

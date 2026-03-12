@@ -72,6 +72,7 @@ Rectangle {
                 anchors.centerIn: parent
                 text: "music_note_2"
                 iconSize: Theme.icon.sm
+                color: Theme.color.accent0
                 fill: 1
             }
         }

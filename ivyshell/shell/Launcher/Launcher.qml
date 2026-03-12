@@ -118,7 +118,7 @@ Singleton {
         id: scanner
         command: [
             "bash", "-c",
-            "find /run/current-system/sw/share/applications ~/.local/share/applications -name '*.desktop' 2>/dev/null" +
+            "find /run/current-system/sw/share/applications ~/.local/share/applications /var/lib/flatpak/exports/share/applications ~/.local/share/flatpak/exports/share/applications -name '*.desktop' 2>/dev/null" +
             " | while read f; do " +
             "name=$(grep -m1 '^Name=' \"$f\" | cut -d= -f2-); " +
             "exec=$(grep -m1 '^Exec=' \"$f\" | cut -d= -f2- | sed 's/ *%[^ ]*//g' | sed 's/^ *//;s/ *$//'); " +

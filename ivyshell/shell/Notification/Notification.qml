@@ -3,6 +3,7 @@ import QtQuick
 import Quickshell
 import Quickshell.Wayland
 import qs.Notification
+import qs.Common
 
 Variants {
     model: Quickshell.screens
@@ -10,7 +11,7 @@ Variants {
         id: root
         required property var modelData
         screen: modelData
-        visible: modelData.name === "DP-1"
+        visible: modelData.name === Displays.primary
         
         anchors {
             top: true

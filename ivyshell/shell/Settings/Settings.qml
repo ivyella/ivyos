@@ -117,6 +117,13 @@ Singleton {
                         activePage: root.activePage
                         onActivate: root.activePage = "about"
                     }
+                    NavItem {
+                        label: "Displays"
+                        page: "displays"
+                        icon: "monitor"
+                        activePage: root.activePage
+                        onActivate: root.activePage = "displays"
+                    }
 
                     Text {
                         text: "Appearance"
@@ -157,13 +164,14 @@ Singleton {
                     sourceComponent : root.activePage === "theme"    ? themePage
                                     : root.activePage === "wallpaper" ? wallpaperPage
                                     : root.activePage === "about" ? aboutPage
+                                    : root.activePage === "displays"   ? displaysPage
                                     : aboutPage
                 }
 
                 Component { id: themePage; ThemePage {} }
                 Component { id: wallpaperPage; WallpaperPage {} }
                 Component { id: aboutPage; AboutPage {} }
-                
+                Component { id: displaysPage; DisplayPage {} }
             }
         }
     }

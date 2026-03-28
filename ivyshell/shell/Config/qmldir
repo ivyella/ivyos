@@ -1,0 +1,2 @@
+singleton NiriOutputs NiriOutputs.qml
+singleton Config Config.qml

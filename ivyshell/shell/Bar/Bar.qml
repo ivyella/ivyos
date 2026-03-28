@@ -14,8 +14,8 @@ Variants {
         id: root
         required property var modelData
         screen: modelData
-        readonly property bool isMain: modelData.name === "DP-1" 
-        readonly property bool isSecondary: modelData.name === "HDMI-A-1" 
+        readonly property bool isMain: modelData.name === Displays.primary
+        readonly property bool isSecondary: modelData.name === Displays.secondary
 
         anchors {
             top: true

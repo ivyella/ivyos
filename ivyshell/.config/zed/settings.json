@@ -45,9 +45,5 @@
   },
   "ui_font_size": 16,
   "buffer_font_size": 15,
-  "theme": {
-    "mode": "dark",
-    "light": "Ayu Light",
-    "dark": "Matugen Dark"
-  }
+  "theme": "Ayu Dark"
 }

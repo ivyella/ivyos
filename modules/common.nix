@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, inputs, ... }:
 {
 	users.users.ivy = {
 		isNormalUser = true;
@@ -24,11 +24,25 @@
    };
 
 	environment.systemPackages = with pkgs; [
+		(inputs.fenix.packages.${pkgs.system}.stable.withComponents [
+	      "cargo"
+	      "clippy"
+	      "rust-src"
+	      "rustc"
+	      "rustfmt"
+	    ])
+		gcc
+		lazygit
+		file
+		zellij
    	kitty
 	   fish
 		jq
+		gh
+		helix
 	   starship
 	   fastfetch
+		pciutils
 	   eza
 		pavucontrol
 	   openjdk21
@@ -54,9 +68,19 @@
 	   zed-editor
 		gapless
 		whatsapp-electron
+		vulkan-tools
 	];
 
-   hardware.graphics.enable = true;
+   hardware.graphics = {
+	  enable = true;
+	  enable32Bit = true; # This is the missing link for PS2/PCSX2
+	};
+	services.pipewire = {
+	  enable = true;
+	  alsa.enable = true;
+	  alsa.support32Bit = true;
+	  pulse.enable = true;
+	};
    nixpkgs.config.allowUnfree = true;
    nix.settings.experimental-features = [ "nix-command" "flakes" ];
    programs.nix-ld.enable = true;

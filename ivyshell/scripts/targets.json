@@ -31,6 +31,14 @@
 		{
 			"template": "qt-colors.colors",
 			"output": "~/.local/share/color-schemes/IvyShell.colors"
+		},
+		{
+			"template": "helix-theme.toml",
+			"output": "~/.config/helix/themes/dynamic.toml"
+		},
+		{
+			"template": "vscode-theme.json",
+			"output": "~/.vscode-oss/extensions/ivyella.ivy-theme-1.0.0/themes/ivy.json"
 		}
 	]
 }

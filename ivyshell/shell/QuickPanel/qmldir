@@ -1,0 +1,2 @@
+module qs.QuickPanel
+singleton QuickPanel QuickPanel.qml

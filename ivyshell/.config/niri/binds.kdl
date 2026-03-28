@@ -48,9 +48,11 @@ binds {
 
     Ctrl+F4 { screenshot; }
     Mod+Shift+N { spawn "qs" "ipc" "call" "NotificationHistory" "toggle"; }
-    Mod+Shift+T { spawn "qs" "ipc" "call" "theme" "toggle"; }
+    Mod+Shift+T { spawn "kitty"; }
     Mod+Shift+P { spawn "qs" "ipc" "call" "wallpaper" "toggle"; }
     Mod+Shift+E { spawn "qs" "ipc" "call" "powerMenu" "toggle"; }
     Mod+R { spawn "qs" "ipc" "call" "launcher" "toggle"; }
+    Mod+Shift+S { spawn "qs" "ipc" "call" "settings" "toggle"; }
+    Mod+Shift+C { spawn "qs" "ipc" "call" "controlpanel" "toggle"; }
     Ctrl+Alt+Delete { quit; }
 }

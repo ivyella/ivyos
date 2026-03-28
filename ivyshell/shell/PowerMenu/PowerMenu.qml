@@ -28,127 +28,93 @@ Singleton {
   
         MouseArea {  
             anchors.fill: parent  
-            propagateComposedEvents: false  
             onClicked: root.menuVisible = false  
         }  
-        
-        
+  
         Rectangle {  
             anchors.centerIn: parent  
-            width: buttonRow.implicitWidth + 10  
-            height: buttonRow.implicitHeight + 40  
+            width: buttonRow.implicitWidth + Theme.spacing.xl * 2
+            height: buttonRow.implicitHeight + Theme.spacing.xl * 2
             color: Theme.color.bg0
             border.width: 2  
             border.color: Theme.color.border0
-            radius: 20  
+            radius: Theme.radius.lg
 
             focus: true  
-        
             Keys.onPressed: (event) => {  
-                if (event.key === Qt.Key_Escape) {  
-                    root.menuVisible = false;  
-                }  
+                if (event.key === Qt.Key_Escape)  
+                    root.menuVisible = false  
             }  
-        
             onVisibleChanged: if (visible) forceActiveFocus()  
-        
-            MouseArea { anchors.fill: parent; onClicked: {} } 
+            MouseArea { anchors.fill: parent; onClicked: {} }
+
             RowLayout {  
                 id: buttonRow  
                 anchors.centerIn: parent  
-                spacing: 20  
-  
-                Item { Layout.fillWidth: true }  
-  
-                Rectangle {  
-                    Layout.preferredWidth: 140  
-                    Layout.preferredHeight: 140  
-                    radius: 16  
-                    color: Theme.color.bg2
-  
-                    MouseArea {  
-                        id: mouseArea1  
-                        anchors.fill: parent  
-                        hoverEnabled: true  
-                        cursorShape: Qt.PointingHandCursor  
-                        onEntered: parent.color = Theme.color.accent0  
-                        onExited: parent.color = Theme.color.bg2  
-                        onClicked: {  
-                            Quickshell.execDetached(["sh", "-c", "loginctl terminate-user " + Quickshell.env("USER")])  
-                            root.menuVisible = false  
-                        }  
-                    }  
-  
-                    Text {  
-                        anchors.centerIn: parent  
-                        text: "Logout"  
-                        color: Theme.color.fg0
-                        font.pixelSize: 16  
-                        font.family: Theme.font.ui  
-                        font.weight: Theme.font.medium  
-                    }  
-                }  
-  
-                Rectangle {  
-                    Layout.preferredWidth: 140  
-                    Layout.preferredHeight: 140  
-                    radius: 16  
-                    color: Theme.color.bg2
-  
-                    MouseArea {  
-                        id: mouseArea2  
-                        anchors.fill: parent  
-                        hoverEnabled: true  
-                        cursorShape: Qt.PointingHandCursor  
-                        onEntered: parent.color = Theme.color.accent0  
-                        onExited: parent.color = Theme.color.bg2
-                        onClicked: {  
-                            Quickshell.execDetached(["sh", "-c", "reboot"])  
-                            root.menuVisible = false  
-                        }  
-                    }  
-  
-                    Text {  
-                        anchors.centerIn: parent  
-                        text: "Reboot"  
-                        color: Theme.color.fg0
-                        font.pixelSize: 16  
-                        font.family: Theme.font.ui  
-                        font.weight: Theme.font.medium  
-                    }  
-                }  
-  
-                Rectangle {  
-                    Layout.preferredWidth: 140  
-                    Layout.preferredHeight: 140  
-                    radius: 16  
-                    color: Theme.color.bg2
-  
-                    MouseArea {  
-                        id: mouseArea3  
-                        anchors.fill: parent  
-                        hoverEnabled: true  
-                        cursorShape: Qt.PointingHandCursor  
-                        onEntered: parent.color = Theme.color.accent0
-                        onExited: parent.color = Theme.color.bg2 
-                        onClicked: {  
-                            Quickshell.execDetached(["sh", "-c", "shutdown now"])  
-                            root.menuVisible = false  
-                        }  
-                    }  
-  
-                    Text {  
-                        anchors.centerIn: parent  
-                        text: "Shutdown"  
-                        color: Theme.color.fg0
-                        font.pixelSize: 16  
-                        font.family: Theme.font.ui  
-                        font.weight: Theme.font.medium  
-                    }  
-                }  
-  
-                Item { Layout.fillWidth: true }  
-            }  
-        }  
-    }  
+                spacing: Theme.spacing.lg
+
+                Repeater {
+                    model: [
+                        { icon: "logout",             label: "Logout",   cmd: "loginctl terminate-user " + Quickshell.env("USER") },
+                        { icon: "restart_alt",        label: "Reboot",   cmd: "reboot" },
+                        { icon: "power_settings_new", label: "Shutdown", cmd: "shutdown now" }
+                    ]
+
+                    delegate: Rectangle {
+                        id: btn
+                        required property var modelData
+                        property bool hovered: false
+
+                        Layout.preferredWidth: 110
+                        Layout.preferredHeight: 110
+                        radius: Theme.radius.md
+                        color: hovered ? Theme.color.accent0 : Theme.color.bg2
+
+                        Behavior on color { ColorAnimation { duration: 150 } }
+
+                        ColumnLayout {
+                            anchors.centerIn: parent
+                            spacing: Theme.spacing.sm
+
+                            Text {
+                                Layout.alignment: Qt.AlignHCenter
+                                text: btn.modelData.icon
+                                color: btn.hovered ? Theme.color.bg0 : Theme.color.fg0
+                                font.family: "Material Symbols Rounded"
+                                font.weight: 800
+                                font.pixelSize: 42
+                                font.variableAxes: ({ "FILL": "1", "opsz": Theme.icon.lg })
+                                renderType: Text.NativeRendering
+
+                                Behavior on color { ColorAnimation { duration: 150 } }
+                            }
+
+                            Text {
+                                Layout.alignment: Qt.AlignHCenter
+                                text: btn.modelData.label
+                                color: btn.hovered ? Theme.color.bg0 : Theme.color.fg1
+                                font.pixelSize: Theme.font.sm
+                                font.family: Theme.font.ui
+                                font.weight: Theme.font.medium
+
+                                Behavior on color { ColorAnimation { duration: 150 } }
+                            }
+                        }
+
+                        MouseArea {
+                            anchors.fill: parent
+                            hoverEnabled: true
+                            cursorShape: Qt.PointingHandCursor
+                            onEntered: btn.hovered = true
+                            onExited: btn.hovered = false
+                            onClicked: {
+                                Quickshell.execDetached(["sh", "-c", btn.modelData.cmd])
+                                root.menuVisible = false
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

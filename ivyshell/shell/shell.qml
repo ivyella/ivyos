@@ -5,23 +5,24 @@ import Quickshell.Wayland
 import qs.Bar
 import qs.Notification
 import qs.Wallpaper
-import qs.Ipc
 import Quickshell.Io  
-import qs.Test
 import qs.PowerMenu 
 import qs.Config
-import qs.ThemeSwitcher
 import qs.Launcher
 import qs.TrayMenu
 import qs.NotificationHistory
+import qs.Settings
+import qs.ControlPanel
+import qs.QuickPanel 
 
 ShellRoot {
     Bar{}
     Notification {}
-    Ipc {}
     Wallpaper {}
-    TestOverlay {}
     readonly property var _themeSwitcher: ThemeSwitcher
     readonly property var _powerMenu: PowerMenu
     readonly property var _launcher: Launcher
+    readonly property var _settings: Settings
+    readonly property var _controlPanel: ControlPanel
+    readonly property var _quickPanel: QuickPanel 
 } 

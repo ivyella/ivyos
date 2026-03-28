@@ -13,6 +13,8 @@ let
     "qt5ct"
     "qt6ct"
     "zed"
+    "helix"
+    "yazi"
   ];
 
   gtkFiles = [
@@ -44,10 +46,12 @@ in
       { name = ".local/share/color-schemes";            value.source = config.lib.file.mkOutOfStoreSymlink "${ivyshell}/.local/share/color-schemes"; }
       { name = ".local/share/PrismLauncher/themes";     value.source = config.lib.file.mkOutOfStoreSymlink "${ivyshell}/.local/share/PrismLauncher/themes"; }
       { name = ".local/share/icons/poisonivy";          value.source = config.lib.file.mkOutOfStoreSymlink "${ivyshell}/themes/icons/poisonivy"; }
+      { name = ".vscode-oss/extensions/ivyella.ivy-theme-1.0.0"; value.source = config.lib.file.mkOutOfStoreSymlink "${ivyshell}/.vscode-oss/extensions/ivyella.ivy-theme-1.0.0"; }
     ]
   );
 
   home.sessionVariables = {
+    EDITOR = "hx";
     XCURSOR_THEME = "Bibata-Modern-Classic";
     XCURSOR_SIZE = "20";
   };

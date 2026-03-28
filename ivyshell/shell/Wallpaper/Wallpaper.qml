@@ -5,6 +5,7 @@ import QtQuick.Shapes
 import Quickshell.Wayland
 import qs.Wallpaper
 import qs.Common
+import qs.Config
 
 Variants {
     model: Quickshell.screens
@@ -27,7 +28,7 @@ Variants {
         Image {
             anchors.fill: parent
             fillMode: Image.PreserveAspectCrop
-            source: WallSwitcher.currentWall
+            source: Config.currentWallpaper
             mipmap: true
         }
 

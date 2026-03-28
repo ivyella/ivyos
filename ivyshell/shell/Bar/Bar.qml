@@ -42,6 +42,7 @@ Variants {
                 spacing: Theme.spacing.sm
                 Layout.alignment: Qt.AlignVCenter
 
+                SettingsButton {}
                 Clock {}
                 Window {visible: root.isMain}
             }

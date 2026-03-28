@@ -1,0 +1,13 @@
+{
+    "modules": [
+        "User",
+        "OS",
+        "Kernel",
+        "WM",
+        "CPU",
+        "GPU",
+        "Memory",
+        "Disk",
+        "Uptime"
+    ]
+}

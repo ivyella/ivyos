@@ -26,7 +26,45 @@ window-rule { // Window Corner Radius
     clip-to-geometry true
 }
 
-animations {} // To be worked on in the future idk
+animations {
+	overview-open-close {
+	   duration-ms 250
+	   curve "ease-out-cubic"
+	}
+	recent-windows-close {
+	   duration-ms 140
+	   curve "ease-out-cubic"
+	}
+	config-notification-open-close {
+	   duration-ms 160
+		curve "ease-out-cubic"
+	}
+	screenshot-ui-open {
+	   duration-ms 180
+	   curve "ease-out-expo"
+	}
+	window-open {
+	   duration-ms 200
+	   curve "ease-out-expo"
+	}
+	window-close {
+	   duration-ms 160
+	   curve "ease-out-cubic"
+	}
+	window-resize {
+	   duration-ms 180
+	   curve "ease-out-expo"
+	}
+	workspace-switch {
+	   spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
+	}
+	horizontal-view-movement {
+	   spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
+	}
+	window-movement {
+	   spring damping-ratio=1.0 stiffness=700 epsilon=0.0001
+	}
+}
 
 // Overview
 overview {

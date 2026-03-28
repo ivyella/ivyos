@@ -1,14 +1,18 @@
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    home-manager = {
+   home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-    quickshell = {
+   };
+   quickshell = {
       url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
+   };
+   fenix = {
+    	url = "github:nix-community/fenix";
+     	inputs.nixpkgs.follows = "nixpkgs";
+   };
   };
   outputs = inputs: {
     nixosConfigurations = {

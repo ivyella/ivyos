@@ -14,6 +14,7 @@
         	efi.canTouchEfiVariables = true;
       };
   	};
-
+   programs.appimage.enable = true;
+   programs.appimage.binfmt = true;
   system.stateVersion = "25.11"; # Please do not the system.stateVersion
 }

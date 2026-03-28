@@ -2,9 +2,10 @@
 {
   	environment.systemPackages = with pkgs; [
     	krita
-    	aseprite
-     	blockbench
+   # 	aseprite
+   #  	blockbench
       penpot-desktop
       obsidian
+      obs-studio
    ];
 }

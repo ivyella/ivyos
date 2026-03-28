@@ -68,7 +68,7 @@ Rectangle {
     // --- check battery exists ---
     Process {
         id: batCheckProc
-        command: ["bash", "-c", "test -f /sys/class/power_supply/BAT0/capacity && echo yes || echo no"]
+        command: ["bash", "-c", "test -f /sys/class/power_supply/BAT1/capacity && echo yes || echo no"]
         stdout: SplitParser {
             onRead: data => {
                 batteryCapsule.batteryAvailable = data.trim() === "yes"
@@ -80,7 +80,7 @@ Rectangle {
     // --- read battery level ---
     Process {
         id: batLevelProc
-        command: ["bash", "-c", "cat /sys/class/power_supply/BAT0/capacity"]
+        command: ["bash", "-c", "cat /sys/class/power_supply/BAT1/capacity"]
         stdout: SplitParser {
             onRead: data => {
                 if (!data) return
@@ -93,7 +93,7 @@ Rectangle {
     // --- read charging status ---
     Process {
         id: batStatusProc
-        command: ["bash", "-c", "cat /sys/class/power_supply/BAT0/status"]
+        command: ["bash", "-c", "cat /sys/class/power_supply/BAT1/status"]
         stdout: SplitParser {
             onRead: data => {
                 if (!data) return
@@ -104,7 +104,7 @@ Rectangle {
 
     // --- poll every 30s ---
     Timer {
-        interval: 30000
+        interval: 1000
         running: true
         repeat: true
         triggeredOnStart: true

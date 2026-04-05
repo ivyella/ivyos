@@ -1,3 +1,0 @@
-module qs.Settings
-singleton Settings 1.0 Settings.qml
-NavItem 1.0 NavItem.qml

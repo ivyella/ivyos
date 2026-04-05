@@ -1,0 +1,3 @@
+module qs.NiriOutputs
+
+singleton NiriOutputs 1.0 NiriOutputs.qml

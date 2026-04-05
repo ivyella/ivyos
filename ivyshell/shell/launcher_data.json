@@ -1,41 +1,6 @@
 {
     "counts": {
-        "Blockbench": 1,
-        "Elastic": 2,
-        "Files": 85,
-        "Firefox": 84,
-        "Flatseal": 6,
-        "Gapless": 5,
-        "Hytale Launcher": 4,
-        "Krita": 6,
-        "Lutris": 15,
-        "OBS Studio": 3,
-        "Obsidian": 3,
-        "PCSX2": 1,
-        "Penpot": 1,
-        "Prism Launcher": 77,
-        "RPCS3": 2,
-        "Sober": 5,
-        "Spotify": 34,
-        "Steam": 30,
-        "VSCodium": 60,
-        "Vesktop": 8,
-        "Volume Control": 1,
-        "Yazi": 1,
-        "Zed": 49,
-        "kitty": 384,
-        "shadPS4": 1,
-        "shadPS4 Qt Launcher": 14
     },
     "pinned": [
-        "Obsidian",
-        "Prism Launcher",
-        "Vesktop",
-        "VSCodium",
-        "Spotify",
-        "kitty",
-        "Zed",
-        "Files",
-        "Firefox"
     ]
 }

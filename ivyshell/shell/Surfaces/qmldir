@@ -1,0 +1,5 @@
+module qs.Surfaces
+
+Bar 1.0 Bar/Bar.qml
+Wallpaper 1.0 Wallpaper/Wallpaper.qml
+singleton Settings 1.0 Settings/Settings.qml

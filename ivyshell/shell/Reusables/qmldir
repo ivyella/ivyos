@@ -1,0 +1,4 @@
+module qs.Reusables
+singleton Theme 1.0 Theme/Theme.qml
+MdIcons 1.0 MdIcons/MdIcons.qml
+singleton Displays 1.0 Displays/Displays.qml

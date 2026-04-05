@@ -1,0 +1,6 @@
+module qs.Services
+
+Notification 1.0 Notification/Notification.qml
+singleton Config 1.0 Config/Config.qml
+singleton NiriOutputs 1.0 NiriOutputs/NiriOutputs.qml
+singleton NotiServer 1.0 Notification/NotiServer.qml

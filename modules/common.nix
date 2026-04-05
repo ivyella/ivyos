@@ -69,12 +69,13 @@
 		gapless
 		whatsapp-electron
 		vulkan-tools
+		xorg.xrdb
 	];
 
    hardware.graphics = {
-	  enable = true;
-	  enable32Bit = true; # This is the missing link for PS2/PCSX2
-	};
+  enable = true;
+  enable32Bit = true;
+};
 	services.pipewire = {
 	  enable = true;
 	  alsa.enable = true;

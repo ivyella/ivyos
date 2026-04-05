@@ -1,2 +1,0 @@
-module qs.ControlPanel
-singleton ControlPanel 1.0 ControlPanel.qml

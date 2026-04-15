@@ -1,4 +1,3 @@
-module qs.Bar.Modules
 
 Battery 1.0 Battery.qml
 Clock 1.0 Clock.qml

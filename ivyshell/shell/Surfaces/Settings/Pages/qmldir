@@ -1,4 +1,3 @@
-module qs.Surfaces.Settings.Pages
 AboutPage 1.0 AboutPage.qml
 DisplayPage 1.0 DisplayPage.qml
 ThemePage 1.0 ThemePage.qml

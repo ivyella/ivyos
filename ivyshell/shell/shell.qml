@@ -1,8 +1,9 @@
+//@ pragma ShellId ivyshell
 //@ pragma UseQApplication
 import Quickshell
 import Quickshell.Wayland
 import Quickshell.Io
-
+import QtQuick  
 
 import qs.Overlays
 import qs.Reusables

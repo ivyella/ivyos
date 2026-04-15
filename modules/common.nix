@@ -46,6 +46,8 @@
 	   eza
 		pavucontrol
 	   openjdk21
+	   openjdk25
+	   easyeffects
 	   playerctl
 	   flatpak
 	   micro

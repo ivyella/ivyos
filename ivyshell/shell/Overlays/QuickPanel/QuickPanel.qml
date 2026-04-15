@@ -331,7 +331,7 @@ Singleton {
         radius:         Theme.radius.lg
         color:          Theme.color.bg0
         border.color:   Theme.color.border0
-        border.width:   1
+        border.width:   0
         clip:           true
 
         Behavior on implicitHeight {
@@ -447,175 +447,6 @@ Singleton {
         topPadding:         4
     }
 
-    // ── ControlTile ───────────────────────────────────────────────────────────
-    component ControlTile: Rectangle {
-        property string icon:    ""
-        property string label:   ""
-        
-        property bool   active:  false
-        signal toggled()
-
-        height: 64
-        radius: Theme.radius.md
-        color:  active
-                ? Qt.rgba(Theme.color.accent0.r, Theme.color.accent0.g, Theme.color.accent0.b, 0.18)
-                : (tileHover.containsMouse ? Theme.color.bg3 : Theme.color.bg2)
-        border.color: active ? Theme.color.accent0 : Theme.color.border0
-        border.width: 1
-
-        Behavior on color        { ColorAnimation { duration: 140 } }
-        Behavior on border.color { ColorAnimation { duration: 140 } }
-
-        Column {
-            anchors {
-                left:    parent.left
-                top:     parent.top
-                right:   parent.right
-                margins: 12
-            }
-            spacing: 4
-
-            MdIcons {
-                text:     icon
-                iconSize: 16
-                fill:     active ? 1 : 0
-                color:    active ? Theme.color.accent0 : Theme.color.fg1
-            }
-
-            Text {
-                text:           label
-                width:          parent.width
-                color:          active ? Theme.color.accent0 : Theme.color.fg0
-                font.pixelSize: 11
-                font.family:    Theme.font.ui
-                font.weight:    Font.Medium
-                elide:          Text.ElideRight
-            }
-
-        }
-
-        MouseArea {
-            id:           tileHover
-            anchors.fill: parent
-            hoverEnabled: true
-            cursorShape:  Qt.PointingHandCursor
-            onPressed:    mouse => mouse.accepted = true
-            onClicked:    mouse => { mouse.accepted = true; toggled() }
-        }
-    }
-
-    // ── ControlSlider ─────────────────────────────────────────────────────────
-    component ControlSlider: Item {
-        property string icon:  ""
-        property string label: ""
-        property int    value: 0
-        signal userChanged(int val)
-
-        implicitHeight: sliderCol.implicitHeight
-        width: parent.width
-
-        Column {
-            id:      sliderCol
-            width:   parent.width
-            spacing: 6
-
-            RowLayout {
-                width: parent.width
-
-                MdIcons {
-                    text:     icon
-                    iconSize: 14
-                    color:    Theme.color.fg1
-                }
-
-                Text {
-                    text:             label
-                    Layout.fillWidth: true
-                    color:            Theme.color.fg1
-                    font.pixelSize:   12
-                    font.family:      Theme.font.ui
-                }
-
-                Text {
-                    text:                value + "%"
-                    color:               Theme.color.fg2
-                    font.pixelSize:      11
-                    font.family:         Theme.font.ui
-                }
-            }
-
-            Item {
-                width:  parent.width
-                height: 15
-
-                // unfilled track
-                Rectangle {
-                    anchors.fill: parent
-                    radius:       11
-                    color:        Theme.color.bg3
-                }
-
-                // filled portion
-                Rectangle {
-                    width:  Math.max(radius * 2, parent.width * (value / 100))
-                    height: parent.height
-                    radius: 11
-                    color:  Theme.color.accent0
-
-                    Behavior on width {
-                        enabled: !trackMouse.pressed
-                        NumberAnimation { duration: 80; easing.type: Easing.OutQuad }
-                    }
-                }
-
-                // capsule thumb at the seam
-                Rectangle {
-                    x:            Math.max(0, Math.min(parent.width - width,
-                                      parent.width * (value / 100) - width / 2))
-                    y:            (parent.height - height) / 2
-                    width:        12
-                    height:       30
-                    radius:       5
-                    color:        Theme.color.fg0
-                    border.color: Theme.color.bg0
-                    border.width: 4
-
-                    Rectangle {
-                        anchors.centerIn: parent
-                        width:        parent.width  + 4
-                        height:       parent.height + 4
-                        radius:       parent.radius + 2
-                        color:        "transparent"
-                        border.color: "transparent"
-                        border.width: 2
-                        z:            -1
-                    }
-
-                    Behavior on x {
-                        enabled: !trackMouse.pressed
-                        NumberAnimation { duration: 80; easing.type: Easing.OutQuad }
-                    }
-                }
-
-                MouseArea {
-                    id:           trackMouse
-                    anchors.fill: parent
-                    hoverEnabled: true
-                    cursorShape:  Qt.PointingHandCursor
-
-                    function valueAt(mx) {
-                        return Math.max(0, Math.min(100, Math.round(mx / width * 100)))
-                    }
-
-                    onPressed:         mouse => userChanged(valueAt(mouse.x))
-                    onPositionChanged: mouse => { if (pressed) userChanged(valueAt(mouse.x)) }
-                }
-            }
-        }
-    }
-
-  
-
     // ── NotificationDelegate ──────────────────────────────────────────────────
     component NotificationDelegate: Rectangle {
         required property var modelData
@@ -625,7 +456,7 @@ Singleton {
         radius:       10
         color:        Theme.color.bg2
         border.color: Theme.color.border0
-        border.width: 1
+        border.width: 0
 
         Column {
             id: notifInner

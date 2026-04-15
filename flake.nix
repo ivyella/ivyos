@@ -13,6 +13,10 @@
     	url = "github:nix-community/fenix";
      	inputs.nixpkgs.follows = "nixpkgs";
    };
+   nixvim = {
+      url = "github:nix-community/nixvim/nixos-25.11";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs = inputs: {
     nixosConfigurations = {
@@ -27,7 +31,9 @@
           ./modules/gaming.nix
           ./modules/keyd.nix
           ./modules/ivyshell.nix
+          ./modules/nixvim.nix
           inputs.home-manager.nixosModules.home-manager
+          inputs.nixvim.nixosModules.nixvim
           {
             nixpkgs.overlays = [ inputs.quickshell.overlays.default ];
             home-manager.useGlobalPkgs = true;

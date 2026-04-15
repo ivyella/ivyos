@@ -12,7 +12,7 @@ layout {
     gaps 4
     border { // Colors are set in colors.kdl
         on
-        width 2
+        width 1
     }
     focus-ring {
         off

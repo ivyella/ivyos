@@ -208,8 +208,8 @@ Singleton {
             width: 600
             height: 500
             radius: Theme.radius.lg
-            color: Theme.color.bg1
-            border.width: 2
+            color: Theme.color.bg0
+            border.width: 1
             border.color: Theme.color.border0
             focus: true
 

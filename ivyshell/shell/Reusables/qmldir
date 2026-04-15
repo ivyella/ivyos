@@ -1,4 +1,7 @@
 module qs.Reusables
 singleton Theme 1.0 Theme/Theme.qml
 MdIcons 1.0 MdIcons/MdIcons.qml
+ControlTile 1.0 Components/ControlTile.qml
+PanelCard 1.0 Components/PanelCard.qml
+ControlSlider 1.0 Components/ControlSlider.qml
 singleton Displays 1.0 Displays/Displays.qml

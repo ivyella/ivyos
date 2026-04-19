@@ -1,7 +1,0 @@
-module qs.Overlays
-
-singleton Launcher 1.0 Launcher/Launcher.qml
-NotificationCard 1.0 NotificationCard/NotificationCard.qml
-singleton PowerMenu 1.0 PowerMenu/PowerMenu.qml
-singleton QuickPanel 1.0 QuickPanel/QuickPanel.qml
-singleton TrayMenu 1.0 TrayMenu/TrayMenu.qml

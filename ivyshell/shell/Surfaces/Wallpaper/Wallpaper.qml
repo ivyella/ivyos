@@ -3,10 +3,9 @@ import Quickshell
 import QtQuick
 import QtQuick.Shapes
 import Quickshell.Wayland
-import qs.Overlays
-import qs.Reusables
-import qs.Surfaces
-import qs.Services
+import qs.Reusables.Theme
+import qs.Reusables.MdIcons
+import qs.Services.Config
 
 Variants {
     model: Quickshell.screens

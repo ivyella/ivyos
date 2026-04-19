@@ -4,12 +4,10 @@ import Quickshell.Wayland
 import Quickshell.Io
 import QtQuick
 import QtQuick.Layouts
-import qs.Overlays
-import qs.Reusables
-import qs.Surfaces
-import qs.Services
+import qs.Reusables.Theme
+import qs.Services.Notification
 import qs.Surfaces.Bar.Modules
-
+import qs.Reusables.Displays
 
 Variants {
     model: Quickshell.screens

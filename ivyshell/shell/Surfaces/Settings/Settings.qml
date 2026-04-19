@@ -4,10 +4,9 @@ import Quickshell.Io
 import QtQuick
 import QtQuick.Layouts
 import Quickshell
-import qs.Overlays
-import qs.Reusables
-import qs.Surfaces
-import qs.Services
+import qs.Reusables.Theme
+import qs.Reusables.MdIcons
+
 import qs.Surfaces.Settings.Pages
 
 Singleton {

@@ -7,10 +7,10 @@ import Quickshell.Services.Mpris
 import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls
-import qs.Overlays
-import qs.Reusables
-import qs.Surfaces
-import qs.Services
+import qs.Reusables.Theme
+import qs.Reusables.MdIcons
+import qs.Services.Notification
+import qs.Reusables.Components
 
 Singleton {
     id: root

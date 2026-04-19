@@ -1,7 +1,8 @@
 pragma ComponentBehavior: Bound
 import QtQuick
 import QtQuick.Layouts
-import qs.Reusables
+import qs.Reusables.Theme
+import qs.Reusables.MdIcons
 
 Item {
     property string icon:  ""

@@ -1,10 +1,8 @@
 import QtQuick
 import Quickshell
 import Quickshell.Io
-import qs.Overlays
-import qs.Reusables
-import qs.Surfaces
-import qs.Services
+import qs.Reusables.Theme
+import qs.Reusables.MdIcons
 
 Rectangle {
     id: windowCapsule

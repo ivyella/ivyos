@@ -5,10 +5,8 @@ import QtQuick.Layouts
 import Quickshell  
 import Quickshell.Wayland  
 import Quickshell.Services.SystemTray  
-import qs.Overlays
-import qs.Reusables
-import qs.Surfaces
-import qs.Services
+import qs.Reusables.Theme
+import qs.Reusables.MdIcons
 
 Singleton {  
     id: root  

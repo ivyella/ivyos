@@ -2,10 +2,8 @@ pragma ComponentBehavior: Bound
 import QtQuick
 import Quickshell
 import Quickshell.Wayland
-import qs.Overlays
-import qs.Reusables
-import qs.Surfaces
-import qs.Services
+import qs.Reusables.Displays
+import qs.Overlays.NotificationCard
 import qs.Services.Notification
 
 Variants {

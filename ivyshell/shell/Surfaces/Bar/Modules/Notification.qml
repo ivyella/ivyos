@@ -1,10 +1,10 @@
 import Quickshell  
 import QtQuick  
 import QtQuick.Layouts  
-import qs.Overlays  
-import qs.Reusables  
-import qs.Surfaces  
-import qs.Services  
+import qs.Reusables.Theme
+import qs.Reusables.MdIcons
+import qs.Services.Notification
+import qs.Overlays.QuickPanel
   
 Rectangle {  
     id: notificationButton  

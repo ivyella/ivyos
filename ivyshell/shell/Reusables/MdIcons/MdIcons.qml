@@ -1,6 +1,5 @@
 import QtQuick
-import qs.Reusables
-
+import qs.Reusables.Theme
 
 Text {
     id: root

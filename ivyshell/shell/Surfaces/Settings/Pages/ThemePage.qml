@@ -6,10 +6,9 @@ import QtQuick.Controls
 import Qt.labs.folderlistmodel 2.10
 import Quickshell
 import Quickshell.Io
-import qs.Overlays
-import qs.Reusables
-import qs.Surfaces
-import qs.Services
+import qs.Reusables.Theme
+import qs.Reusables.MdIcons
+import qs.Services.Config
 
 Item {
     id: root

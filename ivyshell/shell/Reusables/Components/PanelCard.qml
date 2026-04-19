@@ -1,7 +1,7 @@
 pragma ComponentBehavior: Bound
 import QtQuick
 import QtQuick.Layouts
-import qs.Reusables
+import qs.Reusables.Theme
 
 Rectangle {
     id: card

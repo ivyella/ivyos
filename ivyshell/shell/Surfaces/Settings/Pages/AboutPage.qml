@@ -134,7 +134,7 @@ Item {
             { label: "OS",     value: os?.result?.prettyName || "—" },
             { label: "Kernel", value: kernel?.result?.release || "—" },
             { label: "WM",     value: wmName + wmVersion },
-            { label: "UI",     value: "IvyShell v0.1" },
+            { label: "UI",     value: "IvyShell v0.1.1" },
             { group: true, label: "Hardware" },
             { label: "CPU",    value: cpu?.result?.cpu ? cpu.result.cpu + (cpuCores ? ` (${cpuCores} threads)` : "") : "—" },
             { label: "GPU",    value: gpu?.result?.[0]?.name || "—" },

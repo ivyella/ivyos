@@ -10,7 +10,7 @@ Rectangle {
     property bool   active: false
     signal toggled()
 
-    height:       64
+    height:       56
     radius:       Theme.radius.md
     color:        active
                   ? Qt.rgba(Theme.color.accent0.r, Theme.color.accent0.g, Theme.color.accent0.b, 0.18)
@@ -26,13 +26,13 @@ Rectangle {
             left:    parent.left
             top:     parent.top
             right:   parent.right
-            margins: 12
+            margins: 10
         }
         spacing: 4
 
         MdIcons {
             text:     icon
-            iconSize: 12
+            iconSize: 16
             fill:     active ? 1 : 0
             color:    active ? Theme.color.accent0 : Theme.color.fg1
         }

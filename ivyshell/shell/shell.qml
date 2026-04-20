@@ -16,6 +16,8 @@ import qs.Reusables.Displays
 import qs.Reusables.MdIcons
 import qs.Reusables.Theme
 
+import qs.Services
+
 import qs.Services.Config
 import qs.Services.NiriOutputs
 import qs.Services.Notification

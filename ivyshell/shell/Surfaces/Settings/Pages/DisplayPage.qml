@@ -6,6 +6,8 @@ import Quickshell
 import Quickshell.Io
 import qs.Reusables.Theme
 import qs.Reusables.MdIcons
+import qs.Services.NiriOutputs
+import qs.Reusables.Displays
 
 Item {
     id: root

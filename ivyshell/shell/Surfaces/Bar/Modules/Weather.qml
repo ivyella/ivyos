@@ -8,22 +8,23 @@ Rectangle {
     color:         Theme.color.bg2
     radius:        Theme.radius.lg
     height:        Theme.height.sm
-    implicitWidth: networkLayout.implicitWidth + Theme.padding.md
+    implicitWidth: weatherLayout.implicitWidth + Theme.padding.md
+    visible:       Weather.ready
 
     RowLayout {
-        id: networkLayout
+        id: weatherLayout
         spacing: Theme.spacing.sm
 
         Rectangle {
             color:         Theme.color.bg3
             height:        Theme.height.sm
             radius:        Theme.radius.lg
-            implicitWidth: networkIcon.implicitWidth + Theme.padding.sm * 2
+            implicitWidth: weatherIcon.implicitWidth + Theme.padding.sm * 2
 
             MdIcons {
-                id:               networkIcon
+                id:               weatherIcon
                 anchors.centerIn: parent
-                text:             Network.icon
+                text:             Weather.icon
                 iconSize:         Theme.icon.sm
                 color:            Theme.color.accent0
                 fill:             1
@@ -31,11 +32,17 @@ Rectangle {
         }
 
         Text {
-            text:           Network.label
+            text:           Weather.temperature + Weather.unitSymbol
             color:          Theme.color.fg1
             font.pixelSize: Theme.font.sm
             font.family:    Theme.font.ui
             font.weight:    Theme.font.normal
         }
+    }
+
+    MouseArea {
+        anchors.fill: parent
+        cursorShape:  Qt.PointingHandCursor
+        onClicked:    Weather.toggleUnit()
     }
 }

@@ -45,6 +45,7 @@ Variants {
 
                 SettingsButton {}
                 Clock {}
+                Weather {visible: root.isSecondary}
                 Window {visible: root.isMain}
             }
 

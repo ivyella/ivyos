@@ -19,7 +19,9 @@ Rectangle {
     MdIcons {  
         id: notificationButtonIcon  
         anchors.centerIn: parent  
-        text: NotiServer.history.length > 0 ? "notifications_unread" : "notifications"  
+            text:     NotiServer.dnd          ? "notifications_off"
+            : NotiServer.history.length > 0 ? "notifications_unread"
+            :                                 "notifications"
         iconSize: Theme.icon.sm  
         color: mouseArea.containsMouse || QuickPanel.visible  
             ? Theme.color.bg3  

@@ -12,6 +12,7 @@ let
 in
 {
   environment.systemPackages = [
+    pkgs.wlsunset
     qs
     pkgs.xwayland-satellite
     sddmTheme

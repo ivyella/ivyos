@@ -3,7 +3,7 @@
 	users.users.ivy = {
 		isNormalUser = true;
 		description = "ivy";
-		extraGroups = [ "networkmanager" "wheel" ];
+		extraGroups = [ "video" "networkmanager" "wheel" ];
 		packages = with pkgs; [];
   	};
 
@@ -31,6 +31,9 @@
 	      "rustc"
 	      "rustfmt"
 	    ])
+
+    brightnessctl
+    bluez
 		gcc
 		lazygit
 		file
@@ -90,4 +93,6 @@
    programs.fish.enable = true;
   	users.defaultUserShell = pkgs.fish;
    services.flatpak.enable = true;
+    hardware.bluetooth.enable = true;
+    services.blueman.enable = true;
 }

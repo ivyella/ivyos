@@ -31,7 +31,7 @@
 	      "rustc"
 	      "rustfmt"
 	    ])
-
+    
     brightnessctl
     bluez
 		gcc
@@ -48,6 +48,7 @@
 		pciutils
 	   eza
 		pavucontrol
+	   papers
 	   openjdk21
 	   openjdk25
 	   easyeffects
@@ -95,4 +96,5 @@
    services.flatpak.enable = true;
     hardware.bluetooth.enable = true;
     services.blueman.enable = true;
+    services.upower.enable = true;
 }

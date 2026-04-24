@@ -11,6 +11,9 @@ import qs.Reusables.MdIcons
 Item {
     id: root
 
+    property string ivyShellVersion: "IvyShell v0.2"
+
+    
     property var systemInfo: null
     property bool systemInfoLoading: true
     property bool systemInfoAvailable: true
@@ -134,7 +137,7 @@ Item {
             { label: "OS",     value: os?.result?.prettyName || "—" },
             { label: "Kernel", value: kernel?.result?.release || "—" },
             { label: "WM",     value: wmName + wmVersion },
-            { label: "UI",     value: "IvyShell v0.1.1" },
+            { label: "UI",     value: root.ivyShellVersion },
             { group: true, label: "Hardware" },
             { label: "CPU",    value: cpu?.result?.cpu ? cpu.result.cpu + (cpuCores ? ` (${cpuCores} threads)` : "") : "—" },
             { label: "GPU",    value: gpu?.result?.[0]?.name || "—" },

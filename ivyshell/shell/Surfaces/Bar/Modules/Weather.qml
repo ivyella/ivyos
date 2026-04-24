@@ -32,7 +32,7 @@ Rectangle {
         }
 
         Text {
-            text:           Weather.temperature + Weather.unitSymbol
+            text:           Weather.feelsLike + Weather.unitSymbol
             color:          Theme.color.fg1
             font.pixelSize: Theme.font.sm
             font.family:    Theme.font.ui

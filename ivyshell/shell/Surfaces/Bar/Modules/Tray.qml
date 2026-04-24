@@ -4,6 +4,7 @@ import Quickshell.Services.SystemTray
 import Quickshell.Widgets
 import qs.Reusables.Theme
 import qs.Reusables.MdIcons
+import qs.Overlays.TrayMenu
 
 Rectangle {
     id: trayCapsule

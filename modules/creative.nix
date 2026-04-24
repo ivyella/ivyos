@@ -5,6 +5,7 @@
    # 	aseprite
    #  	blockbench
       penpot-desktop
+      leocad
       obsidian
       obs-studio
    ];

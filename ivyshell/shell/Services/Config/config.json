@@ -1,5 +1,16 @@
 {
+    "borderRadius": 12,
+    "font": {
+        "mono": "JetBrains Mono",
+        "scale": 1,
+        "ui": "Noto Serif",
+        "weight": 400
+    },
+    "nightLight": {
+        "temp": 4000
+    },
     "theme": "/home/ivy/ivyos/ivyshell/themes/colors/Catppuccin.json",
+    "uiScale": 1,
     "variant": "mocha",
     "wallpaper": "/home/ivy/ivyos/ivyshell/themes/wallpapers/12259367.png"
 }

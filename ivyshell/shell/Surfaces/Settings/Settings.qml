@@ -110,6 +110,13 @@ Singleton {
                         font.family: Theme.font.ui
                         leftPadding: Theme.spacing.xs
                     }
+                    NavItem {
+                        label: "General"
+                        page:  "general"
+                        icon:  "tune"
+                        activePage: root.activePage
+                        onActivate: root.activePage = "general"
+                    }
 
                     NavItem {
                         label: "About"
@@ -162,13 +169,14 @@ Singleton {
 
                 Loader {
                     anchors.fill: parent
-                    sourceComponent : root.activePage === "theme"    ? themePage
+                    sourceComponent : root.activePage === "general"   ? generalPage
+                                    : root.activePage === "theme"    ? themePage
                                     : root.activePage === "wallpaper" ? wallpaperPage
                                     : root.activePage === "about" ? aboutPage
                                     : root.activePage === "displays"   ? displaysPage
                                     : aboutPage
                 }
-
+                Component { id: generalPage; GeneralPage {} }
                 Component { id: themePage; ThemePage {} }
                 Component { id: wallpaperPage; WallpaperPage {} }
                 Component { id: aboutPage; AboutPage {} }

@@ -9,6 +9,7 @@ Item {
     property string icon:  ""
     property string label: ""
     property int    value: 0
+    property bool showLabel: true
     signal userChanged(int val)
 
     implicitHeight: sliderCol.implicitHeight
@@ -22,6 +23,7 @@ Item {
 
         RowLayout {
             width: parent.width
+            visible: showLabel
             spacing: 8
 
             MdIcons {

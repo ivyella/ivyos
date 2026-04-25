@@ -10,6 +10,7 @@ import qs.Overlays.NotificationCard
 import qs.Overlays.PowerMenu
 import qs.Overlays.QuickPanel
 import qs.Overlays.TrayMenu
+import qs.Overlays.Osd
 
 import qs.Reusables.Components
 import qs.Reusables.Displays
@@ -31,8 +32,12 @@ import qs.Surfaces.Wallpaper
 
 ShellRoot {
     Bar {}
-    Notification {}
+    Notification {} 
     Wallpaper {}
+
+    VolumeOSD { id: volumeOSD }   
+    BrightnessOSD { id: brightnessOSD }  
+    MediaOSD { id: mediaOSD }  
 
     readonly property var _powerMenu:  PowerMenu
     readonly property var _launcher:   Launcher

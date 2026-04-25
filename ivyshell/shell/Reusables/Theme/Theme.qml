@@ -36,6 +36,11 @@ Singleton {
         ]
         applyThemeProcess.running = true
     }
+    property real cornerRadius: {  
+    // Check if Config is available and has a valid value  
+        return typeof Config !== "undefined" ? Config.borderRadius : 12;  
+    }  
+    
 
     readonly property QtObject color: QtObject {
         // backgrounds
@@ -86,8 +91,8 @@ Singleton {
     }
 
     readonly property QtObject font: QtObject {
-        readonly property string ui:   root._f.ui   ?? "Noto Serif"
-        readonly property string mono: root._f.mono ?? "JetBrains Mono"
+        readonly property string ui:   Config.fontUi   ?? "Noto Serif"
+        readonly property string mono: Config.fontMono ?? "JetBrains Mono"
 
         readonly property int xs: 10
         readonly property int sm: 12
@@ -140,11 +145,11 @@ Singleton {
     }
 
     readonly property QtObject radius: QtObject {
-        readonly property int xs: 4
-        readonly property int sm: 6
-        readonly property int md: 8
-        readonly property int lg: 12
-        readonly property int xl: 16
+        readonly property int xs: Math.round(cornerRadius * 0.33)  
+        readonly property int sm: Math.round(cornerRadius * 0.5)  
+        readonly property int md: Math.round(cornerRadius * 0.67)  
+        readonly property int lg: cornerRadius  
+        readonly property int xl: Math.round(cornerRadius * 1.33)  
     }
 
     FileView {

@@ -15,6 +15,7 @@ let
     "zed"
     "helix"
     "yazi"
+    "ivyshell"
   ];
 
   gtkFiles = [

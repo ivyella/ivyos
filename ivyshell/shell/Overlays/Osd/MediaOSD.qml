@@ -8,15 +8,15 @@ import qs.Services
 
 PanelWindow {
     id: root
-
+    
     WlrLayershell.layer:         WlrLayer.Overlay
     WlrLayershell.keyboardFocus: WlrKeyboardFocus.None
     exclusionMode:               ExclusionMode.Ignore
 
-    anchors.bottom: true
+    anchors.top: true
     anchors.left:   true
     anchors.right:  true
-
+    margins.top: Theme.height.bar + Theme.spacing.md
     implicitHeight: 100
     color:          "transparent"
 
@@ -46,12 +46,12 @@ PanelWindow {
 
     // ── OSD pill ──────────────────────────────────────────────────────────────
     Item {
-        anchors.bottom:           parent.bottom
+        anchors.top:           parent.top
         anchors.horizontalCenter: parent.horizontalCenter
 
-        property real bottomOffset: root.shown ? Theme.spacing.lg : Theme.spacing.lg - 8
-        anchors.bottomMargin: bottomOffset
-        Behavior on bottomOffset {
+        property real topOffset: root.shown ? Theme.spacing.lg : Theme.spacing.lg
+        anchors.topMargin: 0
+        Behavior on topOffset {
             NumberAnimation { duration: 150; easing.type: Easing.OutCubic }
         }
 

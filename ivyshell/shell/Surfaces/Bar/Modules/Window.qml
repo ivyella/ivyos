@@ -1,59 +1,69 @@
 import QtQuick
-import Quickshell
-import Quickshell.Io
+import QtQuick.Layouts
 import qs.Reusables.Theme
 import qs.Reusables.MdIcons
+import qs.Services
 
 Rectangle {
-    id: windowCapsule
     color: Theme.color.bg2
     radius: Theme.radius.lg
-    height: Theme.height.sm
-    implicitWidth: windowRow.implicitWidth + Theme.padding.md
 
-    property string activeWindow: ""
-    property string activeAppId: ""
-    property var iconMap: ({})
+    height: Theme.height.sm
+
+    // IMPORTANT: makes outer padding predictable
+    implicitWidth: row.implicitWidth + Theme.spacing.sm * 2
 
     Row {
-        id: windowRow
+        id: row
         spacing: Theme.spacing.sm
+        anchors.verticalCenter: parent.verticalCenter
 
+        // ── ICON BOX ───────────────────────────────────────────────
         Rectangle {
-            id: appIconBackdrop
+            visible: WindowService.activeAppId !== ""
             color: Theme.color.bg3
             radius: Theme.radius.lg
-            width: appIcon.width + Theme.padding.sm * 2
-            height: Theme.height.sm
-            visible: windowCapsule.activeAppId !== ""
 
+            height: Theme.height.sm
+
+            // consistent padding model
+            width: Theme.height.sm
+
+            // center content properly
             Item {
-                id: appIcon
-                width: Theme.icon.sm
-                height: Theme.icon.sm
-                anchors.centerIn: parent
+                anchors.fill: parent
+                anchors.margins: Theme.spacing.xs
 
                 Image {
                     id: iconImg
-                    anchors.fill: parent
-                    source: {
-                        const icon = windowCapsule.iconMap[windowCapsule.activeAppId] ?? ""
-                        return icon !== "" ? Quickshell.iconPath(icon, true) : ""
-                    }
-                    sourceSize: Qt.size(Theme.icon.sm, Theme.icon.sm)
+
+                    width: Theme.icon.sm
+                    height: Theme.icon.sm
+
+                    anchors.centerIn: parent
+
+                    source: WindowService.iconFor(WindowService.activeAppId)
+
+                    // IMPORTANT: match actual render size
+                    sourceSize: Qt.size(Theme.icon.sm * 2, Theme.icon.sm * 2)
+
+                    fillMode: Image.PreserveAspectFit
+
                     asynchronous: true
                     smooth: true
-                    visible: status === Image.Ready || status === Image.Loading
+
+                    visible: status === Image.Ready
                 }
 
                 Text {
                     anchors.centerIn: parent
-                    visible: iconImg.status === Image.Error
-                          || iconImg.status === Image.Null
-                          || iconImg.source === ""
-                    text: windowCapsule.activeAppId
-                        ? windowCapsule.activeAppId.charAt(0).toUpperCase()
+
+                    visible: iconImg.status !== Image.Ready
+
+                    text: WindowService.activeAppId
+                        ? WindowService.activeAppId.charAt(0).toUpperCase()
                         : "?"
+
                     color: Theme.color.accent0
                     font.pixelSize: Theme.font.sm
                     font.family: Theme.font.ui
@@ -61,77 +71,19 @@ Rectangle {
             }
         }
 
+        // ── WINDOW TEXT ────────────────────────────────────────────
         Text {
-            id: activeWindowText
             anchors.verticalCenter: parent.verticalCenter
-            text: windowCapsule.activeWindow
+
+            text: WindowService.activeWindow
+
             color: Theme.color.fg0
             font.pixelSize: Theme.font.sm
             font.family: Theme.font.ui
-            font.weight: Theme.font.normal
+            font.weight:    Theme.font.normal
+            // IMPORTANT: prevents overflow affecting layout
+            elide: Text.ElideRight
+            maximumLineCount: 1
         }
-    }
-
-    Process {
-        id: iconScanner
-        command: [
-            "bash", "-c",
-            "find /run/current-system/sw/share/applications ~/.local/share/applications -name '*.desktop' 2>/dev/null" +
-            " | while read f; do" +
-            "   id=$(basename \"$f\" .desktop);" +
-            "   icon=$(grep -m1 '^Icon=' \"$f\" | cut -d= -f2-);" +
-            "   [ -n \"$icon\" ] && echo \"$id|$icon\";" +
-            " done"
-        ]
-        stdout: SplitParser {
-            onRead: data => {
-                const parts = data.split("|")
-                if (parts.length === 2) {
-                    const map = Object.assign({}, windowCapsule.iconMap)
-                    map[parts[0].trim()] = parts[1].trim()
-                    windowCapsule.iconMap = map
-                }
-            }
-        }
-        Component.onCompleted: running = true
-    }
-
-    Process {
-        id: windowProc
-        command: ["sh", "-c", "niri msg focused-window | grep 'App ID:' | awk -F '\"' '{print $2}'"]
-        stdout: SplitParser {
-            onRead: data => {
-                if (!data || !data.trim()) return;
-                const appId = data.trim();
-
-                const names = {
-                    "kitty": "Terminal",
-                    "librewolf": "LibreWolf",
-                    "dev.zed.Zed": "Zed",
-                    "org.gnome.Nautilus": "Files",
-                    "org.vinegarhq.Sober": "Roblox",
-                    "spotify": "Spotify",
-                    "steam": "Steam",
-                    "krita": "Krita",
-                    "com.github.neithern.g4music": "Music",
-                    "org.prismlauncher.PrismLauncher": "Prism Launcher",
-                    "aseprite": "Aseprite",
-                    "obsidian": "Obsidian",
-                    "vesktop": "Discord",
-                    "org.quickshell":"IvyShell"
-                };
-
-                windowCapsule.activeWindow = names[appId] ?? appId;
-                windowCapsule.activeAppId = appId;
-            }
-        }
-        Component.onCompleted: running = true
-    }
-
-    Timer {
-        interval: 500
-        running: true
-        repeat: true
-        onTriggered: windowProc.running = true
     }
 }

@@ -54,7 +54,7 @@ Item {
 
     Process {
         id: fastfetchProcess
-        command: ["fastfetch", "--format", "json", "--config", Quickshell.shellDir + "/Services/InfoFetcher/system-info.jsonc"] 
+        command: ["fastfetch", "--format", "json", "--config", Quickshell.env("HOME").toString() + "/.config/ivyshell/system-info.jsonc"] 
         running: false
         onExited: (exitCode) => {
             root.systemInfoLoading = false

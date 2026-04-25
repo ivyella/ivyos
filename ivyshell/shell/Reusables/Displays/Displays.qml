@@ -24,7 +24,7 @@ Singleton {
 
     property var _file: FileView {
         id: file
-        path: Quickshell.env("HOME") + "/ivyos/ivyshell/shell/Services/NiriOutputs/displays.json"
+        path: Quickshell.env("HOME") + "/.config/ivyshell/displays.json"
         blockLoading: true
         watchChanges: true
         onFileChanged: reload()

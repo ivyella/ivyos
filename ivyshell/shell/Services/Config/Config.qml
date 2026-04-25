@@ -6,7 +6,7 @@ import QtQuick
 Singleton {
     id: root
 
-    readonly property string configPath: Quickshell.env("HOME") + "/ivyos/ivyshell/shell/Services/Config/config.json"
+    readonly property string configPath: Quickshell.env("HOME") + "/.config/ivyshell/config.json"
 
     // ── Theme ─────────────────────────────────────────────────────────────────
     property string currentTheme:    "file://" + Quickshell.env("HOME") + "/ivyos/ivyshell/themes/colors/IvyTheme.json"
@@ -24,7 +24,7 @@ Singleton {
     property real borderRadius: 12
 
     // ── Night Light ───────────────────────────────────────────────────────────
-    property int nightLightTemp: 4000
+    property int nightLightTemp: 3500
 
     FileView {
         id: file

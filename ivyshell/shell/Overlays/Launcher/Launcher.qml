@@ -61,7 +61,7 @@ Singleton {
 
     FileView {
         id: dataFile
-        path: Quickshell.configDir + "/Overlays/Launcher/launcher_data.json"
+        path: Quickshell.env("HOME").toString() + "/.config/ivyshell/launcher_data.json"
         blockLoading: true
 
         JsonAdapter {

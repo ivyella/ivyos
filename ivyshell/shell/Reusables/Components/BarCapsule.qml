@@ -11,8 +11,8 @@ Rectangle {
     radius: Theme.radius.lg
     height: Theme.height.sm
     
-    // Layout computation - tight fit to content
-    implicitWidth: contentLayout.implicitWidth
+    // Layout computation - account for padding on both sides
+    implicitWidth: contentLayout.implicitWidth + Theme.padding.sm
     
     // Allow child elements to be added
     default property alias content: contentLayout.children
@@ -20,18 +20,17 @@ Rectangle {
     // Expose mouseArea for configuration
     property alias mouseArea: mouseAreaImpl
     
-    MouseArea {
-        id: mouseAreaImpl
-        anchors.fill: parent
-        enabled: false
-        z: -1
-    }
-    
     RowLayout {
         id: contentLayout
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
         anchors.leftMargin: 0
         spacing: Theme.spacing.sm
+    }
+    
+    MouseArea {
+        id: mouseAreaImpl
+        anchors.fill: parent
+        enabled: false
     }
 }

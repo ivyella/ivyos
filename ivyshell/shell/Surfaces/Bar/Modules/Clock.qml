@@ -5,8 +5,15 @@ import qs.Reusables.Components
 import qs.Services.Time
 
 BarCapsule {
-    BarIconBox {
-        icon: Text {
+    Rectangle {
+        color: Theme.color.bg3
+        radius: Theme.radius.lg
+        height: Theme.height.sm
+        implicitWidth: timeText.implicitWidth + Theme.padding.sm * 2
+        
+        Text {
+            id: timeText
+            anchors.centerIn: parent
             text: Clock.currentTime
             color: Theme.color.fg0
             font.pixelSize: Theme.font.sm

@@ -10,9 +10,11 @@ BarCapsule {
 
     Behavior on color { ColorAnimation { duration: 150 } }
 
-    BarIcon {
-        text: "settings"
-        color: mouseArea.containsMouse || active ? Theme.color.bg3 : Theme.color.accent0
+    BarIconBox {
+        icon: BarIcon {
+            text: "settings"
+            color: mouseArea.containsMouse || active ? Theme.color.bg3 : Theme.color.accent0
+        }
     }
 
     mouseArea {

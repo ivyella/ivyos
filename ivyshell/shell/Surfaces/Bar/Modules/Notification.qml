@@ -12,12 +12,13 @@ BarCapsule {
 
     Behavior on color { ColorAnimation { duration: 150 } }
 
-    BarIcon {
-        text: NotiServer.dnd ? "notifications_off"
-            : NotiServer.history.length > 0 ? "notifications_unread"
-            : "notifications"
-        color: mouseArea.containsMouse || active ? Theme.color.bg3 : Theme.color.accent0
-        Layout.alignment: Qt.AlignVCenter
+    BarIconBox {
+        icon: BarIcon {
+            text: NotiServer.dnd ? "notifications_off"
+                : NotiServer.history.length > 0 ? "notifications_unread"
+                : "notifications"
+            color: mouseArea.containsMouse || active ? Theme.color.bg3 : Theme.color.accent0
+        }
     }
 
     mouseArea {

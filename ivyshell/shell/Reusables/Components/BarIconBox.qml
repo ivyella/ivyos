@@ -6,7 +6,7 @@ import qs.Reusables.Theme
 Rectangle {
     id: root
     
-    // Allow icon content (usually MdIcons)
+    // Allow icon content (usually MdIcons or Text)
     default property alias icon: iconContent.children
     
     // Styling (fixed)
@@ -17,8 +17,14 @@ Rectangle {
     
     Item {
         id: iconContent
-        anchors.centerIn: parent
-        width: Theme.height.sm - (Theme.padding.sm * 2)
-        height: Theme.height.sm - (Theme.padding.sm * 2)
+        anchors.fill: parent
+        anchors.margins: Theme.padding.sm
+        
+        // Center all children
+        onChildrenChanged: {
+            for (let child of children) {
+                child.anchors.centerIn = iconContent
+            }
+        }
     }
 }

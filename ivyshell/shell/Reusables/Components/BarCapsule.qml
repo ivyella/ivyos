@@ -11,8 +11,8 @@ Rectangle {
     radius: Theme.radius.lg
     height: Theme.height.sm
     
-    // Layout computation
-    implicitWidth: contentLayout.implicitWidth + Theme.padding.md
+    // Layout computation - account for padding on both sides
+    implicitWidth: contentLayout.implicitWidth + Theme.padding.sm
     
     // Allow child elements to be added
     default property alias content: contentLayout.children
@@ -25,7 +25,6 @@ Rectangle {
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
         anchors.leftMargin: 0
-        anchors.rightMargin: Theme.padding.xs
         spacing: Theme.spacing.sm
     }
     

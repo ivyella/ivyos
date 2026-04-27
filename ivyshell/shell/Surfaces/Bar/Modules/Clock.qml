@@ -7,7 +7,6 @@ import qs.Services.Time
 BarCapsule {
     BarIconBox {
         icon: Text {
-            anchors.centerIn: parent
             text: Clock.currentTime
             color: Theme.color.fg0
             font.pixelSize: Theme.font.sm

@@ -17,7 +17,8 @@ Rectangle {
     
     Item {
         id: iconContent
-        anchors.fill: parent
-        anchors.margins: Theme.padding.sm
+        anchors.centerIn: parent
+        width: Theme.height.sm - (Theme.padding.sm * 2)
+        height: Theme.height.sm - (Theme.padding.sm * 2)
     }
 }

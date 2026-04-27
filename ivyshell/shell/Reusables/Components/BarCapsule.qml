@@ -24,7 +24,6 @@ Rectangle {
         id: contentLayout
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
-        anchors.right: parent.right
         anchors.leftMargin: 0
         anchors.rightMargin: Theme.padding.xs
         spacing: Theme.spacing.sm

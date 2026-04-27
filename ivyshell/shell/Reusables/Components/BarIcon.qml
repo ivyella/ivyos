@@ -9,5 +9,4 @@ MdIcons {
     iconSize: Theme.icon.sm
     color: Theme.color.accent0
     fill: 1
-    Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
 }

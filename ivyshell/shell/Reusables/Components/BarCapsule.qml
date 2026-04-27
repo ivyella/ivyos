@@ -20,17 +20,18 @@ Rectangle {
     // Expose mouseArea for configuration
     property alias mouseArea: mouseAreaImpl
     
+    MouseArea {
+        id: mouseAreaImpl
+        anchors.fill: parent
+        enabled: false
+        z: -1
+    }
+    
     RowLayout {
         id: contentLayout
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
         anchors.leftMargin: 0
         spacing: Theme.spacing.sm
-    }
-    
-    MouseArea {
-        id: mouseAreaImpl
-        anchors.fill: parent
-        enabled: false
     }
 }

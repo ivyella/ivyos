@@ -21,8 +21,8 @@ BarCapsule {
         font.weight: Theme.font.normal
         Layout.alignment: Qt.AlignVCenter
     }
-    MouseArea {
-        anchors.fill: parent
+    mouseArea {
+        enabled: true
         onWheel: wheel => Audio.adjustVolume(wheel.angleDelta.y > 0 ? 5 : -5)
     }
 }

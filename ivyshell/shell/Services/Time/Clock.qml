@@ -20,8 +20,8 @@ Singleton {
         running: true
         repeat: true
         onTriggered: {
-            root.currentTime = root.formatTime;
-            root.currentDate = root.formatDate;
+            root.currentTime = root.formatTime();
+            root.currentDate = root.formatDate();
         }
     }
 }

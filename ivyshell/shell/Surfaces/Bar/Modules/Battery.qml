@@ -2,7 +2,7 @@ import QtQuick
 import QtQuick.Layouts
 import qs.Reusables.Theme
 import qs.Reusables.Components
-import qs.Services
+import qs.Services.Battery
 
 BarCapsule {
     visible: Battery.batteryAvailable

@@ -17,6 +17,9 @@ Rectangle {
     // Allow child elements to be added
     default property alias content: contentLayout.children
     
+    // Expose mouseArea for configuration
+    property alias mouseArea: mouseAreaImpl
+    
     RowLayout {
         id: contentLayout
         anchors.verticalCenter: parent.verticalCenter
@@ -25,5 +28,11 @@ Rectangle {
         anchors.leftMargin: 0
         anchors.rightMargin: Theme.padding.xs
         spacing: Theme.spacing.sm
+    }
+    
+    MouseArea {
+        id: mouseAreaImpl
+        anchors.fill: parent
+        enabled: false
     }
 }

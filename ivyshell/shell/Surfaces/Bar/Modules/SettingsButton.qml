@@ -13,7 +13,6 @@ BarCapsule {
     BarIcon {
         text: "settings"
         color: mouseArea.containsMouse || active ? Theme.color.bg3 : Theme.color.accent0
-        Layout.alignment: Qt.AlignVCenter
     }
 
     mouseArea {

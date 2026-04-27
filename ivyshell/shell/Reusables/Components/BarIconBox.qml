@@ -15,6 +15,12 @@ Rectangle {
     height: Theme.height.sm
     width: Theme.height.sm
     
+    // Prevent layout from stretching
+    Layout.fillWidth: false
+    Layout.fillHeight: false
+    Layout.preferredWidth: Theme.height.sm
+    Layout.preferredHeight: Theme.height.sm
+    
     Item {
         id: iconContent
         anchors.fill: parent

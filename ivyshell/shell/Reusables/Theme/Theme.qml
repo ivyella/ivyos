@@ -44,7 +44,8 @@ Singleton {
 
     readonly property QtObject color: QtObject {
         // backgrounds
-        readonly property color bg0: root._c.bg0 ?? "#161615" //base
+        //readonly property color bg0:      Qt.rgba(bg0solid.r, bg0solid.g, bg0solid.b, 0.85)
+        readonly property color bg0: root._c.bg0 ?? "#161615"
         readonly property color bg1: root._c.bg1 ?? "#1c1b1a" //surfacelow
         readonly property color bg2: root._c.bg2 ?? "#222120" //surface
         readonly property color bg3: root._c.bg3 ?? "#3d3a38" //surfacemid

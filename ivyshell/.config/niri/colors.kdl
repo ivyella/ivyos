@@ -10,7 +10,7 @@ layout {
     }
     border {
         active-color "#cba6f7"
-        inactive-color "#585b70"
+        inactive-color "#1e1e2e"
         urgent-color "#eba0ac"
     }
     shadow {

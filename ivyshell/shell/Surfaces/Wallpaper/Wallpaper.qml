@@ -15,7 +15,7 @@ Variants {
         namespace: "wallpaper"
         screen: modelData
         exclusionMode: ExclusionMode.Ignore
-
+        
         anchors {
             left: true
             top: true

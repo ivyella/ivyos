@@ -79,3 +79,11 @@ layer-rule {
     match namespace="^wallpaper$"
     place-within-backdrop true
 }
+
+blur {
+    // off
+    passes 2
+    offset 5.0
+    noise 0.02
+    saturation 1.5
+}

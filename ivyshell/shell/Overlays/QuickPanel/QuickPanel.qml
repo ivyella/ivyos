@@ -195,7 +195,7 @@ Rectangle {
         anchors { top: true; bottom: true; left: true; right: true }
         color: "transparent"
         exclusionMode: ExclusionMode.Ignore
-
+        BackgroundEffect.blurRegion: Region { item: root.contentItem }
         MouseArea {
             anchors.fill: parent
             z: -1

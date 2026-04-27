@@ -8,7 +8,7 @@ import qs.Reusables.MdIcons
 Rectangle {
     id: notifyItem
     required property var modelData
-
+    
     implicitWidth: ListView.view ? ListView.view.width : 360
     implicitHeight: fullLayout.implicitHeight + 20
     color: dismissArea.containsMouse ? Theme.color.bg2 : Theme.color.bg0

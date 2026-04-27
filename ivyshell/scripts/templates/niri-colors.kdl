@@ -10,7 +10,7 @@ layout {
     }
     border {
         active-color "{{accent0}}"
-        inactive-color "{{border0}}"
+        inactive-color "{{bg2}}"
         urgent-color "{{red1}}"
     }
     shadow {

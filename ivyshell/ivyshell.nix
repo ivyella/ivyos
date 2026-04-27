@@ -52,9 +52,11 @@ in
   );
 
   home.sessionVariables = {
-    EDITOR = "hx";
+    EDITOR = "codium";
     XCURSOR_THEME = "Bibata-Modern-Classic";
     XCURSOR_SIZE = "20";
+    GTK_THEME = "adw-gtk3-dark";
+    ADW_DISABLE_PORTAL = "1";
   };
 
   gtk = {

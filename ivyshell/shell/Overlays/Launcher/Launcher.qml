@@ -189,6 +189,7 @@ Singleton {
         color: "transparent"
         exclusionMode: ExclusionMode.Ignore
 
+
         MouseArea {
             anchors.fill: parent
             onClicked: {
@@ -206,8 +207,8 @@ Singleton {
             width: 600
             height: 500
             radius: Theme.radius.lg
-            color: Theme.color.bg0
-            border.width: 1
+            color: Theme.color.bg1
+            border.width: 0
             border.color: Theme.color.border0
             focus: true
 

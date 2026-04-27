@@ -37,7 +37,7 @@
 		gcc
 		lazygit
 		file
-		zellij
+		
    	kitty
 	   fish
 		jq
@@ -76,6 +76,7 @@
 		whatsapp-electron
 		vulkan-tools
 		xorg.xrdb
+		opencode
 	];
 
    hardware.graphics = {

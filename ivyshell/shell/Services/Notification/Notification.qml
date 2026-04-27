@@ -7,6 +7,7 @@ import qs.Overlays.NotificationCard
 import qs.Services.Notification
 
 Variants {
+    
     model: Quickshell.screens
     delegate: WlrLayershell {
         id: root
@@ -22,6 +23,7 @@ Variants {
         implicitHeight: notifList.contentHeight + 20
         implicitWidth:  360
         layer:          WlrLayer.Overlay
+        namespace:      "ivyshell-notif"
         exclusionMode:  ExclusionMode.Ignore
         color:          "transparent"
 

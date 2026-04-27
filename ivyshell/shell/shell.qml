@@ -22,6 +22,8 @@ import qs.Services
 import qs.Services.Config
 import qs.Services.NiriOutputs
 import qs.Services.Notification
+import qs.Services.Time
+import qs.Services.Battery
 
 import qs.Surfaces.Bar
 import qs.Surfaces.Settings
@@ -29,12 +31,10 @@ import qs.Surfaces.Wallpaper
 
 
 
-
 ShellRoot {
     Bar {}
     Notification {} 
     Wallpaper {}
-
     VolumeOSD { id: volumeOSD }   
     BrightnessOSD { id: brightnessOSD }  
     MediaOSD { id: mediaOSD }  

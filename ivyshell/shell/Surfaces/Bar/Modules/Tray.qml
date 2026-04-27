@@ -3,11 +3,10 @@ import Quickshell
 import Quickshell.Services.SystemTray
 import Quickshell.Widgets
 import qs.Reusables.Theme
-import qs.Reusables.MdIcons
+import qs.Reusables.Components
 import qs.Overlays.TrayMenu
 
 Rectangle {
-    id: trayCapsule
     color: Theme.color.bg2
     radius: Theme.radius.lg
     height: Theme.height.sm
@@ -16,7 +15,9 @@ Rectangle {
     Row {
         id: trayRow
         spacing: Theme.spacing.sm
-        anchors.centerIn: parent
+        anchors.verticalCenter: parent.verticalCenter
+        anchors.left: parent.left
+        anchors.leftMargin: Theme.padding.sm
 
         Repeater {
             model: SystemTray.items

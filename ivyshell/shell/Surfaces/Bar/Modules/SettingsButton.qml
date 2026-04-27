@@ -1,30 +1,23 @@
 import QtQuick
-import Quickshell
 import qs.Reusables.Theme
-import qs.Reusables.MdIcons
+import qs.Reusables.Components
 import qs.Surfaces.Settings
 
-Rectangle {
-    id: settingsButton
-    color: Settings.visible ? Theme.color.accent0 : (hover.containsMouse ? Theme.color.accent0 : Theme.color.bg3)
-    radius: Theme.radius.lg
-    height: Theme.height.sm
-    implicitWidth: settingsIcon.implicitWidth + Theme.padding.sm * 2
+BarCapsule {
+    property bool active: Settings.visible
+
+    color: active ? Theme.color.accent0 : (mouseArea.containsMouse ? Theme.color.accent0 : Theme.color.bg3)
 
     Behavior on color { ColorAnimation { duration: 150 } }
 
-    MdIcons {
-        id: settingsIcon
-        anchors.centerIn: parent
+    BarIcon {
         text: "settings"
-        iconSize: Theme.icon.sm
-        color: hover.containsMouse || Settings.visible ? Theme.color.bg3 : Theme.color.accent0
-        fill: 1
+        color: mouseArea.containsMouse || active ? Theme.color.bg3 : Theme.color.accent0
+        Layout.alignment: Qt.AlignVCenter
     }
 
-    MouseArea {
-        id: hover
-        anchors.fill: parent
+    mouseArea {
+        enabled: true
         hoverEnabled: true
         cursorShape: Qt.PointingHandCursor
         onClicked: Settings.visible = !Settings.visible

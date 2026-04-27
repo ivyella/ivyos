@@ -22,6 +22,7 @@ PanelWindow {
 
     implicitHeight: 80
     color:          "transparent"
+    
 
     // ── Visibility ────────────────────────────────────────────────────────────
     property bool shown: false

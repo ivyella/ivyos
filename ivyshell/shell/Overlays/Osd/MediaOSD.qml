@@ -67,7 +67,7 @@ PanelWindow {
             radius:       Theme.radius.lg
             color:        Theme.color.bg0
             border.color: Theme.color.border0
-            border.width: 1
+            border.width: 0
         }
 
         Row {

@@ -11,8 +11,8 @@ Rectangle {
     radius: Theme.radius.lg
     height: Theme.height.sm
     
-    // Layout computation - account for padding on both sides
-    implicitWidth: contentLayout.implicitWidth + Theme.padding.sm
+    // Layout computation - tight fit to content
+    implicitWidth: contentLayout.implicitWidth
     
     // Allow child elements to be added
     default property alias content: contentLayout.children

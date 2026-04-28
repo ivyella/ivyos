@@ -6,23 +6,25 @@ import Quickshell.Io
 Singleton {
     id: root
 
-    property bool enabled:  false
-    property int  temp:     4000  // kelvin, adjust to taste
+    property bool enabled: false
+    property int temp: 4000  // kelvin, adjust to taste
 
     function toggle() {
-        enabled ? disable() : enable()
+        if (root.enabled) {
+            disable();
+        } else {
+            enable();
+        }
     }
 
     function enable() {
-        startProc.running = false
-        startProc.running = true
-        root.enabled = true
+        startProc.running = true;
+        root.enabled = true;
     }
 
     function disable() {
-        killProc.running = false
-        killProc.running = true 
-        root.enabled = false
+        killProc.running = true;
+        root.enabled = false;
     }
 
     Process {
@@ -42,7 +44,13 @@ Singleton {
     Process {
         command: ["pgrep", "-x", "wlsunset"]
         stdout: SplitParser {
-            onRead: data => { if (data.trim() !== "") root.enabled = true }
+            onRead: data => {
+                if (data.trim() !== "") {
+                    root.enabled = true;
+                } else {
+                    console.log("wlsunset is not running at startup.");
+                }
+            }
         }
         Component.onCompleted: running = true
     }

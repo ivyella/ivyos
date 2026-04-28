@@ -35,11 +35,19 @@ window-rule {
     }
 }
 
-layer-rule {
-    match namespace="ivyshell-notif"
+window-rule {
+    match app-id="org.gnome."
     background-effect {
-        blur false
+        blur true
         xray false
     }
 }
+window-rule {
+    match app-id="com.github"
+    background-effect {
+        blur true
+        xray false
+    }
+}
+
 

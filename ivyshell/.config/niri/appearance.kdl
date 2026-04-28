@@ -87,3 +87,6 @@ blur {
     noise 0.02
     saturation 1.5
 }
+window-rule {
+    draw-border-with-background false
+}

@@ -7,6 +7,23 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "agent_servers": {
+    "qwen-code": {
+      "type": "registry"
+    }
+  },
+  "project_panel": {
+    "dock": "left"
+  },
+  "outline_panel": {
+    "dock": "left"
+  },
+  "collaboration_panel": {
+    "dock": "left"
+  },
+  "git_panel": {
+    "dock": "left"
+  },
   "tab_size": 3,
   "cursor_shape": "block",
   "auto_indent": false,
@@ -32,10 +49,25 @@
     "border_size": 0.0
   },
   "agent": {
+    "profiles": {
+      "ivy": {
+        "default_model": {
+          "provider": "ollama",
+          "model": "qwen2.5-coder:7b",
+          "enable_thinking": false
+        },
+        "name": "ivy",
+        "tools": {},
+        "enable_all_context_servers": false,
+        "context_servers": {}
+      }
+    },
+    "default_profile": "ask",
+    "dock": "right",
     "always_allow_tool_actions": true,
     "default_model": {
       "provider": "ollama",
-      "model": "opencoder:1.5b"
+      "model": "qwen2.5-coder:7b"
     },
     "model_parameters": []
   },

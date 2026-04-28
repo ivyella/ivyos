@@ -3,7 +3,7 @@
 	users.users.ivy = {
 		isNormalUser = true;
 		description = "ivy";
-		extraGroups = [ "video" "networkmanager" "wheel" ];
+		extraGroups = [ "video" "networkmanager" "wheel" "render"];
 		packages = with pkgs; [];
   	};
 
@@ -71,12 +71,11 @@
 	   spotify
 	   yazi
 	   element-desktop
-	   zed-editor
+	   pkgs.unstable.zed-editor
 		gapless
 		whatsapp-electron
 		vulkan-tools
 		xorg.xrdb
-		opencode
 	];
 
    hardware.graphics = {

@@ -23,6 +23,7 @@ let
     "gtk-3.0/gtk.css"
     "gtk-4.0/colors.css"
     "gtk-4.0/gtk.css"
+    "gtk-4.0/custom-overrides.css"
   ];
 in
 {

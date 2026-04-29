@@ -39,7 +39,14 @@ fi
 
 # --- extract colors and fonts as key=value pairs ---
 
+# Standard colors (e.g. bg0=#1f1f28)
 COLORS=$(jq -r ".variants[\"$VARIANT\"].color | to_entries[] | \"\(.key)=\(.value)\"" "$THEME_JSON")
+
+# NEW: Create "raw" versions without the hash (e.g. bg0_raw=1f1f28)
+# This allows for transparency prefixes like #D9{{bg0_raw}}
+COLORS_RAW=$(echo "$COLORS" | sed 's/=#/=/g' | sed 's/=/&_raw=/')
+COLORS="$COLORS"$'\n'"$COLORS_RAW"
+
 FONTS=$(jq -r ".variants[\"$VARIANT\"].font | to_entries[] | \"font_\(.key)=\(.value)\"" "$THEME_JSON")
 
 # --- template engine ---
@@ -61,6 +68,7 @@ fill_template() {
     local content
     content=$(cat "$src")
 
+    # Replace color variables (handles both {{key}} and {{key_raw}})
     while IFS='=' read -r key val; do
         [ -z "$key" ] && continue
         content=$(echo "$content" | sed "s|{{$key}}|$val|g")
@@ -68,6 +76,7 @@ fill_template() {
 $COLORS
 EOF
 
+    # Replace font variables
     while IFS='=' read -r key val; do
         [ -z "$key" ] && continue
         content=$(echo "$content" | sed "s|{{$key}}|$val|g")

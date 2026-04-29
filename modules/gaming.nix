@@ -7,7 +7,7 @@
    environment.systemPackages = with pkgs; [
    	steam
      	protonplus
-   #   heroic
+      heroic
       vitetris
    #   nexusmods-app
       prismlauncher

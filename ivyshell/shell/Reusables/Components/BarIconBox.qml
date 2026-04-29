@@ -1,15 +1,16 @@
 pragma ComponentBehavior: Bound
 import QtQuick
-import QtQuick.Layouts
 import qs.Reusables.Theme
 
 Rectangle {
     id: root
     
-    // Allow icon content (usually MdIcons or Text)
+    // API
     default property alias icon: iconContent.children
-    
-    // Styling (fixed)
+    readonly property alias hovered: masterMouseArea.containsMouse
+    signal clicked(variant mouse)
+
+    // Styling
     color: Theme.color.bg3
     radius: Theme.radius.lg
     height: Theme.height.sm
@@ -20,11 +21,21 @@ Rectangle {
         anchors.fill: parent
         anchors.margins: Theme.padding.sm
         
-        // Center all children
+        // Ensure icons don't block the MouseArea
+        enabled: false 
+
         onChildrenChanged: {
             for (let child of children) {
                 child.anchors.centerIn = iconContent
             }
         }
+    }
+
+    MouseArea {
+        id: masterMouseArea
+        anchors.fill: parent
+        hoverEnabled: true
+        cursorShape: Qt.PointingHandCursor
+        onClicked: (mouse) => root.clicked(mouse)
     }
 }

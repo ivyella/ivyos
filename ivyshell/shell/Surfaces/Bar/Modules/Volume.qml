@@ -12,6 +12,7 @@ BarCapsule {
                 :                                   "volume_up"
             Layout.alignment: Qt.AlignVCenter
         }
+
     }
     Text {
         text: Audio.volume

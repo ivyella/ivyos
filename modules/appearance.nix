@@ -5,6 +5,7 @@
 		adwaita-icon-theme
     	gnome-themes-extra
      	adw-gtk3
+		kdePackages.breeze
 	];
 
   	fonts = {

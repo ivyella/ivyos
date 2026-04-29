@@ -31,13 +31,13 @@
 	      "rustc"
 	      "rustfmt"
 	    ])
-    
+
     brightnessctl
     bluez
 		gcc
 		lazygit
 		file
-		
+		wayland-utils
    	kitty
 	   fish
 		jq

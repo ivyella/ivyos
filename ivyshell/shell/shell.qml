@@ -29,6 +29,7 @@ import qs.Surfaces.Bar
 import qs.Surfaces.Settings
 import qs.Surfaces.Wallpaper
 
+import qs.Overlays.Dock
 
 
 ShellRoot {
@@ -37,8 +38,11 @@ ShellRoot {
     Wallpaper {}
     VolumeOSD { id: volumeOSD }   
     BrightnessOSD { id: brightnessOSD }  
-    MediaOSD { id: mediaOSD }  
+    //MediaOSD { id: mediaOSD }  
 
+    Dock {
+        
+    }
     readonly property var _powerMenu:  PowerMenu
     readonly property var _launcher:   Launcher
     readonly property var _settings:   Settings

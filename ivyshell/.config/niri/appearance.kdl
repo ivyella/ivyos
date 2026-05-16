@@ -9,7 +9,7 @@ cursor {
 
 layout {
     background-color "transparent" // to make the swww wallpaper window rule work
-    gaps 4
+    gaps 8
     border { // Colors are set in colors.kdl
         on
         width 1
@@ -22,7 +22,7 @@ layout {
 }
 
 window-rule { // Window Corner Radius
-    geometry-corner-radius 12
+    geometry-corner-radius 8
     clip-to-geometry true
 }
 

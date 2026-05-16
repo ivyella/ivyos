@@ -31,7 +31,7 @@ Variants {
         implicitHeight: dockHeight + dockBottomMargin + animHeadroom  
         color: "transparent"  
   
-        readonly property int dockHeight: 48  
+        readonly property int dockHeight: 50  
         readonly property int dockBottomMargin: 0  
         readonly property int animHeadroom: Math.ceil(dockHeight * 0.35)  
         readonly property int pillWidth: Math.max(WindowService.dockModel.length * 58 + 40, 120)  

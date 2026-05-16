@@ -5,9 +5,9 @@ import Quickshell.Wayland
 import qs.Reusables.Displays
 import qs.Overlays.NotificationCard
 import qs.Services.Notification
+import qs.Reusables.Theme
 
 Variants {
-    
     model: Quickshell.screens
     delegate: WlrLayershell {
         id: root
@@ -19,7 +19,6 @@ Variants {
         margins { top: 40; right: 10; left: 10 }
 
         mask: Region { item: notifList }
-
         implicitHeight: notifList.contentHeight + 20
         implicitWidth:  360
         layer:          WlrLayer.Overlay
@@ -32,7 +31,7 @@ Variants {
             anchors.top:   parent.top
             anchors.left:  parent.left
             anchors.right: parent.right
-            spacing:       10
+            spacing:       5
             height:        contentHeight
             model:         NotiServer.trackedNotifications
             delegate:      NotificationCard {}

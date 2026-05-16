@@ -6,7 +6,7 @@ import qs.Reusables.MdIcons
 
 MdIcons {
     // Default styling for bar icons
-    iconSize: Theme.icon.sm
+    iconSize: Theme.icon.md
     color: Theme.color.accent0
     fill: 1
 }

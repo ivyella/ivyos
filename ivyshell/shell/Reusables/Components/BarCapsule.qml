@@ -5,29 +5,30 @@ import qs.Reusables.Theme
 
 Rectangle {
     id: root
-    
-    // Styling (fixed)
+
+    // Styling
     color: Theme.color.bg2
     radius: Theme.radius.lg
     height: Theme.height.sm
-    
-    // Layout computation - account for padding on both sides
-    implicitWidth: contentLayout.implicitWidth + Theme.padding.sm
-    
-    // Allow child elements to be added
+
+    // FIX: symmetric padding, no magic numbers
+    implicitWidth: contentLayout.implicitWidth + Theme.padding.sm 
+
     default property alias content: contentLayout.children
-    
-    // Expose mouseArea for configuration
     property alias mouseArea: mouseAreaImpl
-    
+
     RowLayout {
         id: contentLayout
+
         anchors.verticalCenter: parent.verticalCenter
-        anchors.left: parent.left
-        anchors.leftMargin: 0
+
+        // IMPORTANT: give layout real padding control instead of manual anchoring
+        anchors.leftMargin: Theme.padding.sm
+        anchors.rightMargin: Theme.padding.sm
+
         spacing: Theme.spacing.sm
     }
-    
+
     MouseArea {
         id: mouseAreaImpl
         anchors.fill: parent

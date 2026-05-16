@@ -10,7 +10,7 @@ Rectangle {
     color: Theme.color.bg2
     radius: Theme.radius.lg
     height: Theme.height.sm
-    implicitWidth: trayRow.implicitWidth + Theme.padding.sm * 2
+    implicitWidth: trayRow.implicitWidth + Theme.padding.md
 
     Row {
         id: trayRow
@@ -25,8 +25,8 @@ Rectangle {
             delegate: Item {
                 id: trayIcon
                 required property var modelData
-                width: Theme.icon.sm
-                height: Theme.icon.sm
+                width: Theme.icon.md
+                height: Theme.icon.md
 
                 property string iconSource: {
                     const icon = modelData.icon;
@@ -53,7 +53,7 @@ Rectangle {
                     id: iconImg
                     anchors.fill: parent
                     source: trayIcon.iconSource !== "" ? trayIcon.iconSource : trayIcon.modelData.icon
-                    implicitSize: Theme.icon.sm
+                    implicitSize: Theme.icon.md
                     asynchronous: true
                     smooth: true
                     visible: status === Image.Ready || status === Image.Loading

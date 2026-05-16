@@ -42,7 +42,7 @@ Item {
     const key = normalize(decodedAppId)  
     const icon = iconMap[key]  
       
-    console.log("iconFor:", appId, "-> decoded:", decodedAppId, "-> key:", key, "-> iconMap:", icon)  
+    
       
     
         if (icon && icon.length > 0) {  

@@ -1,5 +1,8 @@
 { config, pkgs, lib, inputs, ... }:
+
 {
+  nix.package = pkgs.lixPackageSets.stable.lix;
+
 	users.users.ivy = {
 		isNormalUser = true;
 		description = "ivy";
@@ -72,10 +75,13 @@
 	   yazi
 	   element-desktop
 	   pkgs.unstable.zed-editor
+		 android-tools
 		gapless
 		whatsapp-electron
 		vulkan-tools
 		xorg.xrdb
+		kdePackages.kdeconnect-kde
+		universal-android-debloater
 	];
 
    hardware.graphics = {
@@ -88,6 +94,7 @@
 	  alsa.support32Bit = true;
 	  pulse.enable = true;
 	};
+	services.gvfs.enable = true;
    nixpkgs.config.allowUnfree = true;
    nix.settings.experimental-features = [ "nix-command" "flakes" ];
    programs.nix-ld.enable = true;

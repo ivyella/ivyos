@@ -9,17 +9,17 @@ BarCapsule {
         visible: WindowService.activeAppId !== ""
 
         icon: Item {
-            width: Theme.icon.sm
-            height: Theme.icon.sm
+            width: Theme.icon.md
+            height: Theme.icon.md
             anchors.centerIn: parent
 
             Image {
                 id: iconImg
-                width: Theme.icon.sm
-                height: Theme.icon.sm
+                width: Theme.icon.md
+                height: Theme.icon.md
                 anchors.centerIn: parent
                 source: WindowService.iconFor(WindowService.activeAppId)
-                sourceSize: Qt.size(Theme.icon.sm * 2, Theme.icon.sm * 2)
+                sourceSize: Qt.size(Theme.icon.md * 2, Theme.icon.md * 2)
                 fillMode: Image.PreserveAspectFit
                 asynchronous: true
                 smooth: true

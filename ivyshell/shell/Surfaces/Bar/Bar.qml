@@ -33,14 +33,14 @@ Variants {
             anchors.fill: parent
             anchors.leftMargin: Theme.margin.sm
             anchors.rightMargin: Theme.margin.sm
-            anchors.topMargin: Theme.margin.xs
-            anchors.bottomMargin: Theme.margin.xs
+            anchors.topMargin: 4
+            anchors.bottomMargin: 2
             
 
             // LEFT
             RowLayout {
                 id: leftSection
-                spacing: Theme.spacing.sm
+                spacing: Theme.spacing.xs
                 Layout.alignment: Qt.AlignVCenter
 
                 SettingsButton {}
@@ -54,7 +54,7 @@ Variants {
             // RIGHT
             RowLayout {
                 id: rightSection
-                spacing: Theme.spacing.sm
+                spacing: Theme.spacing.xs
                 Layout.alignment: Qt.AlignVCenter
 
                 Network {visible: root.isMain}

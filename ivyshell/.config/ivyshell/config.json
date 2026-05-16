@@ -3,14 +3,14 @@
     "font": {
         "mono": "JetBrains Mono",
         "scale": 1,
-        "ui": "Noto Serif",
+        "ui": "IBM Plex Serif",
         "weight": 400
     },
     "nightLight": {
         "temp": 4000
     },
-    "theme": "/home/ivy/ivyos/ivyshell/themes/colors/Catppuccin.json",
+    "theme": "/home/ivy/ivyos/ivyshell/themes/colors/Kanagawa.json",
     "uiScale": 1,
-    "variant": "mocha",
-    "wallpaper": "/home/ivy/ivyos/ivyshell/themes/wallpapers/a_branch_with_white_flowers.png"
+    "variant": "dragon",
+    "wallpaper": "/home/ivy/ivyos/ivyshell/themes/wallpapers/a_close_up_of_water.png"
 }

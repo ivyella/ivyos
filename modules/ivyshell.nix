@@ -28,7 +28,10 @@ in
       common.default = "gnome";
     };
   };
-  programs.niri.enable = true;
+  programs.niri = {
+    enable = true;
+    package = pkgs.unstable.niri;
+  };
   services.displayManager.sddm = {
     enable = true;
     theme = "pixie";

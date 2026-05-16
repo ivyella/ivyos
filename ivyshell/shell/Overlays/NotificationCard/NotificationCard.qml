@@ -13,8 +13,8 @@ Rectangle {
     implicitHeight: fullLayout.implicitHeight + 20
     color: dismissArea.containsMouse ? Theme.color.bg2 : Theme.color.bg0
 
-    border.width: 1
-    border.color: Theme.color.border0
+    border.width: 2
+    border.color: Theme.color.bg1
     radius: 12
 
     Timer {

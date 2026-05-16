@@ -13,8 +13,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    niri = {
-      url = "github:niri-wm/niri";
+    astal = {
+      url = "github:aylur/astal";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -31,7 +31,6 @@
 
   outputs = inputs: {
     nixosConfigurations = {
-
       desktop = inputs.nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = { inherit inputs; greeterPath = ./ivyshell/greeter; };
@@ -56,13 +55,10 @@
                   config.allowUnfree = true;
                 };
               })
-              (final: prev: {
-                niri = inputs.niri.packages.${prev.system}.niri;
-              })
             ];
-            home-manager.useGlobalPkgs    = true;
-            home-manager.useUserPackages  = true;
-            home-manager.users.ivy        = import ./ivyshell/ivyshell.nix;
+            home-manager.useGlobalPkgs   = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.ivy       = import ./ivyshell/ivyshell.nix;
           }
         ];
       };
@@ -80,12 +76,15 @@
             nixpkgs.overlays = [
               inputs.quickshell.overlays.default
               (final: prev: {
-                niri = inputs.niri.packages.${prev.system}.niri;
+                unstable = import inputs.nixpkgs-unstable {
+                  system = prev.system;
+                  config.allowUnfree = true;
+                };
               })
             ];
-            home-manager.useGlobalPkgs    = true;
-            home-manager.useUserPackages  = true;
-            home-manager.users.ivy        = import ./ivyshell/ivyshell.nix;
+            home-manager.useGlobalPkgs   = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.ivy       = import ./ivyshell/ivyshell.nix;
           }
         ];
       };

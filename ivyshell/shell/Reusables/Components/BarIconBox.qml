@@ -4,7 +4,7 @@ import qs.Reusables.Theme
 
 Rectangle {
     id: root
-    
+
     // API
     default property alias icon: iconContent.children
     readonly property alias hovered: masterMouseArea.containsMouse
@@ -15,18 +15,22 @@ Rectangle {
     radius: Theme.radius.lg
     height: Theme.height.sm
     width: Theme.height.sm
-    
+
     Item {
         id: iconContent
         anchors.fill: parent
         anchors.margins: Theme.padding.sm
-        
-        // Ensure icons don't block the MouseArea
-        enabled: false 
+
+        enabled: false
 
         onChildrenChanged: {
             for (let child of children) {
-                child.anchors.centerIn = iconContent
+                // geometric centering + visual correction
+                child.anchors.horizontalCenter = iconContent.horizontalCenter
+                child.anchors.verticalCenter = iconContent.verticalCenter
+
+                // subtle correction for font/icon baseline bias
+                child.anchors.verticalCenterOffset = -0.5
             }
         }
     }

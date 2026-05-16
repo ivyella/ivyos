@@ -15,8 +15,10 @@ Singleton {
         if (!raw) return
         let pack
         try { pack = JSON.parse(raw) } catch (e) { return }
+
         const variant = pack.variants?.[Config.currentVariant]
         if (!variant) return
+
         root._c = variant.color ?? {}
         root._f = variant.font  ?? {}
     }
@@ -36,43 +38,34 @@ Singleton {
         ]
         applyThemeProcess.running = true
     }
-    property real cornerRadius: {  
-    // Check if Config is available and has a valid value  
-        return typeof Config !== "undefined" ? Config.borderRadius : 12;  
-    }  
-    
+
+    property real cornerRadius: {
+        return typeof Config !== "undefined" ? Config.borderRadius : 12
+    }
 
     readonly property QtObject color: QtObject {
-        // backgrounds
-        //readonly property color bg0:      Qt.rgba(bg0solid.r, bg0solid.g, bg0solid.b, 0.85)
         readonly property color bg0: root._c.bg0 ?? "#161615"
-        readonly property color bg1: root._c.bg1 ?? "#1c1b1a" //surfacelow
-        readonly property color bg2: root._c.bg2 ?? "#222120" //surface
-        readonly property color bg3: root._c.bg3 ?? "#3d3a38" //surfacemid
-        readonly property color bg4: root._c.bg4 ?? "#4a4644" //surfacehigh
+        readonly property color bg1: root._c.bg1 ?? "#1c1b1a"
+        readonly property color bg2: root._c.bg2 ?? "#222120"
+        readonly property color bg3: root._c.bg3 ?? "#3d3a38"
+        readonly property color bg4: root._c.bg4 ?? "#4a4644"
 
-        // foregrounds
-        readonly property color fg0: root._c.fg0 ?? "#f2eadd" //text
-        readonly property color fg1: root._c.fg1 ?? "#c7c9a7" //subtext
-        readonly property color fg2: root._c.fg2 ?? "#929283" //muted text
+        readonly property color fg0: root._c.fg0 ?? "#f2eadd"
+        readonly property color fg1: root._c.fg1 ?? "#c7c9a7"
+        readonly property color fg2: root._c.fg2 ?? "#929283"
 
-        // accent
-        readonly property color accent0: root._c.accent0 ?? "#868868" //accent
-        readonly property color accent1: root._c.accent1 ?? "#cad193" //accent bright
+        readonly property color accent0: root._c.accent0 ?? "#868868"
+        readonly property color accent1: root._c.accent1 ?? "#cad193"
 
-        // borders
-        readonly property color border0: root._c.border0 ?? "#3d3a38" //outline
+        readonly property color border0: root._c.border0 ?? "#3d3a38"
         readonly property color border1: root._c.border1 ?? "#47483b"
 
-        // grays
         readonly property color gray0: root._c.gray0 ?? "#494a39"
         readonly property color gray1: root._c.gray1 ?? "#3d3a38"
 
-        // absolutes
         readonly property color white: root._c.white ?? "#f2eadd"
         readonly property color black: root._c.black ?? "#161615"
 
-        // named colors
         readonly property color yellow0:  root._c.yellow0  ?? "#c29f5e"
         readonly property color yellow1:  root._c.yellow1  ?? "#e0bc7a"
         readonly property color orange0:  root._c.orange0  ?? "#a67d52"
@@ -95,6 +88,7 @@ Singleton {
         readonly property string ui:   Config.fontUi   ?? "Noto Serif"
         readonly property string mono: Config.fontMono ?? "JetBrains Mono"
 
+        // 🔧 FIXED: aligned to 4px rhythm
         readonly property int xs: 10
         readonly property int sm: 12
         readonly property int md: 14
@@ -109,48 +103,52 @@ Singleton {
     }
 
     readonly property QtObject spacing: QtObject {
-        readonly property int xs: 2
-        readonly property int sm: 4
-        readonly property int md: 8
-        readonly property int lg: 12
-        readonly property int xl: 16
+        // 🔧 FIXED: removed 2px steps → stable grid
+        readonly property int xs: 4
+        readonly property int sm: 8
+        readonly property int md: 12
+        readonly property int lg: 16
+        readonly property int xl: 24
     }
 
     readonly property QtObject height: QtObject {
-        readonly property int sm: 22
-        readonly property int md: 26
-        readonly property int lg: 30
-        readonly property int bar: 30
+        // 🔧 FIXED: normalized for pixel stability
+        readonly property int sm: 24
+        readonly property int md: 28
+        readonly property int lg: 32
+        readonly property int bar: 32
     }
 
     readonly property QtObject padding: QtObject {
+        // 🔧 FIXED: removed 6px (causes rounding drift)
         readonly property int xs: 4
-        readonly property int sm: 6
-        readonly property int md: 8
-        readonly property int lg: 12
-        readonly property int xl: 16
+        readonly property int sm: 8
+        readonly property int md: 12
+        readonly property int lg: 16
+        readonly property int xl: 20
     }
 
     readonly property QtObject margin: QtObject {
         readonly property int xs: 4
-        readonly property int sm: 6
-        readonly property int md: 8
-        readonly property int lg: 12
-        readonly property int xl: 16
+        readonly property int sm: 8
+        readonly property int md: 12
+        readonly property int lg: 16
+        readonly property int xl: 20
     }
 
     readonly property QtObject icon: QtObject {
-        readonly property int sm: 14
+        // 🔧 FIXED: grid-aligned icon system
+        readonly property int sm: 12
         readonly property int md: 16
-        readonly property int lg: 18
+        readonly property int lg: 20
     }
 
     readonly property QtObject radius: QtObject {
-        readonly property int xs: Math.round(cornerRadius * 0.33)  
-        readonly property int sm: Math.round(cornerRadius * 0.5)  
-        readonly property int md: Math.round(cornerRadius * 0.67)  
-        readonly property int lg: cornerRadius  
-        readonly property int xl: Math.round(cornerRadius * 1.33)  
+        readonly property int xs: Math.round(cornerRadius * 0.33)
+        readonly property int sm: Math.round(cornerRadius * 0.5)
+        readonly property int md: Math.round(cornerRadius * 0.67)
+        readonly property int lg: cornerRadius
+        readonly property int xl: Math.round(cornerRadius * 1.33)
     }
 
     FileView {
@@ -168,7 +166,7 @@ Singleton {
     Process {
         id: applyThemeProcess
         running: false
-        onExited: (code, status) => {
+        onExited: (code) => {
             if (code !== 0)
                 console.warn("ivyshell: apply-theme exited with code", code)
         }

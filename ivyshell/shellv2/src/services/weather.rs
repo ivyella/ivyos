@@ -9,10 +9,7 @@ pub struct WeatherState {
 }
 
 pub fn get_weather() -> WeatherState {
-    let geo = get("https://ipapi.co/json/")
-    .unwrap()
-    .text()
-    .unwrap();
+    let geo = get("https://ipapi.co/json/").unwrap().text().unwrap();
     let geo_json: Value = serde_json::from_str(&geo).unwrap();
 
     let lat = geo_json["latitude"].as_f64().unwrap_or(-33.9249);
@@ -21,27 +18,33 @@ pub fn get_weather() -> WeatherState {
         "https://api.open-meteo.com/v1/forecast?latitude={}&longitude={}&current=temperature_2m,relative_humidity_2m,wind_speed_10m,weather_code&temperature_unit=celsius&wind_speed_unit=kmh&timezone=auto",
         lat, lon
     );
-    let weather = get(&url)
-    .unwrap()
-    .text()
-    .unwrap();
+    let weather = get(&url).unwrap().text().unwrap();
     let weather_json: Value = serde_json::from_str(&weather).unwrap();
-    let temperature = weather_json["current"]["temperature_2m"].as_f64().unwrap_or(0.0) as i32;
-    let humidity = weather_json["current"]["relative_humidity_2m"].as_f64().unwrap_or(0.0) as i32;
-    let wind_speed = weather_json["current"]["wind_speed_10m"].as_f64().unwrap_or(0.0) as i32;
-    let condition = code_to_condition(weather_json["current"]["weather_code"].as_i64().unwrap_or(0) as i32);
+    let temperature = weather_json["current"]["temperature_2m"]
+        .as_f64()
+        .unwrap_or(0.0) as i32;
+    let humidity = weather_json["current"]["relative_humidity_2m"]
+        .as_f64()
+        .unwrap_or(0.0) as i32;
+    let wind_speed = weather_json["current"]["wind_speed_10m"]
+        .as_f64()
+        .unwrap_or(0.0) as i32;
+    let condition = code_to_condition(
+        weather_json["current"]["weather_code"]
+            .as_i64()
+            .unwrap_or(0) as i32,
+    );
 
-    WeatherState { 
-        temperature, 
-        condition, 
-        humidity, 
-        wind_speed
+    WeatherState {
+        temperature,
+        condition,
+        humidity,
+        wind_speed,
     }
-
 }
 
 fn code_to_condition(code: i32) -> String {
-    match code{
+    match code {
         0 => "Clear",
         1 => "Mostly Clear",
         2 => "Partly Cloudy",
@@ -54,5 +57,6 @@ fn code_to_condition(code: i32) -> String {
         83..=84 => "Snow Showers",
         85..=99 => "Thunderstorm",
         _ => "Unknown",
-    }.to_string()  
+    }
+    .to_string()
 }

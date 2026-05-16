@@ -1,5 +1,5 @@
+use std::io::{BufReader, Read, Write};
 use std::os::unix::net::UnixStream;
-use std::io::{BufReader, Write, Read};
 
 pub fn send(command: &str) {
     let mut stream = UnixStream::connect(crate::core::server::SOCKET_PATH).unwrap();

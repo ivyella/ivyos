@@ -2,7 +2,7 @@ pub struct BatteryState {
     pub available: bool,
     pub level: u32,
     pub charging: bool,
-    pub is_low: bool
+    pub is_low: bool,
 }
 
 pub fn get_battery() -> BatteryState {
@@ -19,16 +19,17 @@ pub fn get_battery() -> BatteryState {
     let charging = if available {
         std::fs::read_to_string("/sys/class/power_supply/BAT1/status")
             .unwrap_or_default()
-            .trim() == "Charging"
-        } else {
-            false
-        };
+            .trim()
+            == "Charging"
+    } else {
+        false
+    };
     let is_low = available && level <= 20;
 
-    BatteryState { 
+    BatteryState {
         available,
-        level, 
-        charging, 
-        is_low 
+        level,
+        charging,
+        is_low,
     }
 }

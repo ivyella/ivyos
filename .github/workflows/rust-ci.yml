@@ -1,0 +1,45 @@
+name: Rust Shell CI
+
+on:
+  push:
+    branches: [main, master]
+    paths:
+      - 'ivyshell/shellv2/**'
+
+  pull_request:
+    branches: [main, master]
+    paths:
+      - 'ivyshell/shellv2/**'
+env:
+  PROJECT_DIR: ivyshell/shellv2
+
+jobs:
+  build_and_test:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: ${{ env.PROJECT_DIR }}
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          components: clippy, rustfmt
+
+      - name: Cache Cargo
+        uses: swatinem/rust-cache@v2
+        with:
+          workspaces: ${{ env.PROJECT_DIR }}
+
+      - name: Check Formatting
+        run: cargo fmt --all -- --check
+
+      - name: Run Clippy
+        run: cargo clippy --locked --all-targets -- -D warnings
+
+      - name: Run Tests
+        run: cargo test --locked --verbose

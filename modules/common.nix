@@ -108,4 +108,6 @@
     hardware.bluetooth.enable = true;
     services.blueman.enable = true;
     services.upower.enable = true;
+		programs.direnv.enable = true;
+		programs.direnv.nix-direnv.enable = true;
 }

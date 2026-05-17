@@ -128,6 +128,13 @@ pub fn handle(input: &str, mut writer: impl Write) {
                 Err(e) => writeln!(writer, "error: {}", e).unwrap(),
             }
         }
+        "media" => {
+            let state = services::media::get_media();
+            writeln!(writer, "Player: {}", state.player_name).unwrap();
+            writeln!(writer, "Title: {}", state.title).unwrap();
+            writeln!(writer, "Artist: {}", state.artist).unwrap();
+            writeln!(writer, "Playing: {}", state.is_playing).unwrap();
+        }
         _ => writeln!(writer, "unknown command").unwrap(),
     }
 }

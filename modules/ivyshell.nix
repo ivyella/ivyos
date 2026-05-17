@@ -18,6 +18,7 @@ in
     sddmTheme
     pkgs.kdePackages.qtdeclarative
     pkgs.kdePackages.qtsvg
+    (pkgs.callPackage ../ivyshell/shellv2/package.nix { })
   ];
   services.dbus.enable = true;
   programs.dconf.enable = true;

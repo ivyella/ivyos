@@ -82,6 +82,10 @@
 		xorg.xrdb
 		kdePackages.kdeconnect-kde
 		universal-android-debloater
+		pkg-config
+		dbus.dev
+		dbus.lib
+		dbus
 	];
 
    hardware.graphics = {

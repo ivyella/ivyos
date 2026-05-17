@@ -4,6 +4,7 @@ pub mod bluetooth;
 pub mod brightness;
 pub mod clock;
 pub mod config;
+pub mod media;
 pub mod network;
 pub mod night_light;
 pub mod theme;

@@ -104,6 +104,30 @@ pub fn handle(input: &str, mut writer: impl Write) {
             writeln!(writer, "Level: {}%", state.level).unwrap();
             writeln!(writer, "Critical: {}", state.is_low).unwrap();
         }
+        "config" => {
+            let config = services::config::load();
+            writeln!(writer, "Theme: {}", config.theme).unwrap();
+            writeln!(writer, "Variant: {}", config.variant).unwrap();
+            writeln!(writer, "Border Radius: {}", config.border_radius).unwrap();
+            writeln!(writer, "UI Scale: {}", config.ui_scale).unwrap();
+            writeln!(writer, "Font UI: {}", config.font.ui).unwrap();
+            writeln!(writer, "Font Mono: {}", config.font.mono).unwrap();
+            writeln!(writer, "Night Light Temp: {}", config.night_light.temp).unwrap();
+        }
+        "theme" => {
+            let config = services::config::load();
+            match services::theme::load(&config.theme, &config.variant) {
+                Ok(variant) => {
+                    writeln!(writer, "Theme: {}", variant.name).unwrap();
+                    writeln!(writer, "bg0: {}", variant.color.bg0).unwrap();
+                    writeln!(writer, "bg1: {}", variant.color.bg1).unwrap();
+                    writeln!(writer, "fg0: {}", variant.color.fg0).unwrap();
+                    writeln!(writer, "accent0: {}", variant.color.accent0).unwrap();
+                    writeln!(writer, "accent1: {}", variant.color.accent1).unwrap();
+                }
+                Err(e) => writeln!(writer, "error: {}", e).unwrap(),
+            }
+        }
         _ => writeln!(writer, "unknown command").unwrap(),
     }
 }

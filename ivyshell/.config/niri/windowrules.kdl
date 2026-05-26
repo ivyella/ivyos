@@ -49,3 +49,11 @@ window-rule {
         xray false
     }
 }
+window-rule {
+    match app-id="^forzahorizon6.exe$" title="^$"
+    
+    open-floating true
+    open-focused false
+    default-column-width { fixed 1; }
+    default-window-height { fixed 1; }
+}

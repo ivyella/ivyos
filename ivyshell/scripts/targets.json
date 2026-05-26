@@ -39,6 +39,10 @@
 		{
 			"template": "vscode-theme.json",
 			"output": "~/.vscode-oss/extensions/ivyella.ivy-theme-1.0.0/themes/ivy.json"
+		},
+		{
+			"template": "ivyshell.css",
+			"output": "~/.config/ivyshell/theme.css"
 		}
 	]
 }

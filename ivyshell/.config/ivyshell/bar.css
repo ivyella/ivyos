@@ -1,0 +1,11 @@
+@import url("theme.css");
+
+.bar-capsule {
+    background-color: var(--bg2);
+    border-radius: 12px;
+}
+
+.bar-inner {
+    background-color: var(--bg0);
+    padding: 4px 8px;
+}

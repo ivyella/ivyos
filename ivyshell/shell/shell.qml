@@ -33,7 +33,7 @@ import qs.Surfaces.Wallpaper
 
 ShellRoot {
     Bar {}
-    
+    //Dock{}
     // ── Global singletons ─────────────────────────────────────────────────────
     Notification {}
     Wallpaper {}

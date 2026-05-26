@@ -46,6 +46,7 @@
 		jq
 		gh
 		helix
+		libxkbcommon
 	   starship
 	   fastfetch
 		pciutils

@@ -117,16 +117,16 @@ Singleton {
     Process {
         id: scanner
         command: [
-            "bash", "-c",
-            "find /run/current-system/sw/share/applications ~/.local/share/applications /var/lib/flatpak/exports/share/applications ~/.local/share/flatpak/exports/share/applications -name '*.desktop' 2>/dev/null" +
-            " | while read f; do " +
-            "name=$(grep -m1 '^Name=' \"$f\" | cut -d= -f2-); " +
-            "exec=$(grep -m1 '^Exec=' \"$f\" | cut -d= -f2- | sed 's/ *%[^ ]*//g' | sed 's/^ *//;s/ *$//'); " +
-            "icon=$(grep -m1 '^Icon=' \"$f\" | cut -d= -f2-); " +
-            "nodisplay=$(grep -m1 '^NoDisplay=' \"$f\" | cut -d= -f2-); " +
-            "if [ -n \"$name\" ] && [ -n \"$exec\" ] && [ \"$nodisplay\" != 'true' ]; then " +
-            "echo \"$name|$exec|$icon\"; fi; done"
-        ]
+    "bash", "-c",
+    "find /usr/share/applications ~/.local/share/applications /var/lib/flatpak/exports/share/applications ~/.local/share/flatpak/exports/share/applications -name '*.desktop' 2>/dev/null" +
+    " | while read f; do " +
+    "name=$(grep -m1 '^Name=' \"$f\" | cut -d= -f2-); " +
+    "exec=$(grep -m1 '^Exec=' \"$f\" | cut -d= -f2- | sed 's/ *%[^ ]*//g' | sed 's/^ *//;s/ *$//'); " +
+    "icon=$(grep -m1 '^Icon=' \"$f\" | cut -d= -f2-); " +
+    "nodisplay=$(grep -m1 '^NoDisplay=' \"$f\" | cut -d= -f2-); " +
+    "if [ -n \"$name\" ] && [ -n \"$exec\" ] && [ \"$nodisplay\" != 'true' ]; then " +
+    "echo \"$name|$exec|$icon\"; fi; done"
+]
         stdout: SplitParser {
             onRead: data => {
                 const parts = data.split("|")
